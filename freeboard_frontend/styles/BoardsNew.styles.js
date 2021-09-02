@@ -59,7 +59,7 @@ export const Main = styled.div`
     
 `
 
-export const MainInput = styled.input`
+export const MainInput = styled.textarea`
     width: 996px;
     height: 480px;
     border: solid 1px black;

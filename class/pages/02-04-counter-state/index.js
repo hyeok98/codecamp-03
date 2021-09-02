@@ -5,7 +5,6 @@ export default function CounterStatePage() {
     // const [ state이름, state저장도구 ] = useState("초기값")
     const [ count, setCount ] = useState(0)
 
-
     function aaa() {
         setCount(count + 1)
     }

@@ -4,38 +4,64 @@ import{ Wrapper1, Wrapper,Title, IdInput,TextInput,Header, InputText, Main, Main
    AddressBox,MiniTitle,ErrorMessage} from '../../../styles/BoardsNew.styles'
 
 import {useState} from 'react'
+import { useMutation, gql } from "@apollo/client"
+
+const CREATE_BOARD = gql`
+    mutation ($createBoardInput:CreateBoardInput!){
+        createBoard(createBoardInput:$createBoardInput){
+            _id
+        }
+    }
+`
+
 
 export default function BoardsNewPage(){
 
-    const [ name, setName ] = useState()
-    const [ pass, setPass ] = useState()
-    const [ title, setTitle ] = useState()
-    const [ contents, setContents ] = useState()
+    const [ createBoard ] = useMutation(CREATE_BOARD)
+
+    const [ name, setName ] = useState("")
+    const [ pass, setPass ] = useState("")
+    const [ title, setTitle ] = useState("")
+    const [ contents, setContents ] = useState("")
     
 
-    const [ nameError, setNameError ] = useState()
-    const [ passError, setPassError ] = useState()
-    const [ titleError, setTitleError ] = useState()
-    const [ contentsError, setContentsError ] = useState()
+    const [ nameError, setNameError ] = useState("")
+    const [ passError, setPassError ] = useState("")
+    const [ titleError, setTitleError ] = useState("")
+    const [ contentsError, setContentsError ] = useState("")
     
 
     function onChangeName(event) {
         setName(event.target.value)
+        if(event.target.value !== "") {
+            setNameError("")
+        }
     }
 
     function onChangePass(event) {
         setPass(event.target.value)
+        if(event.target.value !== "") {
+            setPassError("")
+        }
     }
 
     function onChangeTitle(event) {
         setTitle(event.target.value)
+        if(event.target.value !== "") {
+            setTitleError("")
+        }
     }
 
     function onChangeContents(event) {
         setContents(event.target.value)
+        if(event.target.value !== "") {
+            setContentsError("")
+        }
     }
 
-    function onClickSignup() {
+    async function onClickSignup() {
+
+        
         if(name === ("")) {
             setNameError("이름을 작성해주세요.")
         }
@@ -50,6 +76,21 @@ export default function BoardsNewPage(){
 
         if(contents === ("")) {
             setContentsError("내용을 작성해주세요.")
+        }
+
+        if(name !== "" && pass !== "" && title !== "" && contents !== "") {
+            const result = await createBoard({
+                variables: {
+                    createBoardInput: {
+                        writer:name,
+                        password:pass,
+                        title:title,
+                        contents: contents
+                    }
+                }
+            })
+            console.log(result.data.createBoard._id)
+            alert('게시물을 등록합니다')
         }
     }
 
@@ -135,7 +176,7 @@ export default function BoardsNewPage(){
                </MainSettings>     
                    <FooterButton onClick={onClickSignup}>등록하기</FooterButton>
            </Wrapper>
-       </Wrapper1>
+        </Wrapper1>
    )
 
 }
