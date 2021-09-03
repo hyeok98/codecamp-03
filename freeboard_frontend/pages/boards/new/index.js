@@ -5,10 +5,10 @@ import{ Wrapper1, Wrapper,Title, IdInput,TextInput,Header, InputText, Main, Main
 
 import {useState} from 'react'
 import { useMutation, gql } from "@apollo/client"
-
+//11,12번줄이 쿼리? 10번은 타입?
 const CREATE_BOARD = gql`
     mutation ($createBoardInput:CreateBoardInput!){
-        createBoard(createBoardInput:$createBoardInput){
+        createBoard(createBoardInput:$createBoardInput){     
             _id
         }
     }
