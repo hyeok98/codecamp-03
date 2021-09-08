@@ -8,3 +8,15 @@ export const CREATE_BOARD = gql`
         }
     }
 `
+
+export const UPDATE_BOARD = gql`
+    mutation updateBoard($updateBoradInput: UpdateBoardInput!, $password:String, $boardId: ID! ) {
+        updateBoard(UpdateBoardInput: $UpdateBoardInput, password: $password, boardId: $boardId  ) {
+            _id
+            writer
+            title
+            contents
+            createdAt
+        }
+    }
+`

@@ -60,13 +60,13 @@ export default function BoardReadUI(props) {
                 </Wrapper2>
                 <Wrapper3>
                     <div>
-                        <Button3>목록으로</Button3>
+                        <Button3 onClick={props.onClickList}>목록으로</Button3>
                     </div>
                     <div>
-                        <Button3>수정하기</Button3>
+                        <Button3 onClick={props.onClickEdit}>수정하기</Button3>
                     </div>
                     <div>
-                        <Button3>삭제하기</Button3>   
+                        <Button3 onClick={props.onClickDelete}>삭제하기</Button3>   
                     </div>
                     
                 </Wrapper3>

@@ -9,7 +9,7 @@ export default function FreeBoardUI(props) {
         <>
             <Wrapper1>
            <Wrapper>
-               <Title>게시물 등록</Title>
+               <Title>{props.isEdit ? "게시물 수정" : "게시물 등록"}</Title>
                <IdInput>
                    <div>
                         <div>
@@ -83,7 +83,8 @@ export default function FreeBoardUI(props) {
                        <input type="radio" name="settings"/>사진
                    </div>
                </MainSettings>     
-                   <FooterButton onClick={props.onClickSignup} qqq={props.qqq}>등록하기</FooterButton>
+                  {!props.isEdit && <FooterButton onClick={props.onClickSignup} qqq={props.qqq}>등록하기</FooterButton>}
+                  {props.isEdit &&<FooterButton onClick={props.onClickEdit} qqq={props.qqq}>수정하기</FooterButton>}
            </Wrapper>
         </Wrapper1>
         </>

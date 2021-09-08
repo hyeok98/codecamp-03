@@ -10,7 +10,7 @@ export default function BoardsNewPage(){
 
    return (
        <>
-        <FreeBoard/>
+        <FreeBoard isEdit={false}/>
        </>
    )
 

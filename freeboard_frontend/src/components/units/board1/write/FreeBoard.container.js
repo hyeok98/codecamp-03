@@ -4,11 +4,12 @@ import { useMutation } from "@apollo/client"
 import { CREATE_BOARD } from './FreeBoard.queries'
 import FreeBoardUI from './FreeBoard.presenter'
 
-export default function FreeBoard() {
+export default function FreeBoard(props) {
 
     const router = useRouter()
 
     const [ createBoard ] = useMutation(CREATE_BOARD)
+    // const [ updateBoard ] = useMutation(UPDATE_BOARD)
 
     const [ name, setName ] = useState("")
     const [ pass, setPass ] = useState("")
@@ -115,7 +116,21 @@ export default function FreeBoard() {
             alert('게시물을 등록합니다')
             router.push(`/boards/new2/${result.data.createBoard._id}`)
         }
+
     }
+
+    // async function onClickEdit() {
+    //     await updateBoard({
+    //         variables: {
+    //             updateBoardInput: {
+    //                 title :title,
+    //                 contents: contents,
+    //             },boardId: _id
+    //         }
+    //     })
+
+    //     router.push(`/boards/new2/edit/${router.query.number}`)
+    // }
     
 
     return(
@@ -130,6 +145,7 @@ export default function FreeBoard() {
             titleError={titleError}
             contentsError={contentsError}
             qqq={qqq}
+            // onClickEdit={onClickEdit}
             />
         </>
 
