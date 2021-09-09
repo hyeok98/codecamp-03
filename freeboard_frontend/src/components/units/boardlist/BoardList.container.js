@@ -9,19 +9,19 @@ export default function BoardList() {
 
     const { data } = useQuery(FETCH_BOARDS);
 
-    function onClickMoveToBoardNew() {
+    function onClickMove() {
         router.push("/boards/new");
       }
     
-      function onClickMoveToBoardDetail(event) {
-        router.push(`/boards/list/${event.target.id}`);
+      function onClickMoveDetail(event) {
+        router.push(`/boards/nuw2/${event.target.id}`);
       }
 
     return(
         <BoardListUI
             data={data}
-            onClickMoveToBoardNew={onClickMoveToBoardNew}
-            onClickMoveToBoardDetail={onClickMoveToBoardDetail}
+            onClickMove={onClickMove}
+            onClickMoveDetail={onClickMoveDetail}
         >
 
         </BoardListUI>

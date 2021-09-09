@@ -178,7 +178,7 @@ export default function BoardListUI(props) {
                         {props.data?.fetchBoards.map((el,index) => (
                          <Row key={el._id}>
                             <ColumnBasic>{10 - index}</ColumnBasic>
-                            <ColumnTitle id={el._id} onClick={props.onClickMoveToBoardDetail}>
+                            <ColumnTitle id={el._id} onClick={props.onClickMoveDetail}>
                             {el.title}
                             </ColumnTitle>
                             <ColumnBasic>{el.writer}</ColumnBasic>
@@ -189,7 +189,7 @@ export default function BoardListUI(props) {
                         ))}
                     </List> 
                     <Footer>
-                        <Button onClick={props.onClickMoveToBoardNew}>
+                        <Button onClick={props.onClickMove}>
                        
                         게시물 등록하기
                         </Button>

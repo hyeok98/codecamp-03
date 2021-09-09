@@ -1,22 +1,25 @@
-import{gql} from '@apollo/client'
+import { gql } from "@apollo/client";
 
-//11,12번줄이 쿼리? 10번은 타입?
 export const CREATE_BOARD = gql`
-    mutation ($createBoardInput:CreateBoardInput!){
-        createBoard(createBoardInput:$createBoardInput){     
-            _id
-        }
+  mutation createBoard($createBoardInput: CreateBoardInput!) {
+    createBoard(createBoardInput: $createBoardInput) {
+      _id
     }
-`
+  }
+`;
 
 export const UPDATE_BOARD = gql`
-    mutation updateBoard($updateBoradInput: UpdateBoardInput!, $password:String, $boardId: ID! ) {
-        updateBoard(UpdateBoardInput: $UpdateBoardInput, password: $password, boardId: $boardId  ) {
-            _id
-            writer
-            title
-            contents
-            createdAt
-        }
+  mutation updateBoard(
+    $boardId: ID!
+    $password: String
+    $updateBoardInput: UpdateBoardInput!
+  ) {
+    updateBoard(
+      boardId: $boardId
+      password: $password
+      updateBoardInput: $updateBoardInput
+    ) {
+      _id
     }
-`
+  }
+`;

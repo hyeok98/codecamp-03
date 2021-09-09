@@ -83,8 +83,8 @@ export default function FreeBoardUI(props) {
                        <input type="radio" name="settings"/>사진
                    </div>
                </MainSettings>     
-                  {!props.isEdit && <FooterButton onClick={props.onClickSignup} qqq={props.qqq}>등록하기</FooterButton>}
-                  {props.isEdit &&<FooterButton onClick={props.onClickEdit} qqq={props.qqq}>수정하기</FooterButton>}
+                  {!props.isEdit && (<FooterButton onClick={props.onClickSignup} qqq={props.qqq}>등록하기</FooterButton>)}
+                  {props.isEdit &&(<FooterButton onClick={props.onClickEdit} qqq={props.qqq}>수정하기</FooterButton>)}
            </Wrapper>
         </Wrapper1>
         </>

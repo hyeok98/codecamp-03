@@ -1,7 +1,7 @@
 import {useRouter} from 'next/router'
 import {useState} from 'react'
 import { useMutation } from "@apollo/client"
-import { CREATE_BOARD } from './FreeBoard.queries'
+import { CREATE_BOARD, UPDATE_BOARD } from './FreeBoard.queries'
 import FreeBoardUI from './FreeBoard.presenter'
 
 export default function FreeBoard(props) {
@@ -9,7 +9,7 @@ export default function FreeBoard(props) {
     const router = useRouter()
 
     const [ createBoard ] = useMutation(CREATE_BOARD)
-    // const [ updateBoard ] = useMutation(UPDATE_BOARD)
+    const [ updateBoard ] = useMutation(UPDATE_BOARD)
 
     const [ name, setName ] = useState("")
     const [ pass, setPass ] = useState("")
@@ -119,18 +119,21 @@ export default function FreeBoard(props) {
 
     }
 
-    // async function onClickEdit() {
-    //     await updateBoard({
-    //         variables: {
-    //             updateBoardInput: {
-    //                 title :title,
-    //                 contents: contents,
-    //             },boardId: _id
-    //         }
-    //     })
-
-    //     router.push(`/boards/new2/edit/${router.query.number}`)
-    // }
+    async function onClickEdit() {
+        const result = await updateBoard({
+            variables: {
+            boardId: router.query.number,   //라우터쿼리는 폴더이름 [number]
+            password: pass,
+            updateBoardInput: {
+                title: title,
+                contents: contents
+            }
+            }
+        })
+        router.push(`/boards/new2/${result.data.updateBoard._id}`)
+    }
+        
+    
     
 
     return(
@@ -145,7 +148,8 @@ export default function FreeBoard(props) {
             titleError={titleError}
             contentsError={contentsError}
             qqq={qqq}
-            // onClickEdit={onClickEdit}
+            onClickEdit={onClickEdit}
+            isEdit = {props.isEdit}
             />
         </>
 

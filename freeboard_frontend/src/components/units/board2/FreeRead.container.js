@@ -17,24 +17,25 @@ export default function FreeRead() {
         router.push(`/boards/list`)
     }
 
-    function onClickEdit () {
-        router.push(`/boards/new2/`)
+    function onClickMoveEdit () {
+        router.push(`/boards/new2/${router.query.number}/edit`)
     }
 
    async function onClickDelete () {
        await aaa({
             variables: {boardId: router.query.number}  //number 폴더이름.
         })
+        alert("게시물이 삭제되었습니다.")
         router.push(`/boards/list`)
     }
 
     return(
         <>
             <BoardReadUI
-            router = {router}
+            // router = {router}
             data = {data}
             onClickList= {onClickList}
-            onClickEdit= {onClickEdit}
+            onClickMoveEdit= {onClickMoveEdit}
             onClickDelete= {onClickDelete}
             />
         </>
