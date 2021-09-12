@@ -1,33 +1,5 @@
-import { useQuery,gql } from "@apollo/client"
-import { useRouter } from "next/router"
-
-const FETCH_PRODUCT = gql`
-        query fetchProduct($productId: ID) {
-            fetchProduct(productId: $productId) {
-                _id
-                seller
-                name
-                detail
-                price
-            }
-        }
-    `
+import ProductRead from "../../../../src/components/units/08-3Quiz-Product/read/readProduct.container";
 
 export default function Read() {
-
-    const router = useRouter()
-
-    const {data} = useQuery(FETCH_PRODUCT, {
-        variables: {productId: router.query.id} //id는 폴더이름
-    })
-
-    return(
-        <>
-            <div>상품상세페이지</div>
-            <div>판매자: {data?.fetchProduct.seller}</div>
-            <div>상품이름: {data?.fetchProduct.name}</div>
-            <div>상품상세: {data?.fetchProduct.detail}</div>
-            <div>상품가격: {data?.fetchProduct.price}</div>
-        </>
-    )
+  return <ProductRead />;
 }
