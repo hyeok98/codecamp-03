@@ -21,9 +21,13 @@ import {
   PictureImg,
   YouImg,
   LikeDiv,
-  LikeFont,
+  LikeCount,
+  DisLikeCount,
   Button3,
   Hr,
+  DisLikeDiv,
+  LikeImg,
+  DisLikeImg,
 } from "./FreeRead.styles";
 
 export default function BoardReadUI(props) {
@@ -66,13 +70,18 @@ export default function BoardReadUI(props) {
             </YouTube>
             <Like>
               <LikeDiv>
-                <img src="/images/photo7.png" />
-                <LikeFont>1920</LikeFont>
+                <LikeImg onClick={props.onClickLike} src="/images/photo7.png" />
+                <LikeCount>{props.data?.fetchBoard.likeCount}</LikeCount>
               </LikeDiv>
-              <LikeDiv>
-                <img src="/images/photo8.png" />
-                <LikeFont>1920</LikeFont>
-              </LikeDiv>
+              <DisLikeDiv>
+                <DisLikeImg
+                  onClick={props.onClickDisLike}
+                  src="/images/photo8.png"
+                />
+                <DisLikeCount>
+                  {props.data?.fetchBoard.dislikeCount}
+                </DisLikeCount>
+              </DisLikeDiv>
             </Like>
           </Footer>
         </Wrapper2>

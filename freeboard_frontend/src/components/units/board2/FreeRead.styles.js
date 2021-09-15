@@ -166,7 +166,21 @@ export const LikeDiv = styled.div`
   justify-content: space-between;
 `;
 
-export const LikeFont = styled.div`
+export const LikeImg = styled.img``;
+
+export const DisLikeImg = styled.img``;
+
+export const DisLikeDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
+
+export const LikeCount = styled.div`
+  font-size: 18px;
+`;
+
+export const DisLikeCount = styled.div`
   font-size: 18px;
 `;
 
