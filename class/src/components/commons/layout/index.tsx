@@ -13,8 +13,8 @@ const Wrapper = styled.div``;
 // `;
 
 const Body = styled.div`
-  width: 300px;
-  height: 400px;
+  width: 700px;
+  /* height: 400px; */
 `;
 
 const Area = styled.div`

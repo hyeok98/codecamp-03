@@ -17,6 +17,7 @@ export const Wrapper2 = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  margin-top: 50px;
 `;
 
 export const Wrapper3 = styled.div`
@@ -147,8 +148,8 @@ export const YouTube = styled.div`
 `;
 
 export const YouImg = styled.img`
-  width: 500px;
-  height: 280px;
+  /* width: 500px;
+  height: 280px; */
 `;
 
 export const Like = styled.div`

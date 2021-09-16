@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-
 import LayoutBanner from "./ banner/LayoutBanner.container";
 
 const Wrapper = styled.div``;

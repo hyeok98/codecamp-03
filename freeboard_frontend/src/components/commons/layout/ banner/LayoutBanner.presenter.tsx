@@ -1,5 +1,7 @@
-import { Wrapper, Wrapper2 } from "./LayoutBanner.styles";
+import { Wrapper, Wrapper2, Photo } from "./LayoutBanner.styles";
 import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const settings = {
   dots: true,
@@ -18,22 +20,16 @@ export default function LayoutBannerUI() {
         </Wrapper2>
         <Slider {...settings}>
           <div>
-            <img src="/images/photo2.png" />
+            <Photo src="/images/photo2.png" />
           </div>
           <div>
-            <img src="/images/photo2.png" />
+            <Photo src="/images/photo2.png" />
           </div>
           <div>
-            <img src="/images/photo2.png" />
+            <Photo src="/images/photo2.png" />
           </div>
           <div>
-            <img src="/images/photo2.png" />
-          </div>
-          <div>
-            <img src="/images/photo2.png" />
-          </div>
-          <div>
-            <img src="/images/photo2.png" />
+            <Photo src="/images/photo2.png" />
           </div>
         </Slider>
       </div>

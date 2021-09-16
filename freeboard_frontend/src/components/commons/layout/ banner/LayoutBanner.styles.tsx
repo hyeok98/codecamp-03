@@ -12,3 +12,9 @@ export const Wrapper2 = styled.div`
   justify-content: center;
   align-items: center;
 `;
+
+export const Photo = styled.img`
+  margin: auto;
+  margin-bottom: 100px;
+  margin-top: 30px;
+`;

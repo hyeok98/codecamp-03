@@ -19,7 +19,7 @@ import {
   YouTube,
   Like,
   PictureImg,
-  YouImg,
+  // YouImg,
   LikeDiv,
   LikeCount,
   DisLikeCount,
@@ -29,6 +29,8 @@ import {
   LikeImg,
   DisLikeImg,
 } from "./FreeRead.styles";
+
+import ReactPlayer from "react-player";
 
 export default function BoardReadUI(props) {
   return (
@@ -66,7 +68,13 @@ export default function BoardReadUI(props) {
           <Contents>{props.data?.fetchBoard.contents}</Contents>
           <Footer>
             <YouTube>
-              <YouImg src="/images/photo6.png" />
+              <ReactPlayer
+                url={props.data?.fetchBoard.youtubeUrl}
+                width="486px"
+                height="240px"
+                muted="true"
+                playing="true"
+              />
             </YouTube>
             <Like>
               <LikeDiv>

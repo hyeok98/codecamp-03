@@ -279,3 +279,16 @@ export const Button = styled.button`
     background-color: #f5f2fc;
   }
 `;
+
+export const Page = styled.span`
+  margin: 10px;
+  cursor: pointer;
+`;
+
+export const PageWrapper = styled.div`
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+`;

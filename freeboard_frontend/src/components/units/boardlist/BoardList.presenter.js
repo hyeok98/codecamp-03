@@ -32,6 +32,8 @@ import {
   ColumnHeaderTitle,
   ColumnBasic,
   ColumnTitle,
+  Page,
+  PageWrapper,
 } from "./BoardList.styles";
 
 export default function BoardListUI(props) {
@@ -180,6 +182,24 @@ export default function BoardListUI(props) {
             </Row>
           ))}
         </List>
+        {/* <br /> */}
+        <PageWrapper>
+          <span onClick={props.onClickPrevPage}>이전</span>
+          {new Array(10).fill(1).map(
+            (_, index) =>
+              props.startPage + index <= props.lastPage && (
+                <Page
+                  key={props.startPage + index}
+                  onClick={props.onClickPage}
+                  id={String(props.startPage + index)}
+                >
+                  {props.startPage + index}
+                </Page>
+              )
+          )}
+          <span onClick={props.onClickNextPage}>다음</span>
+        </PageWrapper>
+
         <Footer>
           <Button onClick={props.onClickMove}>게시물 등록하기</Button>
         </Footer>
