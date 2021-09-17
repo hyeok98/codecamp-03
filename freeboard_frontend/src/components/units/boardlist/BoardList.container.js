@@ -6,6 +6,7 @@ import { useState } from "react";
 
 export default function BoardList() {
   const router = useRouter();
+  const [currentPage, setCurrentPage] = useState(1);
 
   const [startPage, setStartPage] = useState(1);
 
@@ -26,6 +27,7 @@ export default function BoardList() {
 
   function onClickPage(event) {
     refetch({ page: Number(event.target.id) });
+    setCurrentPage(Number(event.target.id));
   }
 
   function onClickPrevPage() {
@@ -48,6 +50,7 @@ export default function BoardList() {
       onClickNextPage={onClickNextPage}
       startPage={startPage}
       lastPage={lastPage}
+      currentPage={currentPage}
     ></BoardListUI>
   );
 }

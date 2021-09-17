@@ -192,6 +192,7 @@ export default function BoardListUI(props) {
                   key={props.startPage + index}
                   onClick={props.onClickPage}
                   id={String(props.startPage + index)}
+                  currentPage={props.startPage + index === props.currentPage}
                 >
                   {props.startPage + index}
                 </Page>

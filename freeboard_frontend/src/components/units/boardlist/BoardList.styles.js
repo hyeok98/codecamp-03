@@ -283,6 +283,7 @@ export const Button = styled.button`
 export const Page = styled.span`
   margin: 10px;
   cursor: pointer;
+  color: ${(props) => (props.currentPage ? "red" : "black")};
 `;
 
 export const PageWrapper = styled.div`
