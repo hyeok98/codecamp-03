@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { Rate } from "antd";
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -32,7 +33,7 @@ export const TopFont = styled.div`
 `;
 
 export const TopInput = styled.div`
-  width: 390px;
+  width: 540px;
   display: flex;
   justify-content: space-between;
   margin-top: 40px;
@@ -85,72 +86,7 @@ export const MainButton = styled.button`
   background-color: black;
   color: white;
   font-size: 16px;
+  cursor: pointer;
 `;
 
-export const Footer = styled.div`
-  width: 1200px;
-  height: 120px;
-  border-bottom: solid 1px #bdbdbd;
-  margin-top: 40px;
-  margin-bottom: 150px;
-  display: flex;
-  justify-content: space-between;
-`;
-
-export const FooterLeft = styled.div`
-  width: 800px;
-  height: 100px;
-  display: flex;
-`;
-
-export const FooterRight = styled.div`
-  width: 50px;
-  height: 30px;
-  display: flex;
-  justify-content: space-between;
-`;
-
-export const Photo2 = styled.img`
-  width: 18px;
-  height: 18px;
-`;
-
-export const LeftText = styled.div`
-  width: 700px;
-  height: 100px;
-  margin-left: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-`;
-
-export const Photo3 = styled.img`
-  width: 40px;
-  height: 40px;
-`;
-
-export const QueryTop = styled.div`
-  width: 160px;
-  height: 28px;
-  display: flex;
-`;
-
-export const QueryName = styled.div`
-  font-size: 16px;
-  margin-right: 15px;
-`;
-
-export const QueryContents = styled.div`
-  margin-bottom: 30px;
-`;
-
-export const QueryDate = styled.div``;
-
-export const ContentsSpan = styled.span`
-  font-size: 16px;
-  color: #4f4f4f;
-`;
-export const DateSpan = styled.span`
-  font-size: 12px;
-  color: #bdbdbd;
-`;
+export const Star = styled(Rate)``;

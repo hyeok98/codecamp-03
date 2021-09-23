@@ -191,4 +191,9 @@ export const Button3 = styled.button`
   background-color: white;
   border: solid 1px gray;
   font-size: 16px;
+  cursor: pointer;
+
+  :hover {
+    color: blue;
+  }
 `;

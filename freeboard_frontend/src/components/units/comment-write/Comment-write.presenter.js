@@ -11,19 +11,8 @@ import {
   MainBottom,
   MainNumber,
   MainButton,
-  Footer,
-  FooterLeft,
-  FooterRight,
-  Photo2,
-  LeftText,
-  Photo3,
-  QueryTop,
-  QueryName,
-  QueryContents,
-  QueryDate,
-  ContentsSpan,
-  DateSpan,
-} from "./Comment.styles";
+  Star,
+} from "./Comment-write.styles";
 
 export default function BoardCommentUI(props) {
   return (
@@ -45,6 +34,7 @@ export default function BoardCommentUI(props) {
               placeholder="비밀번호"
               onChange={props.onChangePassword}
             />
+            <Star onChange={props.onChangeStar} />
           </TopInput>
           <MainInput>
             <InputContents
@@ -57,36 +47,6 @@ export default function BoardCommentUI(props) {
               <MainButton onClick={props.onClickComment}>등록하기</MainButton>
             </MainBottom>
           </MainInput>
-          <Footer>
-            <FooterLeft>
-              <Photo3 src="/images/photo18.png" />
-              <LeftText>
-                <QueryTop>
-                  <QueryName>노원두</QueryName>
-                  <div>
-                    <img src="/images/photo19.png" />
-                    <img src="/images/photo19.png" />
-                    <img src="/images/photo19.png" />
-                    <img src="/images/photo19.png" />
-                    <img src="/images/photo19.png" />
-                  </div>
-                </QueryTop>
-                <QueryContents>
-                  <ContentsSpan>
-                    진짜 유익하고 정말 필요한 정보인 것 같아요~! 앞으로도 좋은
-                    정보 부탁드립니다~!
-                  </ContentsSpan>
-                </QueryContents>
-                <QueryDate>
-                  <DateSpan>2021.02.22</DateSpan>
-                </QueryDate>
-              </LeftText>
-            </FooterLeft>
-            <FooterRight>
-              <Photo2 src="/images/photo16.png" />
-              <Photo2 src="/images/photo17.png" />
-            </FooterRight>
-          </Footer>
         </Wrapper2>
       </Wrapper>
     </>
