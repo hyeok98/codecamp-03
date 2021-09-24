@@ -20,11 +20,26 @@
 // a와 b의 내적은 (-1)*1 + 0*0 + 1*(-1) = -2 입니다.
 
 function solution(a, b) {
-  let result = 0;
-  for (let i in a) {
-    result += a[i] * b[i];
+  let answer = 0;
+
+  for (let i = 0; i < a.length; i++) {
+    answer += a[i] * b[i];
   }
-  return result;
+
+  return answer;
+}
+
+function solution(a, b) {
+  const answer = a
+    .map((num, i) => {
+      return num * b[i];
+    })
+    .reduce((el, cu) => {
+      console.log(el, cu);
+      return el + cu;
+    }, 0);
+
+  return answer;
 }
 
 // 제일 작은 수 제거하기
@@ -39,3 +54,33 @@ function solution(a, b) {
 // arr	return
 // [4,3,2,1]	[4,3,2]
 // [10]	[-1]
+
+function solution(arr) {
+  // let answer = [];
+
+  //제일 작은 수를 저장해주는 변수
+  let min = arr[0];
+  for (let i = 1; i < arr.length; i++) {
+    if (min > arr[i]) {
+      min = arr[i];
+    }
+  }
+
+  arr.splice(arr.indexOf(min), 1);
+  if (arr.length === 0) {
+    return [-1];
+  }
+
+  return arr;
+}
+
+function solution(arr) {
+  //스프레드 연산자를 이용한 제일 작은 수 찾기
+  const min = Math.min(...arr);
+
+  const result = arr.filter((num) => {
+    return num > min;
+  });
+
+  return result.length === 0 ? [-1] : result;
+}
