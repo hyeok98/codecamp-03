@@ -138,7 +138,7 @@ export default function FreeBoard(props) {
   async function onClickEdit() {
     const result = await updateBoard({
       variables: {
-        boardId: router.query.number, //라우터쿼리는 폴더이름 [number]
+        boardId: router.query.number,
         password: pass,
         updateBoardInput: {
           title: title,

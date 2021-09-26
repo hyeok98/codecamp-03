@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import { useMutation } from "@apollo/client";
 import {
   CREATE_BOARD_COMMENT,
-  // UPDATE_BOARD_COMMENT,
+  UPDATE_BOARD_COMMENT,
 } from "./Comment-write.Queries";
 import { FETCH_BOARD_COMMENTS } from "../comment-list/Comment-list.Queries";
 
@@ -16,7 +16,7 @@ export default function BoardComment(props) {
   const [myStar, setMyStar] = useState(0);
 
   const [createBoardComment] = useMutation(CREATE_BOARD_COMMENT);
-  // const [updateBoardComment] = useMutation(UPDATE_BOARD_COMMENT);
+  const [updateBoardComment] = useMutation(UPDATE_BOARD_COMMENT);
 
   function onChangeWriter(event) {
     setMyWriter(event.target.value);
@@ -56,36 +56,40 @@ export default function BoardComment(props) {
     console.log(router.query.number);
   }
 
-  //
-  // async function onClickUpdate(event) {
-  //   if (!myContents) {
-  //     alert("내용이 수정되지 않았습니다.");
-  //     return;
-  //   }
-  //   if (!myPass) {
-  //     alert("비밀번호가 입력되지 않았습니다.");
-  //     return;
-  //   }
+  function can() {
+    props.setIsEdit(false);
+  }
 
-  //   try {
-  //     await updateBoardComment({
-  //       variables: {
-  //         updateBoardCommentInput: { contents: myContents },
-  //         password: myPass,
-  //         boardCommentId: event.target.id,
-  //       },
-  //       refetchQueries: [
-  //         {
-  //           query: FETCH_BOARD_COMMENTS,
-  //           variables: { boardId: router.query.boardId },
-  //         },
-  //       ],
-  //     });
-  //     props.setIsEdit?.(false);
-  //   } catch (error) {
-  //     alert(error.message);
-  //   }
-  // }
+  async function onClickUpdate(event) {
+    if (!myContents) {
+      alert("내용이 수정되지 않았습니다.");
+      return;
+    }
+    if (!myPass) {
+      alert("비밀번호가 입력되지 않았습니다.");
+      return;
+    }
+
+    try {
+      await updateBoardComment({
+        variables: {
+          updateBoardCommentInput: { contents: myContents },
+          password: myPass,
+          boardCommentId: event.target.id,
+        },
+        refetchQueries: [
+          {
+            query: FETCH_BOARD_COMMENTS,
+            variables: { boardId: router.query.number },
+          },
+        ],
+      });
+      props.setIsEdit?.(false);
+      alert("댓글수정완료");
+    } catch (error) {
+      alert(error.message);
+    }
+  }
 
   return (
     <BoardCommentUI
@@ -94,7 +98,10 @@ export default function BoardComment(props) {
       onChangePassword={onChangePassword}
       onChangeContents={onChangeContents}
       onChangeStar={onChangeStar}
-      // onClickUpdate={onClickUpdate}
+      onClickUpdate={onClickUpdate}
+      isEdit={props.isEdit}
+      el={props.el}
+      can={can}
     />
   );
 }

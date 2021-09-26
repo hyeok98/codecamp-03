@@ -36,6 +36,8 @@ export default function FreeBoardUI(props) {
               <TextInput
                 type="text"
                 placeholder="이름을 적어주세요"
+                // readOnly={Boolean(props.data?.fetchBoard.writer)}
+                // defaultValue={props.data?.fetchBoard.writer}
                 onChange={props.onChangeName}
               />
               <ErrorMessage>{props.nameError}</ErrorMessage>
@@ -58,6 +60,7 @@ export default function FreeBoardUI(props) {
               type="text"
               placeholder="제목을 입력하세요"
               onChange={props.onChangeTitle}
+              // defaultValue={props.data?.fetchBoard.title}
             />
             <ErrorMessage>{props.titleError}</ErrorMessage>
           </Header>

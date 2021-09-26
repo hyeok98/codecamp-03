@@ -19,7 +19,6 @@ import {
   YouTube,
   Like,
   PictureImg,
-  // YouImg,
   LikeDiv,
   LikeCount,
   DisLikeCount,
@@ -42,7 +41,7 @@ export default function BoardReadUI(props) {
               <img src="/images/photo1.png" />
               <NmaeData>
                 <Name>{props.data?.fetchBoard.writer}</Name>
-                <Data1>Data:2021.02.18</Data1>
+                <Data1>Data:{props.data?.fetchBoard.createdAt}</Data1>
               </NmaeData>
             </TopLeft>
             <TopRight>

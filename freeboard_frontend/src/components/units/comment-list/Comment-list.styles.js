@@ -39,7 +39,13 @@ export const FooterRight = styled.div`
   justify-content: space-between;
 `;
 
-export const Photo2 = styled.img`
+export const UpdateIcon = styled.img`
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+`;
+
+export const DeleteIcon = styled.img`
   width: 18px;
   height: 18px;
   cursor: pointer;

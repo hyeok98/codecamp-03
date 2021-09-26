@@ -29,7 +29,7 @@ export default function FreeRead() {
 
   async function onClickDelete() {
     await aaa({
-      variables: { boardId: router.query.number }, //number 폴더이름.
+      variables: { boardId: router.query.number },
     });
     alert("게시물이 삭제되었습니다.");
     router.push(`/boards/list`);

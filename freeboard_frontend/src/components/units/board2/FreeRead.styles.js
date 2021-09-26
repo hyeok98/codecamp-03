@@ -71,7 +71,7 @@ export const Name = styled.div`
   font-size: 24px;
 `;
 export const Data1 = styled.div`
-  width: 126px;
+  width: 156px;
   height: 24px;
   font-size: 16px;
 `;

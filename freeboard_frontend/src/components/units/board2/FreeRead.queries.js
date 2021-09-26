@@ -6,6 +6,7 @@ export const FETCH_BOARD = gql`
       writer
       title
       contents
+      createdAt
       likeCount
       dislikeCount
       youtubeUrl
