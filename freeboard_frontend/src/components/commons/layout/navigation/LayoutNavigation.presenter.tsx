@@ -1,15 +1,22 @@
-import { Wrapper, Font, Font2 } from "./LayoutNavigation.styles";
+import {
+  Wrapper,
+  MainFont,
+  Font,
+  Font1,
+  Font2,
+} from "./LayoutNavigation.styles";
 
 export default function LayoutNavigationUI(props) {
   return (
     <Wrapper>
-      <Font onClick={props.onClickMap}>지도</Font>
+      <MainFont>MAMMOTH COFFEE</MainFont>
+      <Font1 onClick={props.onClickMap}>지도</Font1>
       <Font2>|</Font2>
-      <Font onClick={props.onClickBoard}>자유게시판</Font>
+      <Font onClick={props.onClickBoard}>Free Board</Font>
       <Font2>|</Font2>
-      <Font onClick={props.onClickMarket}>중고마켓</Font>
+      <Font onClick={props.onClickMarket}>market</Font>
       <Font2>|</Font2>
-      <Font onClick={props.onClickMyPage}>마이페이지</Font>
+      <Font onClick={props.onClickMyPage}>my page</Font>
     </Wrapper>
   );
 }

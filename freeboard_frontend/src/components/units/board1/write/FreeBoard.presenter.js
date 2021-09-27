@@ -21,10 +21,17 @@ import {
   MiniTitle,
   ErrorMessage,
 } from "./FreeBoard.styles";
+import { Modal } from "antd";
+import DaumPostcode from "react-daum-postcode";
 
 export default function FreeBoardUI(props) {
   return (
     <>
+      {props.isOpen && (
+        <Modal visible={true}>
+          <DaumPostcode onComplete={props.onCompleteAddressSearch} autoClose />
+        </Modal>
+      )}
       <Wrapper1>
         <Wrapper>
           <Title>{props.isEdit ? "게시물 수정" : "게시물 등록"}</Title>
@@ -76,14 +83,33 @@ export default function FreeBoardUI(props) {
           <Address>
             <MiniTitle>주소</MiniTitle>
             <AddressBox>
-              <AddressInput type="text" />
-              <AddressButton>우편번호 검색</AddressButton>
+              <AddressInput
+                name="zipcode"
+                placeholder="07250"
+                readOnly
+                value={
+                  props.zipcode || props.data?.fetchBoard.boardAddress?.zipcode
+                }
+              />
+              <AddressButton onClick={props.onClickAddressSearch}>
+                우편번호 검색
+              </AddressButton>
             </AddressBox>
             <div>
-              <InputText type="text" />
+              <InputText
+                readOnly
+                value={
+                  props.address || props.data?.fetchBoard.boardAddress?.address
+                }
+              />
             </div>
             <div>
-              <InputText type="text" />
+              <InputText
+                onChange={props.onChangeAddressDetail}
+                defaultValue={
+                  props.data?.fetchBoard.boardAddress?.addressDetail
+                }
+              />
             </div>
           </Address>
           <YouTube>

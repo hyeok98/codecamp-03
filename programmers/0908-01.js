@@ -5,63 +5,57 @@
 // seoul의 원소는 길이 1 이상, 20 이하인 문자열입니다.
 // "Kim"은 반드시 seoul 안에 포함되어 있습니다.
 
-
 function solution(seoul) {
-    // let x = seoul.indexOf('Kim')  이한줄로 실행이된다.
-    
-    // kim 의 index 값을 담아주는 변수
-   let x = 0;
-    
-    for(let i =0; i < seoul.length; i++) {
-        if( seoul[i] === 'Kim') {
-            x = i;
-            
-            // 반복문을 종료
-            break;
-        }
+  // let x = seoul.indexOf('Kim')  이한줄로 실행이된다.
+
+  // kim 의 index 값을 담아주는 변수
+  let x = 0;
+
+  for (let i = 0; i < seoul.length; i++) {
+    if (seoul[i] === "Kim") {
+      x = i;
+
+      // 반복문을 종료
+      break;
     }
-    return '김서방은 ' + x + '에 있다'
+  }
+  return "김서방은 " + x + "에 있다";
 }
 
-
-// 문자열 s의 길이가 4 혹은 6이고, 숫자로만 구성돼있는지 확인해주는 함수, solution을 완성하세요. 예를 들어 s가 "a234"이면 False를 리턴하고 "1234"라면 True를 리턴하면 됩니다.
+// 문자열 s의 길이가 4 혹은 6이고, 숫자로만 구성돼있는지 확인해주는 함수, solution을 완성하세요.
+//  예를 들어 s가 "a234"이면 False를 리턴하고 "1234"라면 True를 리턴하면 됩니다.
 
 // 제한 사항
 // s는 길이 1 이상, 길이 8 이하인 문자열입니다.
 
 function solution(s) {
-    let answer = true;
-    
-    if(s.length !== 4 && s.length !== 6 ) {
-        return false;
-    }
-    
-    for(let i=0; i < s.length; i++) {
-        if(isNaN(s[i]) === true) {
-            
-            answer = false;
-            
-            break;
-        }
-    }
-    return answer;
-}
+  let answer = true;
 
+  if (s.length !== 4 && s.length !== 6) {
+    return false;
+  }
+
+  for (let i = 0; i < s.length; i++) {
+    if (isNaN(s[i]) === true) {
+      answer = false;
+
+      break;
+    }
+  }
+  return answer;
+}
 
 function solution(s) {
-    
-    if(s.length !== 4 && s.length !== 6 ) {
-        return false;
-    }
-    const answer = 
-            s.split("") //문자열을 배열로 만들어준다.
-            .filter( str => isNaN(str) === true)
-            .length === 0 
-               
-            
-    return answer;
-}
+  if (s.length !== 4 && s.length !== 6) {
+    return false;
+  }
+  const answer =
+    s
+      .split("") //문자열을 배열로 만들어준다.
+      .filter((str) => isNaN(str) === true).length === 0;
 
+  return answer;
+}
 
 // 약수의 합
 // 문제 설명
@@ -82,33 +76,24 @@ function solution(s) {
 // 입출력 예 #2
 // 5의 약수는 1, 5입니다. 이를 모두 더하면 6입니다.
 
-
 function solution(n) {
-    let answer = 0;
-    
-    for(let i = 1; i <= n; i++) {
-        if(n % i === 0) {
-            answer = answer + i;
-        }
+  let answer = 0;
+
+  for (let i = 1; i <= n; i++) {
+    if (n % i === 0) {
+      answer = answer + i;
     }
-    
-    return answer;
+  }
+
+  return answer;
 }
 
-
 function solution(n) {
-    let answer = 0;
-   
-    const array = 
-          new Array(n)
-            .fill(1)
-            .forEach( ( num, index )  => {
-                n % (num + index ) === 0
-                ? answer = answer + (num + index)
-                : null
-            })
-    
-    
-    
-    return answer;
+  let answer = 0;
+
+  const array = new Array(n).fill(1).forEach((num, index) => {
+    n % (num + index) === 0 ? (answer = answer + (num + index)) : null;
+  });
+
+  return answer;
 }

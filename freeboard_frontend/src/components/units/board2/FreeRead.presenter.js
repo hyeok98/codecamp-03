@@ -8,8 +8,6 @@ import {
   NmaeData,
   Name,
   Data1,
-  Address,
-  AddressFont,
   Images1,
   Main,
   Title,
@@ -28,7 +26,7 @@ import {
   LikeImg,
   DisLikeImg,
 } from "./FreeRead.styles";
-
+import { Tooltip } from "antd";
 import ReactPlayer from "react-player";
 
 export default function BoardReadUI(props) {
@@ -45,16 +43,14 @@ export default function BoardReadUI(props) {
               </NmaeData>
             </TopLeft>
             <TopRight>
-              <Address>
-                <AddressFont>
-                  서울특별시 영등포구 양산로200
-                  <br />
-                  (영등포동5가,영등포시장역)영등포 타임스퀘어 2층
-                </AddressFont>
-              </Address>
               <Images1>
                 <img src="/images/photo2.png" />
-                <img src="/images/photo3.png" />
+                <Tooltip
+                  placement="topRight"
+                  title={`${props.data?.fetchBoard.boardAddress?.address} ${props.data?.fetchBoard.boardAddress?.addressDetail}`}
+                >
+                  <img src="/images/photo3.png" />
+                </Tooltip>
               </Images1>
             </TopRight>
           </Top>

@@ -76,26 +76,11 @@ export const Data1 = styled.div`
   font-size: 16px;
 `;
 
-export const Address = styled.div`
-  width: 376px;
-  height: 64px;
-  background-color: gray;
-  font-size: 16px;
-  color: white;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: flex-end;
-`;
-
-export const AddressFont = styled.div`
-  width: 344px;
-  height: 48px;
-`;
 export const Images1 = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+  margin-top: 80px;
 `;
 export const Main = styled.div`
   width: 996px;

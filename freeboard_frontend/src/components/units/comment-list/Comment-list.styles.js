@@ -99,3 +99,8 @@ export const Row = styled.div``;
 export const Star = styled(Rate)`
   padding-left: 20px;
 `;
+
+export const PasswordInput = styled.input`
+  width: 100%;
+  margin-top: 10px;
+`;

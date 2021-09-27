@@ -10,7 +10,11 @@ export const FETCH_BOARD = gql`
       likeCount
       dislikeCount
       youtubeUrl
-      _id
+      boardAddress {
+        zipcode
+        address
+        addressDetail
+      }
     }
   }
 `;

@@ -16,7 +16,9 @@ import {
   DateSpan,
   Row,
   Star,
+  PasswordInput,
 } from "./Comment-list.styles";
+import { Modal } from "antd";
 import { useRouter } from "next/router";
 import { useMutation } from "@apollo/client";
 import {
@@ -29,6 +31,8 @@ import BoardComment from "../comment-write/Comment-write.container";
 export default function BoardCommentListUI(props) {
   const router = useRouter();
   const [isEdit, setIsEdit] = useState(false);
+  const [isOpenDeleteModal, setIsOpenDeleteModal] = useState(false);
+  const [myPassword, setMyPassword] = useState("");
 
   const [deleteBoardComment] = useMutation(DELETE_BOARD_COMMENT);
 
@@ -37,11 +41,10 @@ export default function BoardCommentListUI(props) {
   }
 
   async function onClickCommentDelete() {
-    const pw = prompt("비밀번호를 입력해 주세요.");
     try {
       await deleteBoardComment({
         variables: {
-          password: pw,
+          password: myPassword,
           boardCommentId: props.el?._id,
         },
         refetchQueries: [
@@ -52,12 +55,27 @@ export default function BoardCommentListUI(props) {
         ],
       });
     } catch (error) {
-      console.log(error);
+      alert(error.message);
     }
+  }
+
+  function onClickOpenDeleteModal() {
+    setIsOpenDeleteModal(true);
+  }
+
+  function onChangeDeletePassword(event) {
+    setMyPassword(event.target.value);
   }
 
   return (
     <>
+      {isOpenDeleteModal && (
+        <Modal visible={true} onOk={onClickCommentDelete}>
+          {/* onCancel={} */}
+          <div>비밀번호 입력: </div>
+          <PasswordInput type="password" onChange={onChangeDeletePassword} />
+        </Modal>
+      )}
       {!isEdit && (
         <Wrapper>
           <Wrapper2>
@@ -87,7 +105,7 @@ export default function BoardCommentListUI(props) {
                   />
                   <DeleteIcon
                     src="/images/photo17.png"
-                    onClick={onClickCommentDelete}
+                    onClick={onClickOpenDeleteModal}
                   />
                 </FooterRight>
               </Footer>

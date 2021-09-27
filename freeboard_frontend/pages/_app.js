@@ -5,6 +5,8 @@ import Layout from "../src/components/commons/layout";
 import { Global } from "@emotion/react";
 import { globalStyles } from "../src/commons/styles/globalStyles";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
+import LandingPage from ".";
+import { useRouter } from "next/dist/client/router";
 
 function MyApp({ Component, pageProps }) {
   const client = new ApolloClient({
@@ -12,13 +14,32 @@ function MyApp({ Component, pageProps }) {
     cache: new InMemoryCache(),
   });
 
+  const HIDDEN_MAIN = ["/"];
+  const HIDDEN_LAYOUT = [
+    "/boards",
+    "/boards/new",
+    "/boards/new2",
+    "/boards/list",
+    "/boards/new2/[number]",
+    "/boards/new2/[number]/edit",
+  ];
+
+  const router = useRouter();
+
+  const isHiddenMain = HIDDEN_MAIN.includes(router.pathname);
+  const isHiddenLayout = HIDDEN_LAYOUT.includes(router.pathname);
+
   return (
     <>
       <Global styles={globalStyles} />
       <ApolloProvider client={client}>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        {!isHiddenLayout && <LandingPage></LandingPage>}
+
+        {!isHiddenMain && (
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        )}
       </ApolloProvider>
     </>
   );

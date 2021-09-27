@@ -6,6 +6,17 @@ import { Global } from "@emotion/react";
 import { globalStyles } from "../src/commons/styles/globalStyles";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { initializeApp } from "firebase/app";
+
+export const firebaseApp = initializeApp({
+  apiKey: "AIzaSyCFgLc9rvbwQytyfBu7R8p4-BXLeyKlcvY",
+  authDomain: "exmple-e0595.firebaseapp.com",
+  projectId: "exmple-e0595",
+  storageBucket: "exmple-e0595.appspot.com",
+  messagingSenderId: "85785696966",
+  appId: "1:85785696966:web:6c81f0007dad6b499c95c7",
+  measurementId: "G-EBN3H56TPF",
+});
 
 function MyApp({ Component, pageProps }) {
   const client = new ApolloClient({

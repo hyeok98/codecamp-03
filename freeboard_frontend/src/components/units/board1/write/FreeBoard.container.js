@@ -6,6 +6,7 @@ import FreeBoardUI from "./FreeBoard.presenter";
 
 export default function FreeBoard(props) {
   const router = useRouter();
+  const [isOpen, setIsOpen] = useState(false);
 
   const [createBoard] = useMutation(CREATE_BOARD);
   const [updateBoard] = useMutation(UPDATE_BOARD);
@@ -14,6 +15,9 @@ export default function FreeBoard(props) {
   const [pass, setPass] = useState("");
   const [title, setTitle] = useState("");
   const [contents, setContents] = useState("");
+  const [zipcode, setZipcode] = useState("");
+  const [address, setAddress] = useState("");
+  const [addressDetail, setAddressDetail] = useState("");
 
   const [qqq, setQqq] = useState(false);
   const [youtubeUrl, setYoutubeUrl] = useState("");
@@ -99,6 +103,20 @@ export default function FreeBoard(props) {
     setYoutubeUrl(event.target.value);
   }
 
+  function onChangeAddressDetail(event) {
+    setAddressDetail(event.target.value);
+  }
+
+  function onClickAddressSearch() {
+    setIsOpen(true);
+  }
+
+  function onCompleteAddressSearch(data) {
+    setAddress(data.address);
+    setZipcode(data.zonecode);
+    setIsOpen(false);
+  }
+
   async function onClickSignup() {
     if (name === "") {
       setNameError("이름을 작성해주세요.");
@@ -125,6 +143,11 @@ export default function FreeBoard(props) {
             title: title,
             contents: contents,
             youtubeUrl: youtubeUrl,
+            boardAddress: {
+              zipcode: zipcode,
+              address: address,
+              addressDetail: addressDetail,
+            },
           },
         },
       });
@@ -153,10 +176,14 @@ export default function FreeBoard(props) {
   return (
     <>
       <FreeBoardUI
+        isOpen={isOpen}
         onChangeName={onChangeName}
         onChangePass={onChangePass}
         onChangeTitle={onChangeTitle}
         onChangeContents={onChangeContents}
+        onChangeAddressDetail={onChangeAddressDetail}
+        onClickAddressSearch={onClickAddressSearch}
+        onCompleteAddressSearch={onCompleteAddressSearch}
         onClickSignup={onClickSignup}
         onChangeYoutubeUrl={onChangeYoutubeUrl}
         nameError={nameError}
@@ -166,6 +193,9 @@ export default function FreeBoard(props) {
         qqq={qqq}
         onClickEdit={onClickEdit}
         isEdit={props.isEdit}
+        data={props.data}
+        address={address}
+        zipcode={zipcode}
       />
     </>
   );

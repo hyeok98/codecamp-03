@@ -10,9 +10,9 @@ const Body = styled.div``;
 export default function Layout(props) {
   return (
     <Wrapper>
+      <LayoutNavigation />
       <LayoutHrader />
       <LayoutBanner />
-      <LayoutNavigation />
       <Body>{props.children}</Body>
     </Wrapper>
   );

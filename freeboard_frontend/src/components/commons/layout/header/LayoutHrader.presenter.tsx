@@ -1,5 +1,11 @@
-import { Wrapper } from "./LayoutHrader.styles";
+import { Wrapper, Main, MainFont } from "./LayoutHrader.styles";
 
 export default function LayoutHraderUI() {
-  return <Wrapper></Wrapper>;
+  return (
+    <Wrapper>
+      <Main>
+        <MainFont src="/images/main2.png" />
+      </Main>
+    </Wrapper>
+  );
 }
