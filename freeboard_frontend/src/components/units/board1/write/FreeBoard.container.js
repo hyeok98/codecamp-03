@@ -1,13 +1,15 @@
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useMutation } from "@apollo/client";
-import { CREATE_BOARD, UPDATE_BOARD } from "./FreeBoard.queries";
+import { CREATE_BOARD, UPDATE_BOARD, UPLOAD_FILE } from "./FreeBoard.queries";
 import FreeBoardUI from "./FreeBoard.presenter";
 
 export default function FreeBoard(props) {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
+  const fileRef = useRef();
 
+  const [uploadFile] = useMutation(UPLOAD_FILE);
   const [createBoard] = useMutation(CREATE_BOARD);
   const [updateBoard] = useMutation(UPDATE_BOARD);
 
@@ -18,6 +20,7 @@ export default function FreeBoard(props) {
   const [zipcode, setZipcode] = useState("");
   const [address, setAddress] = useState("");
   const [addressDetail, setAddressDetail] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
 
   const [qqq, setQqq] = useState(false);
   const [youtubeUrl, setYoutubeUrl] = useState("");
@@ -117,6 +120,37 @@ export default function FreeBoard(props) {
     setIsOpen(false);
   }
 
+  async function onChangeFile(event) {
+    const myFile = event.target.files[0];
+    console.log(myFile);
+    if (!myFile) {
+      alert("파일이 없습니다.");
+      return;
+    }
+
+    if (myFile.size > 5 * 1024 * 1024) {
+      alert("파일 용량이 너무 큽니다.(제한 5MB)");
+      return;
+    }
+
+    if (!myFile.type.includes("jpeg") && !myFile.type.includes("png")) {
+      alert("jpeg또는 png만 업로드가능");
+      return;
+    }
+
+    const result = await uploadFile({
+      variables: {
+        file: myFile,
+      },
+    });
+    console.log(result.data.uploadFile.url);
+    setImageUrl(result.data.uploadFile.url);
+  }
+
+  function onClikDiv() {
+    fileRef.current?.click();
+  }
+
   async function onClickSignup() {
     if (name === "") {
       setNameError("이름을 작성해주세요.");
@@ -143,6 +177,7 @@ export default function FreeBoard(props) {
             title: title,
             contents: contents,
             youtubeUrl: youtubeUrl,
+            images: [imageUrl],
             boardAddress: {
               zipcode: zipcode,
               address: address,
@@ -186,6 +221,9 @@ export default function FreeBoard(props) {
         onCompleteAddressSearch={onCompleteAddressSearch}
         onClickSignup={onClickSignup}
         onChangeYoutubeUrl={onChangeYoutubeUrl}
+        onClikDiv={onClikDiv}
+        onChangeFile={onChangeFile}
+        fileRef={fileRef}
         nameError={nameError}
         passError={passError}
         titleError={titleError}
@@ -196,6 +234,7 @@ export default function FreeBoard(props) {
         data={props.data}
         address={address}
         zipcode={zipcode}
+        imageUrl={imageUrl}
       />
     </>
   );

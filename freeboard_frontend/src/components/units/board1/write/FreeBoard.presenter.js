@@ -20,6 +20,7 @@ import {
   AddressBox,
   MiniTitle,
   ErrorMessage,
+  ImageInput,
 } from "./FreeBoard.styles";
 import { Modal } from "antd";
 import DaumPostcode from "react-daum-postcode";
@@ -128,10 +129,16 @@ export default function FreeBoardUI(props) {
           <Picture>
             <div>사진첨부</div>
             <PictureDiv>
-              <PictuerButton>
+              <PictuerButton onClick={props.onClikDiv}>
                 <span>+</span>
                 <span>Upload</span>
               </PictuerButton>
+              <ImageInput
+                ref={props.fileRef}
+                type="file"
+                onChange={props.onChangeFile}
+              />
+              {/* <img src={`https://storage.googleapis.com/${props.imageUrl}`} /> */}
               <PictuerButton>
                 <span>+</span>
                 <span>Upload</span>

@@ -57,7 +57,9 @@ export default function BoardReadUI(props) {
           <Main>
             <Title>{props.data?.fetchBoard.title}</Title>
             <Picture>
-              <PictureImg src="/images/photo4.png" />
+              <PictureImg
+                src={`https://storage.googleapis.com/${props.data?.fetchBoard.images}`}
+              />
             </Picture>
           </Main>
           <Contents>{props.data?.fetchBoard.contents}</Contents>

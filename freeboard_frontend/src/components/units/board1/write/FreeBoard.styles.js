@@ -147,3 +147,7 @@ export const MiniTitle = styled.span`
 export const ErrorMessage = styled.div`
   color: red;
 `;
+
+export const ImageInput = styled.input`
+  display: none;
+`;
