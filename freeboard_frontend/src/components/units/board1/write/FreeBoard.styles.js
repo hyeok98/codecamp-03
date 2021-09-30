@@ -114,16 +114,6 @@ export const PictureDiv = styled.div`
   justify-content: space-between;
 `;
 
-export const PictuerButton = styled.div`
-  width: 78px;
-  height: 78px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: #bdbdbd;
-`;
-
 export const MainSettings = styled.div`
   width: 996px;
   height: 50px;
@@ -146,8 +136,4 @@ export const MiniTitle = styled.span`
 
 export const ErrorMessage = styled.div`
   color: red;
-`;
-
-export const ImageInput = styled.input`
-  display: none;
 `;

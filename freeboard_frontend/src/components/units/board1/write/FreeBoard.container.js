@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { CREATE_BOARD, UPDATE_BOARD, UPLOAD_FILE } from "./FreeBoard.queries";
 import FreeBoardUI from "./FreeBoard.presenter";
@@ -7,7 +7,6 @@ import FreeBoardUI from "./FreeBoard.presenter";
 export default function FreeBoard(props) {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
-  const fileRef = useRef();
 
   const [uploadFile] = useMutation(UPLOAD_FILE);
   const [createBoard] = useMutation(CREATE_BOARD);
@@ -21,7 +20,7 @@ export default function FreeBoard(props) {
   const [address, setAddress] = useState("");
   const [addressDetail, setAddressDetail] = useState("");
 
-  const [imageUrl, setImageUrl] = useState("");
+  const [files, setFiles] = useState([null, null, null]);
 
   const [qqq, setQqq] = useState(false);
   const [youtubeUrl, setYoutubeUrl] = useState("");
@@ -121,23 +120,6 @@ export default function FreeBoard(props) {
     setIsOpen(false);
   }
 
-  async function onChangeFile(event) {
-    const myFile = event.target.files[0];
-    console.log(myFile);
-
-    const result = await uploadFile({
-      variables: {
-        file: myFile,
-      },
-    });
-    console.log(result.data.uploadFile.url);
-    setImageUrl(result.data.uploadFile.url);
-  }
-
-  function onClikDiv() {
-    fileRef.current?.click();
-  }
-
   async function onClickSignup() {
     if (name === "") {
       setNameError("이름을 작성해주세요.");
@@ -156,27 +138,37 @@ export default function FreeBoard(props) {
     }
 
     if (name !== "" && pass !== "" && title !== "" && contents !== "") {
-      const result = await createBoard({
-        variables: {
-          createBoardInput: {
-            writer: name,
-            password: pass,
-            title: title,
-            contents: contents,
-            youtubeUrl: youtubeUrl,
-            images: [imageUrl],
-            boardAddress: {
-              zipcode: zipcode,
-              address: address,
-              addressDetail: addressDetail,
+      try {
+        const uploadFiles = files
+          .filter((el) => el)
+          .map((el) => uploadFile({ variables: { file: el } }));
+        const results = await Promise.all(uploadFiles);
+        const myImages = results.map((el) => el.data.uploadFile.url);
+
+        const result = await createBoard({
+          variables: {
+            createBoardInput: {
+              writer: name,
+              password: pass,
+              title: title,
+              contents: contents,
+              youtubeUrl: youtubeUrl,
+              boardAddress: {
+                zipcode: zipcode,
+                address: address,
+                addressDetail: addressDetail,
+              },
+              images: myImages,
             },
           },
-        },
-      });
-      console.log(result.data.createBoard._id);
+        });
+        console.log(result.data.createBoard._id);
 
-      alert("게시물을 등록합니다");
-      router.push(`/boards/new2/${result.data.createBoard._id}`);
+        alert("게시물을 등록합니다");
+        router.push(`/boards/new2/${result.data.createBoard._id}`);
+      } catch (error) {
+        console.log(error);
+      }
     }
   }
 
@@ -195,6 +187,12 @@ export default function FreeBoard(props) {
     router.push(`/boards/new2/${result.data.updateBoard._id}`);
   }
 
+  function onChangeFiles(file, index) {
+    const newFiles = [...files];
+    newFiles[index] = file;
+    setFiles(newFiles);
+  }
+
   return (
     <>
       <FreeBoardUI
@@ -208,9 +206,6 @@ export default function FreeBoard(props) {
         onCompleteAddressSearch={onCompleteAddressSearch}
         onClickSignup={onClickSignup}
         onChangeYoutubeUrl={onChangeYoutubeUrl}
-        onClikDiv={onClikDiv}
-        onChangeFile={onChangeFile}
-        fileRef={fileRef}
         nameError={nameError}
         passError={passError}
         titleError={titleError}
@@ -221,7 +216,7 @@ export default function FreeBoard(props) {
         data={props.data}
         address={address}
         zipcode={zipcode}
-        imageUrl={imageUrl}
+        onChangeFiles={onChangeFiles}
       />
     </>
   );

@@ -13,17 +13,16 @@ import {
   AddressButton,
   YouTube,
   Picture,
-  PictuerButton,
   PictureDiv,
   MainSettings,
   FooterButton,
   AddressBox,
   MiniTitle,
   ErrorMessage,
-  ImageInput,
 } from "./FreeBoard.styles";
 import { Modal } from "antd";
 import DaumPostcode from "react-daum-postcode";
+import Uploads01 from "../../../commons/uploads/Uploads01.container";
 
 export default function FreeBoardUI(props) {
   return (
@@ -130,25 +129,13 @@ export default function FreeBoardUI(props) {
             <div>사진첨부</div>
 
             <PictureDiv>
-              <PictuerButton onClick={props.onClikDiv}>
-                <span>+</span>
-                <span>Upload</span>
-              </PictuerButton>
-              <ImageInput
-                ref={props.fileRef}
-                type="file"
-                onChange={props.onChangeFile}
-              />
-
-              {/* <img src={`https://storage.googleapis.com/${props.imageUrl}`} /> */}
-              <PictuerButton>
-                <span>+</span>
-                <span>Upload</span>
-              </PictuerButton>
-              <PictuerButton>
-                <span>+</span>
-                <span>Upload</span>
-              </PictuerButton>
+              {new Array(3).fill(1).map((el, index) => (
+                <Uploads01
+                  key={`${el}_${index}`}
+                  index={index}
+                  onChangeFiles={props.onChangeFiles}
+                />
+              ))}
             </PictureDiv>
           </Picture>
           <MainSettings>
