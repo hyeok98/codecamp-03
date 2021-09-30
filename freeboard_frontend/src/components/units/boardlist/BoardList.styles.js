@@ -200,6 +200,7 @@ export const SearchButton = styled.button`
   background-color: black;
   color: white;
   border-radius: 10px;
+  cursor: pointer;
 `;
 
 export const List = styled.div`
@@ -292,4 +293,8 @@ export const PageWrapper = styled.div`
   justify-content: center;
   align-items: center;
   font-size: 18px;
+`;
+
+export const MyWord = styled.span`
+  color: ${(props) => (props.isColor ? "red" : "black")};
 `;

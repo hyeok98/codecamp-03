@@ -128,6 +128,7 @@ export default function FreeBoardUI(props) {
           </YouTube>
           <Picture>
             <div>사진첨부</div>
+
             <PictureDiv>
               <PictuerButton onClick={props.onClikDiv}>
                 <span>+</span>
@@ -138,6 +139,7 @@ export default function FreeBoardUI(props) {
                 type="file"
                 onChange={props.onChangeFile}
               />
+
               {/* <img src={`https://storage.googleapis.com/${props.imageUrl}`} /> */}
               <PictuerButton>
                 <span>+</span>

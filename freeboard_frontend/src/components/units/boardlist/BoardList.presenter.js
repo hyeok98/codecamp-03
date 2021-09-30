@@ -34,7 +34,9 @@ import {
   ColumnTitle,
   Page,
   PageWrapper,
+  MyWord,
 } from "./BoardList.styles";
+import { v4 as uuidv4 } from "uuid";
 
 export default function BoardListUI(props) {
   return (
@@ -156,12 +158,16 @@ export default function BoardListUI(props) {
         </Top>
         <Search>
           <MainSearch>
-            <SearchInput type="text" placeholder="제목을 검색해주세요." />
+            <SearchInput
+              type="text"
+              placeholder="제목을 검색해주세요."
+              onChange={props.onChangeSearch}
+            />
           </MainSearch>
           <Year>
             <div>YYYY.MM.DD ~ YYYY.MM.DD</div>
           </Year>
-          <SearchButton>검색하기</SearchButton>
+          <SearchButton onClick={props.onClickSearch}>검색하기</SearchButton>
         </Search>
 
         <List>
@@ -175,7 +181,14 @@ export default function BoardListUI(props) {
             <Row key={el._id}>
               <ColumnBasic>{10 - index}</ColumnBasic>
               <ColumnTitle id={el._id} onClick={props.onClickMoveDetail}>
-                {el.title}
+                {el.title
+                  .replaceAll(props.myKeyWord, `#$%${props.myKeyword}#$%`)
+                  .split("#$%")
+                  .map((el) => (
+                    <MyWord key={uuidv4} isMatched={props.myKeyword === el}>
+                      {el}
+                    </MyWord>
+                  ))}
               </ColumnTitle>
               <ColumnBasic>{el.writer}</ColumnBasic>
               <ColumnBasic>{el.createdAt}</ColumnBasic>

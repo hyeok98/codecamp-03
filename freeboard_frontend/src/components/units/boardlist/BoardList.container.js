@@ -6,6 +6,10 @@ import { useState } from "react";
 
 export default function BoardList() {
   const router = useRouter();
+
+  const [mySearch, setMySearch] = useState("");
+  const [myKeyword, setMyKeyword] = useState("");
+
   const [currentPage, setCurrentPage] = useState(1);
 
   const [startPage, setStartPage] = useState(1);
@@ -26,7 +30,7 @@ export default function BoardList() {
   }
 
   function onClickPage(event) {
-    refetch({ page: Number(event.target.id) });
+    refetch({ search: myKeyword, page: Number(event.target.id) });
     setCurrentPage(Number(event.target.id));
   }
 
@@ -40,6 +44,16 @@ export default function BoardList() {
     setStartPage((prev) => prev + 10);
   }
 
+  function onChangeSearch(event) {
+    setMySearch(event.target.value);
+  }
+
+  function onClickSearch() {
+    refetch({ search: mySearch, page: 1 });
+    setMyKeyword(mySearch);
+    setCurrentPage(1);
+  }
+
   return (
     <BoardListUI
       data={data}
@@ -48,6 +62,8 @@ export default function BoardList() {
       onClickPage={onClickPage}
       onClickPrevPage={onClickPrevPage}
       onClickNextPage={onClickNextPage}
+      onChangeSearch={onChangeSearch}
+      onClickSearch={onClickSearch}
       startPage={startPage}
       lastPage={lastPage}
       currentPage={currentPage}

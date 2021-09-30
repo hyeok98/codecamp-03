@@ -20,6 +20,7 @@ export default function FreeBoard(props) {
   const [zipcode, setZipcode] = useState("");
   const [address, setAddress] = useState("");
   const [addressDetail, setAddressDetail] = useState("");
+
   const [imageUrl, setImageUrl] = useState("");
 
   const [qqq, setQqq] = useState(false);
@@ -123,20 +124,6 @@ export default function FreeBoard(props) {
   async function onChangeFile(event) {
     const myFile = event.target.files[0];
     console.log(myFile);
-    if (!myFile) {
-      alert("파일이 없습니다.");
-      return;
-    }
-
-    if (myFile.size > 5 * 1024 * 1024) {
-      alert("파일 용량이 너무 큽니다.(제한 5MB)");
-      return;
-    }
-
-    if (!myFile.type.includes("jpeg") && !myFile.type.includes("png")) {
-      alert("jpeg또는 png만 업로드가능");
-      return;
-    }
 
     const result = await uploadFile({
       variables: {
