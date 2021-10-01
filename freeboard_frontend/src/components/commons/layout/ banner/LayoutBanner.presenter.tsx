@@ -20,16 +20,16 @@ export default function LayoutBannerUI() {
         <Wrapper2>{/* <h2>MAMMOTH COFFEE</h2> */}</Wrapper2>
         <Slider {...settings}>
           <div>
-            <Photo src="/images/coffee1.jpeg" />
+            <Photo src="/images/banner1.png" />
           </div>
           <div>
-            <Photo src="/images/coffee2.jpeg" />
+            <Photo src="/images/banner2.png" />
           </div>
           <div>
-            <Photo src="/images/coffee3.jpeg" />
+            <Photo src="/images/banner3.png" />
           </div>
           <div>
-            <Photo src="/images/coffee4.jpeg" />
+            <Photo src="/images/banner4.jpeg" />
           </div>
         </Slider>
       </div>

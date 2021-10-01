@@ -1,10 +1,16 @@
 import {
   Wrapper,
-  Poto1,
-  Landing2,
-  Landing3,
-  Poto2,
+  Heard,
+  Main,
+  MainImg,
+  MainTitle,
+  MainLeft,
+  MainRight,
   MainDiv,
+  LeftMainTileDiv,
+  LeftTitle,
+  LeftSmallTileDiv,
+  LeftSmallTile,
   ButtonDiv,
   Button,
 } from "./Main-styles";
@@ -13,19 +19,33 @@ export default function CoffeeMainUI(props) {
   return (
     <>
       <Wrapper>
-        <MainDiv>
-          <Poto1>
-            <Landing2 src="/images/landing2.png" />
-            <Landing3 src="/images/main2.png" />
-            <ButtonDiv>
-              <Button onClick={props.onClickHome}>홈페이지</Button>
-              <Button>로그인</Button>
-            </ButtonDiv>
-          </Poto1>
-          <Poto2>
-            <img src="/images/landing3.png" />
-          </Poto2>
-        </MainDiv>
+        <Heard>
+          <MainTitle src="/images/maintitle.svg" />
+        </Heard>
+        <Main>
+          <MainDiv>
+            <MainLeft>
+              <div>
+                <LeftMainTileDiv>
+                  <LeftTitle>당신근처의 당근마켓</LeftTitle>
+                </LeftMainTileDiv>
+                <LeftSmallTileDiv>
+                  <LeftSmallTile>
+                    중고 거래부터 동네 정보까지, 이웃과 함께해요. 가깝고 따뜻한
+                    당신의 근처를 만들어요.
+                  </LeftSmallTile>
+                </LeftSmallTileDiv>
+              </div>
+              <ButtonDiv>
+                <Button onClick={props.onClickHome}>홈페이지</Button>
+                <Button>로그인</Button>
+              </ButtonDiv>
+            </MainLeft>
+            <MainRight>
+              <MainImg src="/images/main01.png" />
+            </MainRight>
+          </MainDiv>
+        </Main>
       </Wrapper>
     </>
   );

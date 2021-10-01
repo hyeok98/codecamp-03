@@ -1,9 +1,9 @@
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
-  background-color: white;
+  background-color: #fbf7f2;
   width: 100%;
-  height: 900px;
+  height: 1100px;
 `;
 
 export const Wrapper2 = styled.div`
@@ -18,5 +18,5 @@ export const Photo = styled.img`
   margin-bottom: 100px;
   margin-top: 30px;
   width: 1000px;
-  height: 700px;
+  height: 900px;
 `;

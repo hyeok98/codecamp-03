@@ -10,9 +10,8 @@ export const Wrapper = styled.div`
   margin-bottom: 30px;
 `;
 
-export const MainFont = styled.span`
-  font-size: 50px;
-  color: red;
+export const MainImg = styled.img`
+  width: 250px;
 `;
 
 export const Font1 = styled.span`
@@ -36,7 +35,7 @@ export const Font = styled.span`
 
 export const Font2 = styled.span`
   font-size: 20px;
-  color: blue;
+  color: black;
   margin-left: 30px;
   margin-right: 30px;
 `;
