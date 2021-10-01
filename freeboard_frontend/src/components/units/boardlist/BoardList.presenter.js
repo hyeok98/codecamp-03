@@ -191,7 +191,7 @@ export default function BoardListUI(props) {
                   ))}
               </ColumnTitle>
               <ColumnBasic>{el.writer}</ColumnBasic>
-              <ColumnBasic>{el.createdAt}</ColumnBasic>
+              <ColumnBasic>{el.createdAt.substring(0, 10)}</ColumnBasic>
             </Row>
           ))}
         </List>

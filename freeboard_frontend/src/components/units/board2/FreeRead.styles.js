@@ -84,7 +84,7 @@ export const Images1 = styled.div`
 `;
 export const Main = styled.div`
   width: 996px;
-  height: 580px;
+  height: 50px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -99,12 +99,14 @@ export const Title = styled.div`
 
 export const Picture = styled.div`
   width: 996px;
-  height: 480px;
+  margin-top: 40px;
+  /* height: 480px; */
 `;
 
 export const PictureImg = styled.img`
   width: 996px;
   height: 480px;
+  margin-top: 50px;
 `;
 
 export const Contents = styled.div`

@@ -296,5 +296,5 @@ export const PageWrapper = styled.div`
 `;
 
 export const MyWord = styled.span`
-  color: ${(props) => (props.isColor ? "red" : "black")};
+  color: ${(props) => (props.isMatched ? "red" : "black")};
 `;

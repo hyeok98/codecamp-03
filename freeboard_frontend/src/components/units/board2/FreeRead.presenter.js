@@ -39,7 +39,9 @@ export default function BoardReadUI(props) {
               <img src="/images/photo1.png" />
               <NmaeData>
                 <Name>{props.data?.fetchBoard.writer}</Name>
-                <Data1>Data:{props.data?.fetchBoard.createdAt}</Data1>
+                <Data1>
+                  Data: {props.data?.fetchBoard.createdAt.substring(0, 10)}
+                </Data1>
               </NmaeData>
             </TopLeft>
             <TopRight>
@@ -56,17 +58,17 @@ export default function BoardReadUI(props) {
           </Top>
           <Main>
             <Title>{props.data?.fetchBoard.title}</Title>
-            <Picture>
-              {props.data?.fetchBoard.images
-                ?.filter((el) => el)
-                .map((el) => (
-                  <PictureImg
-                    key={el}
-                    src={`https://storage.googleapis.com/${el}`}
-                  />
-                ))}
-            </Picture>
           </Main>
+          <Picture>
+            {props.data?.fetchBoard.images
+              ?.filter((el) => el)
+              .map((el) => (
+                <PictureImg
+                  key={el}
+                  src={`https://storage.googleapis.com/${el}`}
+                />
+              ))}
+          </Picture>
           <Contents>{props.data?.fetchBoard.contents}</Contents>
           <Footer>
             <YouTube>
