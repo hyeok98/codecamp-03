@@ -15,7 +15,7 @@ import {
   Button,
 } from "./Main-styles";
 
-export default function CoffeeMainUI(props) {
+export default function LandingMainUI(props) {
   return (
     <>
       <Wrapper>
@@ -38,7 +38,7 @@ export default function CoffeeMainUI(props) {
               </div>
               <ButtonDiv>
                 <Button onClick={props.onClickHome}>홈페이지</Button>
-                <Button>로그인</Button>
+                <Button onClick={props.onClickLogin}>로그인</Button>
               </ButtonDiv>
             </MainLeft>
             <MainRight>

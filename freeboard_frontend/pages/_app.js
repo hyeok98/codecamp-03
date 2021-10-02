@@ -32,6 +32,10 @@ function MyApp({ Component, pageProps }) {
     "/boards/list",
     "/boards/new2/[number]",
     "/boards/new2/[number]/edit",
+    "/auth",
+    "/auth/login",
+    "/auth/signup",
+    "/market",
   ];
 
   const router = useRouter();
