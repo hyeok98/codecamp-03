@@ -26,12 +26,13 @@ export const EamilInput = styled.input`
   background: transparent;
 `;
 
-export const EmailError = styled.div`
+export const Error = styled.div`
   font-size: 14px;
   color: red;
   padding-left: 15px;
   width: 384px;
   height: 20px;
+  margin-top: 5px;
 `;
 
 export const PasslDiv = styled.div`
@@ -44,14 +45,6 @@ export const PassInput = styled.input`
   border-radius: 16px;
   padding-left: 10px;
   background: transparent;
-`;
-
-export const PassError = styled.div`
-  font-size: 14px;
-  color: red;
-  padding-left: 15px;
-  width: 384px;
-  height: 20px;
 `;
 
 export const CheckDiv = styled.div`

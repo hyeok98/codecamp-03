@@ -13,10 +13,20 @@ export const HeaderImgDiv = styled.div`
 
 export const HeaderImg = styled.img`
   width: 300px;
+  margin-top: 100px;
 `;
 
 export const MainDiv = styled.div`
   width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  /* border: solid 1px black; */
+  /* margin-top: 100px; */
+`;
+
+export const CenterDiv = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -59,4 +69,13 @@ export const Button = styled.button`
   border-radius: 16px;
   font-size: 16px;
   margin-top: 50px;
+  cursor: pointer;
+
+  :hover {
+    color: blue;
+  }
+`;
+
+export const SignImg = styled.img`
+  width: 400px;
 `;

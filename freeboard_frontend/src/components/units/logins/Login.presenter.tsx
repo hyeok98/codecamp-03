@@ -3,10 +3,9 @@ import {
   MainImg,
   EmailDiv,
   EamilInput,
-  EmailError,
+  Error,
   PasslDiv,
   PassInput,
-  PassError,
   CheckDiv,
   CheckBox,
   CheckFont,
@@ -18,18 +17,18 @@ import {
   Font2,
 } from "./Login.styles";
 
-export default function LoginUI() {
+export default function LoginUI(props) {
   return (
     <>
       <Wrapper>
         <MainImg src="/images/maintitle.svg" />
         <EmailDiv>
           <EamilInput type="text" placeholder="이메일을 입력해주세요." />
-          <EmailError>이메일은 필수입력입니다.</EmailError>
+          <Error>이메일은 필수입력입니다.</Error>
         </EmailDiv>
         <PasslDiv>
           <PassInput type="password" placeholder="이메일을 입력해주세요." />
-          <PassError>비밀번호는 필수입력입니다.</PassError>
+          <Error>비밀번호는 필수입력입니다.</Error>
         </PasslDiv>
         <CheckDiv>
           <CheckBox type="checkbox" />
@@ -44,7 +43,7 @@ export default function LoginUI() {
           <Font2>|</Font2>
           <Font1>비밀번호 찾기</Font1>
           <Font2>|</Font2>
-          <Font1>회원가입</Font1>
+          <Font1 onClick={props.onClickSignup}>회원가입</Font1>
         </FontDiv>
       </Wrapper>
     </>
