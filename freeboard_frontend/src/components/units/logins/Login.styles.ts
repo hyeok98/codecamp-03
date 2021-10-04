@@ -83,6 +83,19 @@ export const Button = styled.button`
   }
 `;
 
+export const Button2 = styled.button`
+  width: 384px;
+  height: 64px;
+  border-radius: 16px;
+  font-size: 16px;
+  margin-top: 30px;
+  cursor: pointer;
+
+  :hover {
+    color: blue;
+  }
+`;
+
 export const Hr = styled.hr`
   width: 384px;
   margin-top: 50px;

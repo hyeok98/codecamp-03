@@ -11,6 +11,7 @@ import {
   CheckFont,
   ButtonDiv,
   Button,
+  Button2,
   Hr,
   FontDiv,
   Font1,
@@ -23,19 +24,30 @@ export default function LoginUI(props) {
       <Wrapper>
         <MainImg src="/images/maintitle.svg" />
         <EmailDiv>
-          <EamilInput type="text" placeholder="이메일을 입력해주세요." />
-          <Error>이메일은 필수입력입니다.</Error>
+          <EamilInput
+            type="text"
+            placeholder="이메일을 입력해주세요."
+            onChange={props.onChangeMyEmail}
+          />
+          <Error>{props.MyEmailError}</Error>
         </EmailDiv>
         <PasslDiv>
-          <PassInput type="password" placeholder="이메일을 입력해주세요." />
-          <Error>비밀번호는 필수입력입니다.</Error>
+          <PassInput
+            type="password"
+            placeholder="비밀번호를 입력해주세요."
+            onChange={props.onChangeMyPass}
+          />
+          <Error>{props.MyPassError}</Error>
         </PasslDiv>
         <CheckDiv>
           <CheckBox type="checkbox" />
           <CheckFont>로그인 상태유지</CheckFont>
         </CheckDiv>
         <ButtonDiv>
-          <Button>로그인하기</Button>
+          <Button onClick={props.onClickLogin}>로그인하기</Button>
+        </ButtonDiv>
+        <ButtonDiv>
+          <Button2 onClick={props.onClickBack}>돌아가기</Button2>
         </ButtonDiv>
         <Hr />
         <FontDiv>
