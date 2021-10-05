@@ -12,11 +12,11 @@ export default function LayoutNavigationUI(props) {
       <MainImg src="/images/maintitle.svg" />
       <Font1 onClick={props.onClickMap}>지도</Font1>
       <Font2>|</Font2>
-      <Font onClick={props.onClickBoard}>Free Board</Font>
+      <Font onClick={props.onClickBoard}>자유게시판</Font>
       <Font2>|</Font2>
-      <Font onClick={props.onClickMarket}>market</Font>
+      <Font onClick={props.onClickMarket}>중고마켓</Font>
       <Font2>|</Font2>
-      <Font onClick={props.onClickMyPage}>my page</Font>
+      <Font onClick={props.onClickMyPage}>마이페이지</Font>
     </Wrapper>
   );
 }

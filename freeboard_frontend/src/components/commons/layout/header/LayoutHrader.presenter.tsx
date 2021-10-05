@@ -42,7 +42,7 @@ export default function LayoutHraderUI() {
                 </LeftBottom>
                 <LeftBottom>
                   <BottomImage src="/images/headerimage2.svg" />
-                  <BottomMainText>우리동네질문</BottomMainText>
+                  <BottomMainText>동네분실센터</BottomMainText>
                   <div>
                     <BottomText>궁금한 게 있을 땐 이웃에게</BottomText>
                     <BottomText>물어보세요</BottomText>
@@ -50,7 +50,7 @@ export default function LayoutHraderUI() {
                 </LeftBottom>
                 <LeftBottom>
                   <BottomImage src="/images/headerimage3.svg" />
-                  <BottomMainText>우리동네질문</BottomMainText>
+                  <BottomMainText>동네모임</BottomMainText>
                   <div>
                     <BottomText>궁금한 게 있을 땐 이웃에게</BottomText>
                     <BottomText>물어보세요</BottomText>

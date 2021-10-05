@@ -23,7 +23,6 @@ export const MainDiv = styled.div`
   justify-content: space-around;
   align-items: center;
   /* border: solid 1px black; */
-  /* margin-top: 100px; */
 `;
 
 export const CenterDiv = styled.div`
@@ -35,7 +34,7 @@ export const CenterDiv = styled.div`
 
 export const SignupText = styled.span`
   font-size: 40px;
-  margin-top: 200px;
+  margin-top: 70px;
 `;
 
 export const InputDiv = styled.div`

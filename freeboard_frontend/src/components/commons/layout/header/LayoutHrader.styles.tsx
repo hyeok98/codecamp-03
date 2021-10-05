@@ -64,7 +64,8 @@ export const LeftBottom = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
+  margin-left: 20px;
+  margin-right: 20px;
 `;
 
 export const BottomImage = styled.img`

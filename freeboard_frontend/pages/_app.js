@@ -1,7 +1,6 @@
 import "antd/dist/antd.css";
 // import "slick-carousel/slick/slick.css";
 // import "slick-carousel/slick/slick-theme.css";
-import Layout from "../src/components/commons/layout";
 import { Global } from "@emotion/react";
 import { globalStyles } from "../src/commons/styles/globalStyles";
 import {
@@ -10,9 +9,16 @@ import {
   InMemoryCache,
   ApolloLink,
 } from "@apollo/client";
-import LandingPage from ".";
 import { useRouter } from "next/dist/client/router";
 import { createUploadLink } from "apollo-upload-client";
+import Layout from "../src/components/commons/layout";
+import LandingPage from ".";
+import LoginPage from "../pages/auth/login";
+import SignupPage from "../pages/auth/signup";
+
+const HIDDEN_MAIN = ["/"];
+const HIDDEN_LOGIN = ["/auth/login"];
+const HIDDEN_SIGNUP = ["/auth/signup"];
 
 function MyApp({ Component, pageProps }) {
   const uploadLink = createUploadLink({
@@ -24,36 +30,25 @@ function MyApp({ Component, pageProps }) {
     cache: new InMemoryCache(),
   });
 
-  const HIDDEN_MAIN = ["/"];
-  const HIDDEN_LAYOUT = [
-    "/boards",
-    "/boards/new",
-    "/boards/new2",
-    "/boards/list",
-    "/boards/new2/[number]",
-    "/boards/new2/[number]/edit",
-    "/auth",
-    "/auth/login",
-    "/auth/signup",
-    "/market",
-  ];
-
   const router = useRouter();
 
   const isHiddenMain = HIDDEN_MAIN.includes(router.pathname);
-  const isHiddenLayout = HIDDEN_LAYOUT.includes(router.pathname);
+  const isHiddenLogin = HIDDEN_LOGIN.includes(router.pathname);
+  const isHiddenSignup = HIDDEN_SIGNUP.includes(router.pathname);
 
   return (
     <>
       <Global styles={globalStyles} />
       <ApolloProvider client={client}>
-        {!isHiddenLayout && <LandingPage></LandingPage>}
+        {isHiddenMain && <LandingPage />}
 
-        {!isHiddenMain && (
+        {!isHiddenMain && !isHiddenSignup && !isHiddenLogin && (
           <Layout>
             <Component {...pageProps} />
           </Layout>
         )}
+        {isHiddenSignup && <SignupPage />}
+        {isHiddenLogin && <LoginPage />}
       </ApolloProvider>
     </>
   );
