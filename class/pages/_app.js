@@ -39,7 +39,7 @@ function MyApp({ Component, pageProps }) {
   }; //10.05
 
   useEffect(() => {
-    localStorage.clear();
+    // localStorage.clear();
     const accessToken = localStorage.getItem("accessToken") || "";
     setAccessToken(accessToken);
   }, []);

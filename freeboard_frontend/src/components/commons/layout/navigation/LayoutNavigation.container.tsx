@@ -1,8 +1,23 @@
 import LayoutNavigationUI from "./LayoutNavigation.presenter";
 import { useRouter } from "next/dist/client/router";
+import { FETCH_USER_LOGGED_IN } from "./LayoutNavigation.query";
+import { useQuery } from "@apollo/client";
+import { useContext, useEffect } from "react";
+import { GlobalContext } from "../../../../../pages/_app";
 
 export default function LayoutNavigation() {
   const router = useRouter();
+
+  const { setUserInfo, userInfo, accessToken } = useContext(GlobalContext);
+  const { data } = useQuery(FETCH_USER_LOGGED_IN);
+
+  useEffect(() => {
+    if (userInfo.email) return;
+    setUserInfo({
+      email: data?.fetchUserLoggedIn.email,
+      name: data?.fetchUserLoggedIn.name,
+    });
+  }, []);
 
   function onClickMap() {
     router.push("/");
@@ -13,11 +28,19 @@ export default function LayoutNavigation() {
   }
 
   function onClickMarket() {
-    router.push("/");
+    router.push("/markets/list");
   }
 
   function onClickMyPage() {
     router.push("/");
+  }
+
+  function onClickLoginPage() {
+    router.push("/auth/login");
+  }
+
+  function onClickSignupPage() {
+    router.push("/auth/signup");
   }
 
   return (
@@ -26,6 +49,9 @@ export default function LayoutNavigation() {
       onClickBoard={onClickBoard}
       onClickMarket={onClickMarket}
       onClickMyPage={onClickMyPage}
+      onClickLoginPage={onClickLoginPage}
+      onClickSignupPage={onClickSignupPage}
+      data={data}
     />
   );
 }
