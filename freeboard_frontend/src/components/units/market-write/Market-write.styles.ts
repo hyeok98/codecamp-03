@@ -10,10 +10,12 @@ export const Wrapper = styled.div`
 
 export const Wrapper2 = styled.div`
   width: 1200px;
-  border: solid 1px black;
+  /* border: solid 1px black; */
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 80px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
 `;
 
 export const Write = styled.span`
@@ -39,6 +41,7 @@ export const InputTitle = styled.span`
 export const Input = styled.input`
   width: 996px;
   height: 54px;
+  padding-left: 10px;
 `;
 
 export const AAA = styled.div`
