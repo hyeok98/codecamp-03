@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.form`
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
 
 export const Wrapper2 = styled.div`
   width: 1200px;
-  /* border: solid 1px black; */
+  border: solid 1px black;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -30,6 +30,8 @@ export const InputDiv = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 40px;
+
+  height: 125px;
 `;
 
 export const InputTitle = styled.span`
@@ -42,6 +44,7 @@ export const Input = styled.input`
   width: 996px;
   height: 54px;
   padding-left: 10px;
+  margin-bottom: 10px;
 `;
 
 export const AAA = styled.div`
@@ -50,7 +53,7 @@ export const AAA = styled.div`
   flex-direction: column;
 `;
 
-export const BBB = styled.div`
+export const BBB = styled.input`
   width: 996px;
   height: 320px;
   border: solid 1px black;
@@ -151,4 +154,14 @@ export const Button = styled.button`
   background-color: yellow;
   font-size: 18px;
   margin-bottom: 80px;
+  cursor: pointer;
+
+  :hover {
+    color: blue;
+  }
+`;
+
+export const Error = styled.div`
+  font-size: 14px;
+  color: red;
 `;

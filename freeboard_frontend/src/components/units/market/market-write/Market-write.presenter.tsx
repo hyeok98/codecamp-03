@@ -25,28 +25,45 @@ import {
   SettingsBox,
   SettingsInput,
   Button,
+  Error,
 } from "./Market-write.styles";
 
-export default function MarketWriteUI() {
+export default function MarketWriteUI(props) {
   return (
-    <Wrapper>
+    <Wrapper onSubmit={props.handleSubmit(props.onClickSubmit)}>
       <Wrapper2>
         <Write>상품 등록하기</Write>
         <InputDiv>
           <InputTitle>상품명</InputTitle>
-          <Input type="text" placeholder="상품명을 작성해주세요" />
+          <Input
+            type="text"
+            placeholder="상품명을 작성해주세요"
+            {...props.register("myName")}
+          />
+          <Error>{props.formState.errors.myName?.message}</Error>
         </InputDiv>
         <InputDiv>
           <InputTitle>한줄요약</InputTitle>
-          <Input type="text" placeholder="상품 한줄요약을 작성해주세요" />
+          <Input
+            type="text"
+            placeholder="상품 한줄요약을 작성해주세요"
+            {...props.register("myRemarks")}
+          />
+          <Error>{props.formState.errors.myRemarks?.message}</Error>
         </InputDiv>
         <AAA>
           <InputTitle>상품설명</InputTitle>
-          <BBB></BBB>
+          <BBB type="text" {...props.register("myContents")} />
+          <Error>{props.formState.errors.myContents?.message}</Error>
         </AAA>
         <InputDiv>
           <InputTitle>판매 가격</InputTitle>
-          <Input type="text" placeholder="판매가격을 입력해주세요" />
+          <Input
+            type="text"
+            placeholder="판매가격을 입력해주세요"
+            {...props.register("myPrice")}
+          />
+          <Error>{props.formState.errors.myPrice?.message}</Error>
         </InputDiv>
         <InputDiv>
           <InputTitle>태그입력</InputTitle>
@@ -93,7 +110,7 @@ export default function MarketWriteUI() {
             </SettingsBox>
           </Settings>
         </SettingsDiv>
-        <Button>등록하기</Button>
+        <Button type="submit">등록하기</Button>
       </Wrapper2>
     </Wrapper>
   );
