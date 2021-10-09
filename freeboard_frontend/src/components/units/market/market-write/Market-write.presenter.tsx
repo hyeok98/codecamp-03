@@ -24,9 +24,9 @@ import {
   Settings,
   SettingsBox,
   SettingsInput,
-  Button,
   Error,
 } from "./Market-write.styles";
+import Button01 from "../../../commons/buttons/01/button01";
 
 export default function MarketWriteUI(props) {
   return (
@@ -67,7 +67,12 @@ export default function MarketWriteUI(props) {
         </InputDiv>
         <InputDiv>
           <InputTitle>태그입력</InputTitle>
-          <Input type="text" placeholder="#태그 #태그 #태그" />
+          <Input
+            type="text"
+            placeholder="#태그 #태그 #태그"
+            {...props.register("myTags")}
+          />
+          <Error>{props.formState.errors.myTags?.message}</Error>
         </InputDiv>
         <Spot>
           <SpotLeft>
@@ -110,7 +115,11 @@ export default function MarketWriteUI(props) {
             </SettingsBox>
           </Settings>
         </SettingsDiv>
-        <Button type="submit">등록하기</Button>
+        <Button01
+          type="submit"
+          name="등록하기"
+          isValid={props.formState.isValid}
+        ></Button01>
       </Wrapper2>
     </Wrapper>
   );

@@ -25,12 +25,13 @@ export default function MarketWrite() {
             remarks: data.myRemarks,
             contents: data.myContents,
             price: Number(data.myPrice),
+            tags: data.myTags,
           },
         },
       });
       console.log(result);
       alert("등록성공");
-      router.push("/boards/list");
+      router.push(`/markets/detail/${result.data.createUseditem._id}`);
     } catch (error) {
       alert(error);
     }

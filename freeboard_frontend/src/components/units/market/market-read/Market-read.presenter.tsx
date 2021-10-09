@@ -23,9 +23,12 @@ import {
   HashtagDiv,
   Hr2,
   Map,
+  ButtonDiv,
+  Button01,
+  Button02,
 } from "./Market-read.styles";
 
-export default function MarketReadUI() {
+export default function MarketReadUI(props) {
   return (
     <Wrapper>
       <Wrapper2>
@@ -34,7 +37,9 @@ export default function MarketReadUI() {
             <HeaderImg src="/images/photo1.png" />
             <SellerDiv>
               <Seller>판매자</Seller>
-              <Date>Date: 2021.02.18</Date>
+              <Date>
+                {props.data?.fetchUseditem.createdAt.substring(0, 10)}
+              </Date>
             </SellerDiv>
           </HeaderLeft>
           <HeaderRight>
@@ -45,9 +50,9 @@ export default function MarketReadUI() {
         <Hr />
         <TitleDiv>
           <TitleLeft>
-            <MiniTitle>2019 LTE 32GB</MiniTitle>
-            <Title>삼성전자 갤럭시탭A 10.1</Title>
-            <Price>240,120원</Price>
+            <MiniTitle>{props.data?.fetchUseditem.remarks}</MiniTitle>
+            <Title>{props.data?.fetchUseditem.name}</Title>
+            <Price>{props.data?.fetchUseditem.price}</Price>
           </TitleLeft>
           <LikeDiv>
             <Like src="/images/photo04.png" />
@@ -55,14 +60,17 @@ export default function MarketReadUI() {
           </LikeDiv>
         </TitleDiv>
         <Photo></Photo>
-        <Contents></Contents>
+        <Contents>{props.data?.fetchUseditem.contents}</Contents>
         <HashtagDiv>
-          <Hashtag>#삼정전자</Hashtag>
-          <Hashtag>#삼정전자</Hashtag>
+          <Hashtag>{props.data?.fetchUseditem.tags}</Hashtag>
         </HashtagDiv>
         <Hr2 />
         <Map></Map>
         <Hr2 />
+        <ButtonDiv>
+          <Button01>목록으로</Button01>
+          <Button02>수정하기</Button02>
+        </ButtonDiv>
       </Wrapper2>
     </Wrapper>
   );

@@ -108,8 +108,7 @@ export const Photo = styled.div`
 
 export const Contents = styled.div`
   width: 1200px;
-  height: 108px;
-  border: solid 1px black;
+  font-size: 20px;
   margin-bottom: 50px;
 `;
 
@@ -136,4 +135,39 @@ export const Map = styled.div`
   height: 360px;
   border: solid 1px black;
   margin-bottom: 80px;
+`;
+
+export const ButtonDiv = styled.div`
+  width: 400px;
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const Button01 = styled.button`
+  width: 179px;
+  height: 52px;
+  border: none;
+  background-color: #bdbdbd;
+  font-size: 18px;
+  margin-bottom: 80px;
+  color: #4f4f4f;
+  cursor: pointer;
+
+  :hover {
+    color: blue;
+  }
+`;
+
+export const Button02 = styled.button`
+  width: 179px;
+  height: 52px;
+  border: none;
+  background-color: #ffd600;
+  font-size: 18px;
+  margin-bottom: 80px;
+  cursor: pointer;
+
+  :hover {
+    color: blue;
+  }
 `;

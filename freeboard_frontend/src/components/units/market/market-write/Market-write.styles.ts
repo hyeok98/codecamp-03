@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 
 export const Wrapper = styled.form`
   width: 100vw;
-  height: 100vh;
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,12 +10,13 @@ export const Wrapper = styled.form`
 
 export const Wrapper2 = styled.div`
   width: 1200px;
-  border: solid 1px black;
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 80px;
+  margin-top: 100px;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+  margin-bottom: 100px;
 `;
 
 export const Write = styled.span`
@@ -147,19 +148,19 @@ export const SettingsBox = styled.div`
   margin-right: 10px;
 `;
 
-export const Button = styled.button`
-  width: 179px;
-  height: 52px;
-  border: none;
-  background-color: yellow;
-  font-size: 18px;
-  margin-bottom: 80px;
-  cursor: pointer;
+// export const Button = styled.button`
+//   width: 179px;
+//   height: 52px;
+//   border: none;
+//   background-color: yellow;
+//   font-size: 18px;
+//   margin-bottom: 80px;
+//   cursor: pointer;
 
-  :hover {
-    color: blue;
-  }
-`;
+//   :hover {
+//     color: blue;
+//   }
+// `;
 
 export const Error = styled.div`
   font-size: 14px;
