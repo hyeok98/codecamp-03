@@ -36,7 +36,7 @@ export default function MarketReadUI(props) {
           <HeaderLeft>
             <HeaderImg src="/images/photo1.png" />
             <SellerDiv>
-              <Seller>판매자</Seller>
+              <Seller>{props.data?.fetchUseditem.seller.name}</Seller>
               <Date>
                 {props.data?.fetchUseditem.createdAt.substring(0, 10)}
               </Date>
@@ -68,7 +68,7 @@ export default function MarketReadUI(props) {
         <Map></Map>
         <Hr2 />
         <ButtonDiv>
-          <Button01>목록으로</Button01>
+          <Button01 onClick={props.onClickList}>목록으로</Button01>
           <Button02>수정하기</Button02>
         </ButtonDiv>
       </Wrapper2>

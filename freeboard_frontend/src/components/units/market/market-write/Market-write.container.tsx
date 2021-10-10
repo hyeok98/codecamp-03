@@ -2,12 +2,13 @@ import { useForm } from "react-hook-form";
 import MarketWriteUI from "./Market-write.presenter";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { schema } from "./Market-write.validation";
-import { CREATE_USED_ITEM } from "./Market-write.queries";
+import { CREATE_USED_ITEM, UPDATE_USED_ITEM } from "./Market-write.queries";
 import { useMutation } from "@apollo/client";
 import { useRouter } from "next/dist/client/router";
 
-export default function MarketWrite() {
+export default function MarketWrite(props) {
   const [createUseditem] = useMutation(CREATE_USED_ITEM);
+  // const [updateUseditem] = useMutation(UPDATE_USED_ITEM);
   const router = useRouter();
 
   const { handleSubmit, register, formState } = useForm({
@@ -43,6 +44,7 @@ export default function MarketWrite() {
       register={register}
       formState={formState}
       onClickSubmit={onClickSubmit}
+      // isEdit={props.isEdit}
     />
   );
 }

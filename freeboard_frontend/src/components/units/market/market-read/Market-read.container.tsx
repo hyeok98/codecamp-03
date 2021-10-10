@@ -10,5 +10,9 @@ export default function MarketRead() {
     variables: { useditemId: router.query.read },
   });
 
-  return <MarketReadUI data={data} />;
+  function onClickList() {
+    router.push("/markets/list");
+  }
+
+  return <MarketReadUI data={data} onClickList={onClickList} />;
 }
