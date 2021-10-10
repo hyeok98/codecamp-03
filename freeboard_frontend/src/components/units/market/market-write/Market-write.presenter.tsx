@@ -30,9 +30,16 @@ import Button01 from "../../../commons/buttons/01/button01";
 
 export default function MarketWriteUI(props) {
   return (
-    <Wrapper onSubmit={props.handleSubmit(props.onClickSubmit)}>
+    // <Wrapper onSubmit={props.handleSubmit(props.onClickSubmit)}>
+    <Wrapper
+      onSubmit={
+        props.isEdit
+          ? props.handleSubmit(props.onClickUpdate)
+          : props.handleSubmit(props.onClickSubmit)
+      }
+    >
       <Wrapper2>
-        <Write>상품 등록하기</Write>
+        <Write>{props.isEdit ? "상품수정" : "상품등록"}</Write>
         <InputDiv>
           <InputTitle>상품명</InputTitle>
           <Input
@@ -115,11 +122,20 @@ export default function MarketWriteUI(props) {
             </SettingsBox>
           </Settings>
         </SettingsDiv>
-        <Button01
-          type="submit"
-          name="등록하기"
-          isValid={props.formState.isValid}
-        ></Button01>
+        {!props.isEdit && (
+          <Button01
+            type="submit"
+            name="등록하기"
+            isValid={props.formState.isValid}
+          ></Button01>
+        )}
+        {props.isEdit && (
+          <Button01
+            type="submit"
+            name="수정하기"
+            isValid={props.formState.isValid}
+          ></Button01>
+        )}
       </Wrapper2>
     </Wrapper>
   );

@@ -138,7 +138,7 @@ export const Map = styled.div`
 `;
 
 export const ButtonDiv = styled.div`
-  width: 400px;
+  width: 600px;
   display: flex;
   justify-content: space-between;
 `;
@@ -163,6 +163,20 @@ export const Button02 = styled.button`
   height: 52px;
   border: none;
   background-color: #ffd600;
+  font-size: 18px;
+  margin-bottom: 80px;
+  cursor: pointer;
+
+  :hover {
+    color: blue;
+  }
+`;
+
+export const Button03 = styled.button`
+  width: 179px;
+  height: 52px;
+  border: none;
+
   font-size: 18px;
   margin-bottom: 80px;
   cursor: pointer;

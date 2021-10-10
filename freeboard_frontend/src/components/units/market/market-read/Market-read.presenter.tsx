@@ -26,6 +26,7 @@ import {
   ButtonDiv,
   Button01,
   Button02,
+  Button03,
 } from "./Market-read.styles";
 
 export default function MarketReadUI(props) {
@@ -69,7 +70,8 @@ export default function MarketReadUI(props) {
         <Hr2 />
         <ButtonDiv>
           <Button01 onClick={props.onClickList}>목록으로</Button01>
-          <Button02>수정하기</Button02>
+          <Button02 onClick={props.onClickMoveEdit}>수정하기</Button02>
+          <Button03 onClick={props.onClickDelete}>삭제하기</Button03>
         </ButtonDiv>
       </Wrapper2>
     </Wrapper>
