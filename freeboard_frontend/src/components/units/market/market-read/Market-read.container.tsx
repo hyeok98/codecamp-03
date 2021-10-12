@@ -1,12 +1,17 @@
 import { useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/dist/client/router";
 import MarketReadUI from "./Market-read.presenter";
-import { FETCH_USED_ITEM, DELETE_USED_ITEM } from "./Market-read.queries";
+import {
+  FETCH_USED_ITEM,
+  DELETE_USED_ITEM,
+  TOGGLE_USED_ITEM_PICK,
+} from "./Market-read.queries";
 
 export default function MarketRead() {
   const router = useRouter();
 
   const [deleteUseditem] = useMutation(DELETE_USED_ITEM);
+  const [toggleUseditemPick] = useMutation(TOGGLE_USED_ITEM_PICK);
 
   const { data } = useQuery(FETCH_USED_ITEM, {
     variables: { useditemId: router.query.read },
@@ -18,6 +23,19 @@ export default function MarketRead() {
 
   function onClickMoveEdit() {
     router.push(`/markets/detail/${router.query.read}/edit`);
+  }
+
+  function onClickPick() {
+    toggleUseditemPick({
+      variables: { useditemId: router.query.read },
+      refetchQueries: [
+        {
+          query: FETCH_USED_ITEM,
+          variables: { useditemId: router.query.read },
+        },
+      ],
+    });
+    console.log(data);
   }
 
   async function onClickDelete() {
@@ -34,6 +52,7 @@ export default function MarketRead() {
       onClickList={onClickList}
       onClickMoveEdit={onClickMoveEdit}
       onClickDelete={onClickDelete}
+      onClickPick={onClickPick}
     />
   );
 }

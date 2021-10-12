@@ -47,23 +47,26 @@ export default function MarketListUI(props) {
     <Wrapper>
       <Wrapper2>
         <BestProduct>베스트 상품</BestProduct>
+
         <BestDiv>
-          <Best>
-            <BestImg></BestImg>
-            <BestFont>
-              <BestTitle>삼성전자 갤럭시탭A 10.1</BestTitle>
-              <BestBottom>
-                <BestBottomLeft>
-                  <BestMiniTitle>2019 LTE 32GB</BestMiniTitle>
-                  <BestPrice>240,120원</BestPrice>
-                </BestBottomLeft>
-                <BestBottomRight>
-                  <BestLike src="/images/photo04.png" />
-                  <BestLikeSu>20</BestLikeSu>
-                </BestBottomRight>
-              </BestBottom>
-            </BestFont>
-          </Best>
+          {props.bestdata?.fetchUseditemsOfTheBest.map((el) => (
+            <Best key={el._id}>
+              <BestImg></BestImg>
+              <BestFont>
+                <BestTitle>{el.name}</BestTitle>
+                <BestBottom>
+                  <BestBottomLeft>
+                    <BestMiniTitle>{el.remarks}</BestMiniTitle>
+                    <BestPrice>{el.price}</BestPrice>
+                  </BestBottomLeft>
+                  <BestBottomRight>
+                    <BestLike src="/images/photo04.png" />
+                    <BestLikeSu>{el.pickedCount}</BestLikeSu>
+                  </BestBottomRight>
+                </BestBottom>
+              </BestFont>
+            </Best>
+          ))}
         </BestDiv>
         <SearchDiv>
           <SearchLeft>
@@ -96,7 +99,7 @@ export default function MarketListUI(props) {
                   </FontBottomLeft>
                   <FontBottomRight>
                     <ListImg src="/images/photo04.png" />
-                    <ListBottomFont>20</ListBottomFont>
+                    <ListBottomFont>{el.pickedCount}</ListBottomFont>
                   </FontBottomRight>
                 </FontBottom>
               </ListFont>

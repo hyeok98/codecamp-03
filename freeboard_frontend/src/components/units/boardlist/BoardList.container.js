@@ -1,6 +1,10 @@
 import { useRouter } from "next/router";
 import BoardListUI from "./BoardList.presenter";
-import { FETCH_BOARDS, FETCH_BOARDS_COUNT } from "./BoardList.queries";
+import {
+  FETCH_BOARDS,
+  FETCH_BOARDS_COUNT,
+  FETCH_BOARDS_OF_THE_BEST,
+} from "./BoardList.queries";
 import { useQuery } from "@apollo/client";
 import { useState } from "react";
 
@@ -20,6 +24,8 @@ export default function BoardList() {
 
   const { data: dataBoardsCount } = useQuery(FETCH_BOARDS_COUNT);
   const lastPage = Math.ceil(dataBoardsCount?.fetchBoardsCount / 10);
+
+  const { data: bestdata } = useQuery(FETCH_BOARDS_OF_THE_BEST);
 
   function onClickMove() {
     router.push("/boards/new");
@@ -67,6 +73,7 @@ export default function BoardList() {
       startPage={startPage}
       lastPage={lastPage}
       currentPage={currentPage}
+      bestdata={bestdata}
     ></BoardListUI>
   );
 }

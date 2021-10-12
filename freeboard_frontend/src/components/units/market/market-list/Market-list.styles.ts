@@ -32,7 +32,7 @@ export const BestDiv = styled.div`
 
 export const Best = styled.div`
   width: 282px;
-  height: 319px;
+  height: 339px;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
@@ -43,6 +43,7 @@ export const BestImg = styled.div`
   width: 242px;
   height: 242px;
   border: solid 1px red;
+  margin-bottom: 5px;
 `;
 
 export const BestFont = styled.div`
@@ -69,6 +70,8 @@ export const BestBottomLeft = styled.div`
 export const BestMiniTitle = styled.span`
   font-size: 12px;
   color: #4f4f4f;
+  margin-top: 3px;
+  margin-bottom: 5px;
 `;
 
 export const BestPrice = styled.span`
@@ -79,6 +82,7 @@ export const BestPrice = styled.span`
 export const BestBottomRight = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
 `;
 
 export const BestLike = styled.img`

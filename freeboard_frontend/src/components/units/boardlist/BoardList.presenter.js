@@ -45,115 +45,35 @@ export default function BoardListUI(props) {
         <Top>
           <TitleBoard>베스트 게시글</TitleBoard>
           <TopBest>
-            <BestBoard>
-              <BestImages>
-                <BestPhoto src="/images/photo9.png" />
-              </BestImages>
-              <BestContents>
-                <BestBox>
-                  <BestTitle>게시글 제목입니다.</BestTitle>
-                  <BestBottom>
-                    <BestLeft>
-                      <LeftTop>
-                        <LeftTopImages>
-                          <img src="/images/photo10.png" />
-                        </LeftTopImages>
-                        <LeftName>노원두</LeftName>
-                      </LeftTop>
-                      <LeftBottom>Data:2021.02.18</LeftBottom>
-                    </BestLeft>
-                    <BestRight>
-                      <BestGood>
-                        <img src="/images/photo11.png" />
-                      </BestGood>
-                      <BestSu>356</BestSu>
-                    </BestRight>
-                  </BestBottom>
-                </BestBox>
-              </BestContents>
-            </BestBoard>
-
-            <BestBoard>
-              <BestImages>
-                <BestPhoto src="/images/photo12.png" />
-              </BestImages>
-              <BestContents>
-                <BestBox>
-                  <BestTitle>게시글 제목입니다.</BestTitle>
-                  <BestBottom>
-                    <BestLeft>
-                      <LeftTop>
-                        <LeftTopImages>
-                          <img src="/images/photo10.png" />
-                        </LeftTopImages>
-                        <LeftName>노원두</LeftName>
-                      </LeftTop>
-                      <LeftBottom>Data:2021.02.18</LeftBottom>
-                    </BestLeft>
-                    <BestRight>
-                      <BestGood>
-                        <img src="/images/photo11.png" />
-                      </BestGood>
-                      <BestSu>356</BestSu>
-                    </BestRight>
-                  </BestBottom>
-                </BestBox>
-              </BestContents>
-            </BestBoard>
-            <BestBoard>
-              <BestImages>
-                <BestPhoto src="/images/photo13.png" />
-              </BestImages>
-              <BestContents>
-                <BestBox>
-                  <BestTitle>게시글 제목입니다.</BestTitle>
-                  <BestBottom>
-                    <BestLeft>
-                      <LeftTop>
-                        <LeftTopImages>
-                          <img src="/images/photo10.png" />
-                        </LeftTopImages>
-                        <LeftName>노원두</LeftName>
-                      </LeftTop>
-                      <LeftBottom>Data:2021.02.18</LeftBottom>
-                    </BestLeft>
-                    <BestRight>
-                      <BestGood>
-                        <img src="/images/photo11.png" />
-                      </BestGood>
-                      <BestSu>356</BestSu>
-                    </BestRight>
-                  </BestBottom>
-                </BestBox>
-              </BestContents>
-            </BestBoard>
-            <BestBoard>
-              <BestImages>
-                <BestPhoto src="/images/photo14.png" />
-              </BestImages>
-              <BestContents>
-                <BestBox>
-                  <BestTitle>게시글 제목입니다.</BestTitle>
-                  <BestBottom>
-                    <BestLeft>
-                      <LeftTop>
-                        <LeftTopImages>
-                          <img src="/images/photo10.png" />
-                        </LeftTopImages>
-                        <LeftName>노원두</LeftName>
-                      </LeftTop>
-                      <LeftBottom>Data:2021.02.18</LeftBottom>
-                    </BestLeft>
-                    <BestRight>
-                      <BestGood>
-                        <img src="/images/photo11.png" />
-                      </BestGood>
-                      <BestSu>356</BestSu>
-                    </BestRight>
-                  </BestBottom>
-                </BestBox>
-              </BestContents>
-            </BestBoard>
+            {props.bestdata?.fetchBoardsOfTheBest.map((el) => (
+              <BestBoard key={el._id}>
+                <BestImages>
+                  <BestPhoto src="/images/photo9.png" />
+                </BestImages>
+                <BestContents>
+                  <BestBox>
+                    <BestTitle>{el.title}</BestTitle>
+                    <BestBottom>
+                      <BestLeft>
+                        <LeftTop>
+                          <LeftTopImages>
+                            <img src="/images/photo10.png" />
+                          </LeftTopImages>
+                          <LeftName>{el.writer}</LeftName>
+                        </LeftTop>
+                        <LeftBottom>{el.createdAt.substring(0, 10)}</LeftBottom>
+                      </BestLeft>
+                      <BestRight>
+                        <BestGood>
+                          <img src="/images/photo11.png" />
+                        </BestGood>
+                        <BestSu>{el.likeCount}</BestSu>
+                      </BestRight>
+                    </BestBottom>
+                  </BestBox>
+                </BestContents>
+              </BestBoard>
+            ))}
           </TopBest>
         </Top>
         <Search>

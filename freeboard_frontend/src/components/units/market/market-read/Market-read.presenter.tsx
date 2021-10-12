@@ -27,6 +27,7 @@ import {
   Button01,
   Button02,
   Button03,
+  Hr3,
 } from "./Market-read.styles";
 
 export default function MarketReadUI(props) {
@@ -56,8 +57,8 @@ export default function MarketReadUI(props) {
             <Price>{props.data?.fetchUseditem.price}</Price>
           </TitleLeft>
           <LikeDiv>
-            <Like src="/images/photo04.png" />
-            <LikeSu>20</LikeSu>
+            <Like onClick={props.onClickPick} src="/images/photo04.png" />
+            <LikeSu>{props.data?.fetchUseditem.pickedCount}</LikeSu>
           </LikeDiv>
         </TitleDiv>
         <Photo></Photo>
@@ -73,6 +74,7 @@ export default function MarketReadUI(props) {
           <Button02 onClick={props.onClickMoveEdit}>수정하기</Button02>
           <Button03 onClick={props.onClickDelete}>삭제하기</Button03>
         </ButtonDiv>
+        <Hr3 />
       </Wrapper2>
     </Wrapper>
   );

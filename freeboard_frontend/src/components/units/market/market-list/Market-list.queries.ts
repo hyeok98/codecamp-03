@@ -9,11 +9,24 @@ export const FETCH_USED_ITEMS = gql`
       contents
       price
       tags
+      pickedCount
       seller {
         _id
         name
         picture
       }
+    }
+  }
+`;
+
+export const FETCH_USED_ITEMS_OF_THE_BEST = gql`
+  query fetchUseditemsOfTheBest {
+    fetchUseditemsOfTheBest {
+      _id
+      name
+      remarks
+      price
+      pickedCount
     }
   }
 `;
