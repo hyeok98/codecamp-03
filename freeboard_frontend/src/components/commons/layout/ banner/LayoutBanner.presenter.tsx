@@ -20,7 +20,7 @@ export default function LayoutBannerUI() {
         <Wrapper2>{/* <h2>MAMMOTH COFFEE</h2> */}</Wrapper2>
         <Slider {...settings}>
           <div>
-            <Photo src="/images/banner1.png" />
+            <Photo src="/images/banner5.jpeg" />
           </div>
           <div>
             <Photo src="/images/banner2.png" />
