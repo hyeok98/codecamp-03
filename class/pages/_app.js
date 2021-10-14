@@ -25,10 +25,10 @@ export const firebaseApp = initializeApp({
   measurementId: "G-EBN3H56TPF",
 });
 
-export const GlobalContext = createContext(null); //10.05
+export const GlobalContext = createContext(null); // 10.05
 
 function MyApp({ Component, pageProps }) {
-  const [accessToken, setAccessToken] = useState(""); //10.05
+  const [accessToken, setAccessToken] = useState(""); // 10.05
   const [userInfo, setUserInfo] = useState({});
 
   const value = {
@@ -36,7 +36,7 @@ function MyApp({ Component, pageProps }) {
     setAccessToken: setAccessToken,
     userInfo: userInfo,
     setUserInfo: setUserInfo,
-  }; //10.05
+  }; // 10.05
 
   useEffect(() => {
     // localStorage.clear();
@@ -46,7 +46,7 @@ function MyApp({ Component, pageProps }) {
 
   const uploadLink = createUploadLink({
     uri: "http://backend03.codebootcamp.co.kr/graphql",
-    headers: { authorization: `Bearer ${accessToken}` }, //10.05
+    headers: { authorization: `Bearer ${accessToken}` }, // 10.05
   });
 
   const client = new ApolloClient({

@@ -29,6 +29,7 @@ import {
   Button03,
   Hr3,
 } from "./Market-read.styles";
+import Dompurify from "dompurify";
 
 export default function MarketReadUI(props) {
   return (
@@ -62,7 +63,13 @@ export default function MarketReadUI(props) {
           </LikeDiv>
         </TitleDiv>
         <Photo></Photo>
-        <Contents>{props.data?.fetchUseditem.contents}</Contents>
+        <Contents>
+          <div
+            dangerouslySetInnerHTML={{
+              __html: Dompurify.sanitize(props.data?.fetchUseditem.contents),
+            }}
+          ></div>
+        </Contents>
         <HashtagDiv>
           <Hashtag>{props.data?.fetchUseditem.tags}</Hashtag>
         </HashtagDiv>

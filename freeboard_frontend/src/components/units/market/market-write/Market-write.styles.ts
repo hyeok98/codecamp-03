@@ -52,6 +52,7 @@ export const AAA = styled.div`
   width: 996px;
   display: flex;
   flex-direction: column;
+  margin-bottom: 50px;
 `;
 
 export const BBB = styled.input`
@@ -163,6 +164,7 @@ export const SettingsBox = styled.div`
 // `;
 
 export const Error = styled.div`
+  width: 1000px;
   font-size: 14px;
   color: red;
 `;

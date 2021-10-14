@@ -11,10 +11,16 @@ export default function MarketWrite(props) {
   const [updateUseditem] = useMutation(UPDATE_USED_ITEM);
   const router = useRouter();
 
-  const { handleSubmit, register, formState } = useForm({
+  const { handleSubmit, register, formState, setValue, trigger } = useForm({
     mode: "onChange",
     resolver: yupResolver(schema),
   });
+
+  function onChangeMyEditor(value) {
+    setValue("myContents", value === "<p><br></p>" ? "" : value);
+    console.log(value);
+    trigger("myContents");
+  }
 
   async function onClickSubmit(data) {
     console.log(data);
@@ -68,6 +74,7 @@ export default function MarketWrite(props) {
       onClickSubmit={onClickSubmit}
       onClickUpdate={onClickUpdate}
       isEdit={props.isEdit}
+      onChangeMyEditor={onChangeMyEditor}
     />
   );
 }

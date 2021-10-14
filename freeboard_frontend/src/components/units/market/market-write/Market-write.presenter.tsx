@@ -6,7 +6,6 @@ import {
   InputTitle,
   Input,
   AAA,
-  BBB,
   Spot,
   SpotLeft,
   Map,
@@ -27,6 +26,10 @@ import {
   Error,
 } from "./Market-write.styles";
 import Button01 from "../../../commons/buttons/01/button01";
+import "react-quill/dist/quill.snow.css";
+
+import dynamic from "next/dynamic";
+const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
 export default function MarketWriteUI(props) {
   return (
@@ -60,9 +63,14 @@ export default function MarketWriteUI(props) {
         </InputDiv>
         <AAA>
           <InputTitle>상품설명</InputTitle>
-          <BBB type="text" {...props.register("myContents")} />
-          <Error>{props.formState.errors.myContents?.message}</Error>
+          <ReactQuill
+            style={{ width: "996px", height: "320px" }}
+            onChange={props.onChangeMyEditor}
+            placeholder="상품을 설명해주세요"
+          />
         </AAA>
+        <Error>{props.formState.errors.myContents?.message}</Error>
+
         <InputDiv>
           <InputTitle>판매 가격</InputTitle>
           <Input
