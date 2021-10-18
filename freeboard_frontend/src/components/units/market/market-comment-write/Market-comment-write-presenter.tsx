@@ -11,7 +11,7 @@ import {
   MainButton,
 } from "./Market-comment-write-styles";
 
-export default function CommentWriteUI() {
+export default function CommentWriteUI(props) {
   return (
     <Wrapper>
       <Wrapper2>
@@ -24,11 +24,12 @@ export default function CommentWriteUI() {
             <MainInput
               type="text"
               placeholder="개인정보를 공유 및 요청하거나, 명예 훼손, 무단 광고, 불법 정보 유포시 모니터링 후 삭제될 수 있으며, 이에 대한 민형사상 책임은 게시자에게 있습니다."
+              onChange={props.onChangeContents}
             />
           </div>
           <Bottom>
             <MainNumber>0/100</MainNumber>
-            <MainButton>문의하기</MainButton>
+            <MainButton onClick={props.onClickQuestion}>문의하기</MainButton>
           </Bottom>
         </InputDiv>
       </Wrapper2>

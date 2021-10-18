@@ -80,7 +80,7 @@ export default function MarketListUI(props) {
           </SearchRight>
         </SearchDiv>
         <Hr />
-        {props.data?.fetchUseditems.map((el, index) => (
+        {props.data?.fetchUseditems.map((el) => (
           <ProductList key={el._id}>
             <ListLeft>
               <ListPhoto src="/images/photo20.png" />

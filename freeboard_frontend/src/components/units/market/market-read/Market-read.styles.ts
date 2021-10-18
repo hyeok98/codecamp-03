@@ -131,7 +131,7 @@ export const Hr2 = styled.hr`
 `;
 
 export const Map = styled.div`
-  width: 1200px;
+  width: 792px;
   height: 360px;
   border: solid 1px black;
   margin-bottom: 80px;

@@ -55,7 +55,7 @@ export default function MarketReadUI(props) {
           <TitleLeft>
             <MiniTitle>{props.data?.fetchUseditem.remarks}</MiniTitle>
             <Title>{props.data?.fetchUseditem.name}</Title>
-            <Price>{props.data?.fetchUseditem.price}</Price>
+            <Price>{props.data?.fetchUseditem.price}원</Price>
           </TitleLeft>
           <LikeDiv>
             <Like onClick={props.onClickPick} src="/images/photo04.png" />
@@ -63,13 +63,15 @@ export default function MarketReadUI(props) {
           </LikeDiv>
         </TitleDiv>
         <Photo></Photo>
-        <Contents>
-          <div
-            dangerouslySetInnerHTML={{
-              __html: Dompurify.sanitize(props.data?.fetchUseditem.contents),
-            }}
-          ></div>
-        </Contents>
+        {process.browser && (
+          <Contents>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: Dompurify.sanitize(props.data?.fetchUseditem.contents),
+              }}
+            ></div>
+          </Contents>
+        )}
         <HashtagDiv>
           <Hashtag>{props.data?.fetchUseditem.tags}</Hashtag>
         </HashtagDiv>

@@ -8,7 +8,6 @@ import {
   AAA,
   Spot,
   SpotLeft,
-  Map,
   SpotRight,
   GpsDiv,
   AddressDiv,
@@ -27,6 +26,7 @@ import {
 } from "./Market-write.styles";
 import Button01 from "../../../commons/buttons/01/button01";
 import "react-quill/dist/quill.snow.css";
+import KakaoMap from "../../../commons/kakaomap";
 
 import dynamic from "next/dynamic";
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
@@ -92,7 +92,8 @@ export default function MarketWriteUI(props) {
         <Spot>
           <SpotLeft>
             <InputTitle>거래위치</InputTitle>
-            <Map></Map>
+
+            <KakaoMap />
           </SpotLeft>
           <SpotRight>
             <GpsDiv>
