@@ -40,14 +40,15 @@ import {
   MoneyImg,
   Money,
   ProductButton,
+  Loader,
 } from "./Market-list.styles";
+import InfiniteScroll from "react-infinite-scroller";
 
 export default function MarketListUI(props) {
   return (
     <Wrapper>
       <Wrapper2>
         <BestProduct>베스트 상품</BestProduct>
-
         <BestDiv>
           {props.bestdata?.fetchUseditemsOfTheBest.map((el) => (
             <Best key={el._id}>
@@ -80,7 +81,48 @@ export default function MarketListUI(props) {
           </SearchRight>
         </SearchDiv>
         <Hr />
-        {props.data?.fetchUseditems.map((el) => (
+        <Loader>
+          <InfiniteScroll
+            style={{ height: "960px" }}
+            pageStart={0}
+            loadMore={props.onLoadMore}
+            hasMore={false || true}
+            useWindow={false}
+          >
+            {props.data?.fetchUseditems.map((el) => (
+              <ProductList key={el._id}>
+                <ListLeft>
+                  <ListPhoto src="/images/photo20.png" />
+                  <ListFont>
+                    <FontTop>
+                      <ListTitle id={el._id} onClick={props.onClickMoveDetail}>
+                        {el.name}
+                      </ListTitle>
+                      <ListMiniTitle>{el.remarks}</ListMiniTitle>
+                      <ListTag>{el.tags}</ListTag>
+                    </FontTop>
+                    <FontBottom>
+                      <FontBottomLeft>
+                        <ListImg src="/images/photo18.png" />
+                        <ListBottomFont>{el.seller.name}</ListBottomFont>
+                      </FontBottomLeft>
+                      <FontBottomRight>
+                        <ListImg src="/images/photo04.png" />
+                        <ListBottomFont>{el.pickedCount}</ListBottomFont>
+                      </FontBottomRight>
+                    </FontBottom>
+                  </ListFont>
+                </ListLeft>
+                <ListRight>
+                  <MoneyImg src="/images/photo21.png" />
+                  <Money>{el.price} 원</Money>
+                </ListRight>
+              </ProductList>
+            ))}
+          </InfiniteScroll>
+        </Loader>
+
+        {/* {props.data?.fetchUseditems.map((el) => (
           <ProductList key={el._id}>
             <ListLeft>
               <ListPhoto src="/images/photo20.png" />
@@ -109,7 +151,7 @@ export default function MarketListUI(props) {
               <Money>{el.price} 원</Money>
             </ListRight>
           </ProductList>
-        ))}
+        ))} */}
         <ProductButton onClick={props.onClickNew}>상품등록하기</ProductButton>
       </Wrapper2>
     </Wrapper>

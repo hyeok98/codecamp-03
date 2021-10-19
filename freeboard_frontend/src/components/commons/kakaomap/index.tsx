@@ -1,10 +1,13 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 declare const window: typeof globalThis & {
   kakao: any;
 };
 
 export default function KakaoMap() {
+  const [myLat, setMyLat] = useState(null);
+  const [myLng, setMyLng] = useState(null);
+
   useEffect(() => {
     const script = document.createElement("script");
     script.src =
@@ -16,7 +19,7 @@ export default function KakaoMap() {
         const container = document.getElementById("map"); // 지도를 담을 영역의 DOM 레퍼런스
         const options = {
           // 지도를 생성할 때 필요한 기본 옵션
-          center: new window.kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표.
+          center: new window.kakao.maps.LatLng(37.485148, 126.895113), // 지도의 중심좌표.
           level: 3, // 지도의 레벨(확대, 축소 정도)
         };
 
@@ -48,6 +51,8 @@ export default function KakaoMap() {
 
             // var resultDiv = document.getElementById("clickLatlng");
             // resultDiv.innerHTML = message;
+            setMyLat(latlng.getLat());
+            setMyLng(latlng.getLng());
           }
         );
       });

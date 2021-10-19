@@ -92,10 +92,11 @@ export const GpsDiv = styled.div`
 
 export const GpsBottom = styled.div`
   display: flex;
+  align-items: center;
 `;
 
 export const GpsInput = styled.input`
-  width: 108px;
+  width: 158px;
   height: 52px;
 `;
 

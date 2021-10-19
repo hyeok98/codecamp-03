@@ -114,7 +114,7 @@ export const Contents = styled.div`
 
 export const HashtagDiv = styled.div`
   width: 1200px;
-  margin-bottom: 40px;
+  margin-bottom: 80px;
 `;
 
 export const Hashtag = styled.span`
@@ -133,7 +133,7 @@ export const Hr2 = styled.hr`
 export const Map = styled.div`
   width: 792px;
   height: 360px;
-  border: solid 1px black;
+
   margin-bottom: 80px;
 `;
 

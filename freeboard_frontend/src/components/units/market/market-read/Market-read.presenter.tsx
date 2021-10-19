@@ -27,7 +27,6 @@ import {
   Button01,
   Button02,
   Button03,
-  Hr3,
 } from "./Market-read.styles";
 import Dompurify from "dompurify";
 
@@ -76,14 +75,14 @@ export default function MarketReadUI(props) {
           <Hashtag>{props.data?.fetchUseditem.tags}</Hashtag>
         </HashtagDiv>
         <Hr2 />
-        <Map></Map>
+        <Map id="map"></Map>
         <Hr2 />
         <ButtonDiv>
           <Button01 onClick={props.onClickList}>목록으로</Button01>
           <Button02 onClick={props.onClickMoveEdit}>수정하기</Button02>
           <Button03 onClick={props.onClickDelete}>삭제하기</Button03>
         </ButtonDiv>
-        <Hr3 />
+        {/* <Hr3 /> */}
       </Wrapper2>
     </Wrapper>
   );

@@ -256,3 +256,7 @@ export const ProductButton = styled.button`
     color: blue;
   }
 `;
+
+export const Loader = styled.div`
+  overflow: auto;
+`;

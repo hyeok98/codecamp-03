@@ -23,10 +23,10 @@ import {
   SettingsBox,
   SettingsInput,
   Error,
+  Map,
 } from "./Market-write.styles";
 import Button01 from "../../../commons/buttons/01/button01";
 import "react-quill/dist/quill.snow.css";
-import KakaoMap from "../../../commons/kakaomap";
 
 import dynamic from "next/dynamic";
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
@@ -92,16 +92,15 @@ export default function MarketWriteUI(props) {
         <Spot>
           <SpotLeft>
             <InputTitle>거래위치</InputTitle>
-
-            <KakaoMap />
+            <Map id="map"></Map>
           </SpotLeft>
           <SpotRight>
             <GpsDiv>
               <InputTitle>GPS</InputTitle>
               <GpsBottom>
-                <GpsInput type="text" placeholder="위도" />
-                <GpsImg src="/images/photo8.png" />
-                <GpsInput type="text" placeholder="경도" />
+                <GpsInput type="text" placeholder="위도" value={props.myLat} />
+                <GpsImg src="/images/photo04.png" />
+                <GpsInput type="text" placeholder="경도" value={props.myLng} />
               </GpsBottom>
             </GpsDiv>
             <AddressDiv>

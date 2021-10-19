@@ -1,15 +1,13 @@
 import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import MarketCommentListPresenter from "./Market-comment-list-presenter";
-import { FETCH_USED_ITEM_QUESTIONS } from "./Market-comment-list-Queries";
+import { FETCH_USEDITEM_QUESTIONS } from "./Market-comment-list-queries";
 
 export default function MarketCommentList() {
   const router = useRouter();
-  const { data, fetchMore } = useQuery(FETCH_USED_ITEM_QUESTIONS, {
+  const { data, fetchMore } = useQuery(FETCH_USEDITEM_QUESTIONS, {
     variables: { useditemId: router.query.read },
   });
-
-  console.log("asdfasdfasd", data);
 
   function onLoadMore() {
     if (!data) return;

@@ -9,7 +9,7 @@ import {
 export default function MarketList() {
   const router = useRouter();
 
-  const { data } = useQuery(FETCH_USED_ITEMS);
+  const { data, fetchMore } = useQuery(FETCH_USED_ITEMS);
   const { data: bestdata } = useQuery(FETCH_USED_ITEMS_OF_THE_BEST);
 
   function onClickMoveDetail(event) {
@@ -20,12 +20,29 @@ export default function MarketList() {
     router.push("/markets/new");
   }
 
+  function onLoadMore() {
+    if (!data) return;
+
+    fetchMore({
+      variables: { page: Math.ceil(data?.fetchUseditems.length / 10) + 1 },
+      updateQuery: (prev, { fetchMoreResult }) => {
+        return {
+          fetchUseditems: [
+            ...prev.fetchUseditems,
+            ...fetchMoreResult.fetchUseditems,
+          ],
+        };
+      },
+    });
+  }
+
   return (
     <MarketListUI
       onClickNew={onClickNew}
       onClickMoveDetail={onClickMoveDetail}
       data={data}
       bestdata={bestdata}
+      onLoadMore={onLoadMore}
     />
   );
 }

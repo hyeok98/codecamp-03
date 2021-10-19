@@ -6,6 +6,7 @@ import {
   InMemoryCache,
   ApolloLink,
 } from "@apollo/client";
+import { onError } from "@apollo/client/link/error";
 import Layout from "../src/components/commons/layout";
 import { Global } from "@emotion/react";
 import { globalStyles } from "../src/commons/styles/globalStyles";
@@ -14,6 +15,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { initializeApp } from "firebase/app";
 import { createUploadLink } from "apollo-upload-client";
 import { useState, createContext, useEffect } from "react";
+import { getAccessToken } from "../src/commons/libraries/getAccessToken";
 
 export const firebaseApp = initializeApp({
   apiKey: "AIzaSyCFgLc9rvbwQytyfBu7R8p4-BXLeyKlcvY",
@@ -39,18 +41,35 @@ function MyApp({ Component, pageProps }) {
   }; // 10.05
 
   useEffect(() => {
-    // localStorage.clear();
-    const accessToken = localStorage.getItem("accessToken") || "";
-    setAccessToken(accessToken);
+    // const accessToken = localStorage.getItem("accessToken") || "";
+    // setAccessToken(accessToken);
+    if (localStorage.getItem("refreshToken")) getAccessToken(setAccessToken);
   }, []);
 
+  const errorLink = onError(({ graphQLErrors, operation, forward }) => {
+    if (graphQLErrors) {
+      for (const err of graphQLErrors) {
+        if (err.extensions?.code === "UNAUTHENTICATED") {
+          operation.setContext({
+            headers: {
+              ...operation.getContext().headers,
+              authorization: `Bearer ${getAccessToken(setAccessToken)}`,
+            },
+          });
+          return forward(operation);
+        }
+      }
+    }
+  });
+
   const uploadLink = createUploadLink({
-    uri: "http://backend03.codebootcamp.co.kr/graphql",
+    uri: "https://backend03.codebootcamp.co.kr/graphql",
     headers: { authorization: `Bearer ${accessToken}` }, // 10.05
+    credentials: "include",
   });
 
   const client = new ApolloClient({
-    link: ApolloLink.from([uploadLink]),
+    link: ApolloLink.from([errorLink, uploadLink]),
     cache: new InMemoryCache(),
   });
 

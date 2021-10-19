@@ -16,3 +16,21 @@
 // n (10진법)	n (3진법)	앞뒤 반전(3진법)	10진법으로 표현
 // 45	1200	0021	7
 // 따라서 7을 return 해야 합니다.
+
+function solution(n) {
+  // 3진법으로 변환
+  n = n.toString(3);
+
+  let reverse = "";
+  for (let i = n.length - 1; i >= 0; i--) {
+    reverse += n[i];
+  }
+  // 3진법으로 변환된 데이터를 10진법으로 변환
+  return parseInt(reverse, 3);
+}
+
+function solution(n) {
+  n = n.toString(3).split("").reverse().join("");
+
+  return parseInt(n, 3);
+}
