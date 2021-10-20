@@ -16,7 +16,6 @@ import {
   GpsImg,
   AddressInput,
   ImageDiv,
-  Image,
   ImageBottomDiv,
   SettingsDiv,
   Settings,
@@ -27,6 +26,7 @@ import {
 } from "./Market-write.styles";
 import Button01 from "../../../commons/buttons/01/button01";
 import "react-quill/dist/quill.snow.css";
+import Uploads02 from "../../../commons/uploads/upload02/Uploads02.container";
 
 import dynamic from "next/dynamic";
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
@@ -113,8 +113,17 @@ export default function MarketWriteUI(props) {
         <ImageDiv>
           <InputTitle>사진 첨부</InputTitle>
           <ImageBottomDiv>
-            <Image></Image>
-            <Image></Image>
+            {new Array(3).fill(1).map((el, index) => (
+              <Uploads02
+                key={`${el}_${index}`}
+                index={index}
+                onChangeFiles={props.onChangeFiles}
+                // defaultFileUrl={props.data?.fetchBoard.images?.[index]}
+              />
+            ))}
+
+            {/* <Image></Image>
+            <Image></Image> */}
           </ImageBottomDiv>
         </ImageDiv>
         <SettingsDiv>

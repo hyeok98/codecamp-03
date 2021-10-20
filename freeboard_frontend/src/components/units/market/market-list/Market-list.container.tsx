@@ -36,6 +36,10 @@ export default function MarketList() {
     });
   }
 
+  function onClickBest(event) {
+    router.push(`/markets/detail/${event.currentTarget.id}`);
+  }
+
   return (
     <MarketListUI
       onClickNew={onClickNew}
@@ -43,6 +47,7 @@ export default function MarketList() {
       data={data}
       bestdata={bestdata}
       onLoadMore={onLoadMore}
+      onClickBest={onClickBest}
     />
   );
 }

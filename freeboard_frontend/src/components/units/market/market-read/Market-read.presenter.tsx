@@ -27,6 +27,7 @@ import {
   Button01,
   Button02,
   Button03,
+  PictureImg,
 } from "./Market-read.styles";
 import Dompurify from "dompurify";
 
@@ -61,7 +62,16 @@ export default function MarketReadUI(props) {
             <LikeSu>{props.data?.fetchUseditem.pickedCount}</LikeSu>
           </LikeDiv>
         </TitleDiv>
-        <Photo></Photo>
+        <Photo>
+          {props.data?.fetchUseditem.images
+            ?.filter((el) => el)
+            .map((el) => (
+              <PictureImg
+                key={el}
+                src={`https://storage.googleapis.com/${el}`}
+              />
+            ))}
+        </Photo>
         {process.browser && (
           <Contents>
             <div

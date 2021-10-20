@@ -101,8 +101,8 @@ export const LikeSu = styled.span`
 
 export const Photo = styled.div`
   width: 700px;
-  height: 600px;
-  border: solid 1px black;
+  /* height: 600px; */
+  /* border: solid 1px black; */
   margin-bottom: 80px;
 `;
 
@@ -192,4 +192,12 @@ export const Hr3 = styled.hr`
   height: 1px;
   background-color: #bdbdbd;
   margin-bottom: 50px;
+`;
+
+export const PictureImg = styled.img`
+  width: 706px;
+  height: 296px;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
 `;

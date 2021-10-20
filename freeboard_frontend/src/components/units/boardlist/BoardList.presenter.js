@@ -46,7 +46,7 @@ export default function BoardListUI(props) {
           <TitleBoard>베스트 게시글</TitleBoard>
           <TopBest>
             {props.bestdata?.fetchBoardsOfTheBest.map((el) => (
-              <BestBoard key={el._id}>
+              <BestBoard key={el._id} onClick={props.onClickBest} id={el._id}>
                 <BestImages>
                   <BestPhoto src="/images/photo9.png" />
                 </BestImages>

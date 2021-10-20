@@ -51,7 +51,7 @@ export default function MarketListUI(props) {
         <BestProduct>베스트 상품</BestProduct>
         <BestDiv>
           {props.bestdata?.fetchUseditemsOfTheBest.map((el) => (
-            <Best key={el._id}>
+            <Best key={el._id} onClick={props.onClickBest} id={el._id}>
               <BestImg></BestImg>
               <BestFont>
                 <BestTitle>{el.name}</BestTitle>

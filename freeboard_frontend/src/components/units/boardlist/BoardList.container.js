@@ -60,6 +60,10 @@ export default function BoardList() {
     setCurrentPage(1);
   }
 
+  function onClickBest(event) {
+    router.push(`/boards/new2/${event.currentTarget.id}`);
+  }
+
   return (
     <BoardListUI
       data={data}
@@ -74,6 +78,7 @@ export default function BoardList() {
       lastPage={lastPage}
       currentPage={currentPage}
       bestdata={bestdata}
+      onClickBest={onClickBest}
     ></BoardListUI>
   );
 }

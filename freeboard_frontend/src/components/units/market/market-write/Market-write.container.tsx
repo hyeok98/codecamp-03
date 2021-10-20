@@ -2,7 +2,11 @@ import { useForm } from "react-hook-form";
 import MarketWriteUI from "./Market-write.presenter";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { schema } from "./Market-write.validation";
-import { CREATE_USED_ITEM, UPDATE_USED_ITEM } from "./Market-write.queries";
+import {
+  CREATE_USED_ITEM,
+  UPDATE_USED_ITEM,
+  UPLOAD_FILE,
+} from "./Market-write.queries";
 import { useMutation } from "@apollo/client";
 import { useRouter } from "next/dist/client/router";
 import { useEffect, useState } from "react";
@@ -14,10 +18,12 @@ declare const window: typeof globalThis & {
 export default function MarketWrite(props) {
   const [createUseditem] = useMutation(CREATE_USED_ITEM);
   const [updateUseditem] = useMutation(UPDATE_USED_ITEM);
+  const [uploadFile] = useMutation(UPLOAD_FILE);
   const router = useRouter();
 
   const [myLat, setMyLat] = useState(null);
   const [myLng, setMyLng] = useState(null);
+  const [files, setFiles] = useState([null, null, null]);
 
   const { handleSubmit, register, formState, setValue, trigger } = useForm({
     mode: "onChange",
@@ -33,6 +39,12 @@ export default function MarketWrite(props) {
   async function onClickSubmit(data) {
     console.log(data);
     try {
+      const uploadFiles = files
+        .filter((el) => el)
+        .map((el) => uploadFile({ variables: { file: el } }));
+      const results = await Promise.all(uploadFiles);
+      const myImages = results.map((el) => el.data.uploadFile.url);
+
       const result = await createUseditem({
         variables: {
           createUseditemInput: {
@@ -45,6 +57,7 @@ export default function MarketWrite(props) {
               lat: myLat,
               lng: myLng,
             },
+            images: myImages,
           },
         },
       });
@@ -129,6 +142,12 @@ export default function MarketWrite(props) {
     };
   }, []);
 
+  function onChangeFiles(file, index) {
+    const newFiles = [...files];
+    newFiles[index] = file;
+    setFiles(newFiles);
+  }
+
   return (
     <MarketWriteUI
       handleSubmit={handleSubmit}
@@ -140,6 +159,7 @@ export default function MarketWrite(props) {
       onChangeMyEditor={onChangeMyEditor}
       myLat={myLat}
       myLng={myLng}
+      onChangeFiles={onChangeFiles}
     />
   );
 }
