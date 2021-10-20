@@ -1,5 +1,5 @@
-import Uploads01UI from "./Uploads01.presenter";
-import { checkValidationImage } from "../../../commons/libraries/validations/checkValidationImage";
+import Uploads01UI from "./Uploads02.presenter";
+import { checkValidationImage } from "../../../../commons/libraries/validations/checkValidationImage";
 import { useRef, useState } from "react";
 export default function Uploads01(props) {
   const fileRef = useRef();

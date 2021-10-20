@@ -22,7 +22,7 @@ import {
 } from "./FreeBoard.styles";
 import { Modal } from "antd";
 import DaumPostcode from "react-daum-postcode";
-import Uploads01 from "../../../commons/uploads/Uploads01.container";
+import Uploads01 from "../../../commons/uploads/upload01/Uploads01.container";
 
 export default function FreeBoardUI(props) {
   return (
@@ -134,6 +134,7 @@ export default function FreeBoardUI(props) {
                   key={`${el}_${index}`}
                   index={index}
                   onChangeFiles={props.onChangeFiles}
+                  // defaultFileUrl={props.data?.fetchBoard.images?.[index]}
                 />
               ))}
             </PictureDiv>

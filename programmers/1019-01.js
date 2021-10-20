@@ -18,3 +18,42 @@
 // 1 ≦ n ≦ 16
 // arr1, arr2는 길이 n인 정수 배열로 주어진다.
 // 정수 배열의 각 원소 x를 이진수로 변환했을 때의 길이는 n 이하이다. 즉, 0 ≦ x ≦ 2n - 1을 만족한다.
+
+function solution(n, arr1, arr2) {
+  const answer = [];
+
+  for (let i = 0; i < arr1.length; i++) {
+    // n 만큼의 길이를 가지는 빈 배열을 넣어준다.
+    answer[i] = [];
+
+    const map1 = arr1[i].toString(2).padStart(n, "0");
+    const map2 = arr2[i].toString(2).padStart(n, "0");
+
+    for (let l = 0; l < map1.length; l++) {
+      // 둘 중 하나라도 벽이라면
+      if (map1[l] === "1" || map2[l] === "1") {
+        answer[i][l] = "#";
+      } else {
+        answer[i][l] = " ";
+      }
+    }
+    answer[i] = answer[i].join("");
+  }
+  return answer;
+}
+
+function solution(n, arr1, arr2) {
+  const answer = arr1.map((map1, i) => {
+    map1 = map1.toString(2).padStart(n, "0");
+    const map2 = arr2[i].toString(2).padStart(n, "0");
+
+    return map1
+      .split("")
+      .map((el, l) => {
+        return el === "1" || map2[l] === "1" ? "#" : " ";
+      })
+      .join("");
+  });
+
+  return answer;
+}
