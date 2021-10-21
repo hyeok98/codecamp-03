@@ -32,7 +32,7 @@ export default function LayoutNavigation() {
   }
 
   function onClickMyPage() {
-    router.push("/");
+    router.push("/mypage/myMarket");
   }
 
   function onClickLoginPage() {

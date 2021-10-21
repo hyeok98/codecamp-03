@@ -37,6 +37,11 @@ export const Best = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  cursor: pointer;
+
+  :hover {
+    color: blue;
+  }
 `;
 
 export const BestImg = styled.div`

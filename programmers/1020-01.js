@@ -38,3 +38,47 @@
 // 5	1D#2S*3S	5	12 * (-1) * 2 + 21 * 2 + 31
 // 6	1T2D3D#	-4	13 + 22 + 32 * (-1)
 // 7	1D2S3T*	59	12 + 21 * 2 + 33 * 2
+
+const bonus = ["S", "D", "T"]; // 보너스를 판단하기 위해서 배열에 저장
+const option = ["*", "#"]; // 옵션을 판단하기 위해서 배열에 저장
+
+function solution(dartResult) {
+  const answer = [];
+
+  let score = ""; // 점수를 뽑아서 저장
+  for (let i = 0; i < dartResult.length; i++) {
+    if (isNaN(dartResult[i]) === false) {
+      // 숫자 타입으로 변환한 데이터가 NaN 값이 아닌 경우 ( = 숫자 데이터인 경우 )
+      score += dartResult[i];
+    } else {
+      // 숫자 타입으로 변환한 데이터가 NaN 값인 경우 ( = 문자 데이터인 경우 )
+      if (bonus.includes(dartResult[i])) {
+        score = Number(score);
+        if (dartResult[i] === "D") {
+          score = Math.pow(score, 2); // 제곱
+        } else if (dartResult[i] === "T") {
+          score = Math.pow(score, 3); // 3제곱
+        }
+
+        // 보너스인 경우 : 앞에서 찾은 점수를 배열에 저장
+        answer.push(score);
+        score = "";
+      } else if (option.includes(dartResult[i])) {
+        if (dartResult[i] === "#") {
+          // 아차상인 경우 해당 점수를 음수로 변환
+          answer[answer.length - 1] *= -1;
+        } else if (dartResult[i] === "*") {
+          // 스타상인 경우 해당 점수 x 2
+          answer[answer.length - 1] *= 2;
+
+          if (answer.length > 1) {
+            // 앞에 데이터가 있으므로, 앞의 데이터까지 x2
+            answer[answer.length - 2] *= 2;
+          }
+        }
+      }
+    }
+  }
+
+  return answer.reduce((el, cu) => el + cu);
+}
