@@ -50,7 +50,8 @@ export default function Login() {
       });
       console.log(result.data?.loginUser.accessToken);
       setAccessToken(result.data?.loginUser.accessToken);
-      localStorage.setItem("accessToken", result.data.loginUser.accessToken);
+      // localStorage.setItem("accessToken", result.data.loginUser.accessToken);
+      localStorage.setItem("refreshToken", "true");
       router.push("/boards/list");
     } catch (error) {
       console.log(error);

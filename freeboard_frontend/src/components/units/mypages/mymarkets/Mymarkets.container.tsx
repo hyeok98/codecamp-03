@@ -4,8 +4,11 @@ import {
   FETCH_USEDITEM_IPICKED,
 } from "./Mymarkets.queries";
 import { useQuery } from "@apollo/client";
+import { useState } from "react";
 
 export default function MyMarket() {
+  const [isMarket, setIsMarket] = useState(true);
+
   const { data } = useQuery(FETCH_USEDITEM_ISOLD, {
     variables: { page: 1 },
   });
@@ -14,5 +17,21 @@ export default function MyMarket() {
     variables: { search: "" },
   });
 
-  return <MyMarketUI data={data} data2={data2} />;
+  function onClickMarket() {
+    setIsMarket(true);
+  }
+
+  function onClickMyPick() {
+    setIsMarket(false);
+  }
+
+  return (
+    <MyMarketUI
+      data={data}
+      data2={data2}
+      onClickMarket={onClickMarket}
+      onClickMyPick={onClickMyPick}
+      isMarket={isMarket}
+    />
+  );
 }

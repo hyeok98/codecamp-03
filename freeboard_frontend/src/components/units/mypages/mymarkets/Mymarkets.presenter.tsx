@@ -7,7 +7,7 @@ import {
   SearchButton,
   MyPick,
 } from "./Mymarkets.styles";
-// import Table01 from "../../../commons/table/01";
+import Table01 from "../../../commons/table/01";
 import Table02 from "../../../commons/table/02";
 
 export default function MyMarketUI(props) {
@@ -16,9 +16,9 @@ export default function MyMarketUI(props) {
       <Wrapper>
         <TopDiv>
           <div>
-            <MyProduct>나의상품</MyProduct>
+            <MyProduct onClick={props.onClickMarket}>나의상품</MyProduct>
             <Font1>|</Font1>
-            <MyPick>마이찜</MyPick>
+            <MyPick onClick={props.onClickMyPick}>마이찜</MyPick>
           </div>
           <div>
             <SearchInput
@@ -28,8 +28,8 @@ export default function MyMarketUI(props) {
             <SearchButton>검색</SearchButton>
           </div>
         </TopDiv>
-        {/* <Table01 data={props.data}> </Table01> */}
-        <Table02 data2={props.data2}></Table02>
+        {props.isMarket && <Table01 data={props.data}> </Table01>}
+        {!props.isMarket && <Table02 data2={props.data2}></Table02>}
       </Wrapper>
     </>
   );
