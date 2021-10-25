@@ -8,7 +8,8 @@ import { GlobalContext } from "../../../../../pages/_app";
 export default function LayoutNavigation() {
   const router = useRouter();
 
-  const { setUserInfo, userInfo, accessToken } = useContext(GlobalContext);
+  // const { setUserInfo, userInfo, accessToken } = useContext(GlobalContext);
+  const { setUserInfo, userInfo } = useContext(GlobalContext);
   const { data } = useQuery(FETCH_USER_LOGGED_IN);
 
   useEffect(() => {

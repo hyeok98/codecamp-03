@@ -16,9 +16,13 @@ export default function MyMarketUI(props) {
       <Wrapper>
         <TopDiv>
           <div>
-            <MyProduct onClick={props.onClickMarket}>나의상품</MyProduct>
+            <MyProduct onClick={props.onClickMarket} isColor={props.isColor}>
+              나의상품
+            </MyProduct>
             <Font1>|</Font1>
-            <MyPick onClick={props.onClickMyPick}>마이찜</MyPick>
+            <MyPick onClick={props.onClickMyPick} isColor={props.isColor}>
+              마이찜
+            </MyPick>
           </div>
           <div>
             <SearchInput

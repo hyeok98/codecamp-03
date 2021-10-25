@@ -13,6 +13,7 @@ export const FETCH_USED_ITEM = gql`
       pickedCount
       seller {
         name
+        email
       }
       useditemAddress {
         lat
@@ -32,5 +33,23 @@ export const DELETE_USED_ITEM = gql`
 export const TOGGLE_USED_ITEM_PICK = gql`
   mutation toggleUseditemPick($useditemId: ID!) {
     toggleUseditemPick(useditemId: $useditemId)
+  }
+`;
+
+export const FETCH_USER_LOGGED_IN = gql`
+  query fetchUserLoggedIn {
+    fetchUserLoggedIn {
+      _id
+      email
+      name
+    }
+  }
+`;
+
+export const CREATEPOINTTRANSACTIONOFBUYINGANDSELLING = gql`
+  mutation createPointTransactionOfBuyingAndSelling($useritemId: ID!) {
+    createPointTransactionOfBuyingAndSelling(useritemId: $useritemId) {
+      _id
+    }
   }
 `;

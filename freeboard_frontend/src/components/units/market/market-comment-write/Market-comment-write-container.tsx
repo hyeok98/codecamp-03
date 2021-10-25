@@ -34,6 +34,7 @@ export default function CommentWrite() {
         ],
       });
       alert("댓글을 등록합니다");
+      console.log(data);
     } catch (error) {
       alert(error.message);
     }

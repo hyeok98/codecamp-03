@@ -8,6 +8,7 @@ import { useState } from "react";
 
 export default function MyMarket() {
   const [isMarket, setIsMarket] = useState(true);
+  const [isColor, setIsColor] = useState(true);
 
   const { data } = useQuery(FETCH_USEDITEM_ISOLD, {
     variables: { page: 1 },
@@ -19,10 +20,12 @@ export default function MyMarket() {
 
   function onClickMarket() {
     setIsMarket(true);
+    setIsColor(true);
   }
 
   function onClickMyPick() {
     setIsMarket(false);
+    setIsColor(false);
   }
 
   return (
@@ -32,6 +35,7 @@ export default function MyMarket() {
       onClickMarket={onClickMarket}
       onClickMyPick={onClickMyPick}
       isMarket={isMarket}
+      isColor={isColor}
     />
   );
 }

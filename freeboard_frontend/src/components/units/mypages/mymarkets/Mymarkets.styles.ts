@@ -13,16 +13,18 @@ export const TopDiv = styled.div`
   margin-bottom: 20px;
 `;
 
-export const MyProduct = styled.span`
+export const MyProduct = styled.span<{ isColor: boolean }>`
   font-size: 18px;
   margin-right: 8px;
-  color: #828282;
+  /* color: #828282; */
+  color: ${(props) => (props.isColor === true ? "skyblue" : "#828282")};
 `;
 
-export const MyPick = styled.span`
+export const MyPick = styled.span<{ isColor: boolean }>`
   font-size: 18px;
   margin-left: 5px;
-  color: #828282;
+  /* color: #828282; */
+  color: ${(props) => (props.isColor === false ? "skyblue" : "#828282")};
 `;
 
 export const Font1 = styled.span`

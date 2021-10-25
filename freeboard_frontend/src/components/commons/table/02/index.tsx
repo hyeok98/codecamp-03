@@ -95,7 +95,7 @@ export default function Table02(props) {
         <TableDiv key={el._id}>
           <Number>{10 - index}</Number>
           <ProductName>{el.name}</ProductName>
-          <ProductPrice>{el.price}</ProductPrice>
+          <ProductPrice>{el.price} 당근</ProductPrice>
           <Seller>{el.seller.name}</Seller>
           <Date>{el.createdAt.slice(0, 10)}</Date>
         </TableDiv>

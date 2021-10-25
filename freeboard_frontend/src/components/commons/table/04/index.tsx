@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-const TableDiv = styled.div`
+const BottomDiv = styled.div`
   width: 980px;
   display: flex;
 
@@ -10,31 +10,31 @@ const TableDiv = styled.div`
   margin-bottom: 15px;
 `;
 
-const Number = styled.span`
+const DateTable = styled.span`
   font-size: 20px;
   width: 25%;
   text-align: center;
 `;
 
-const ProductName = styled.span`
+const ContentsTable = styled.span`
   font-size: 20px;
   width: 25%;
   text-align: center;
 `;
 
-const ProductPrice = styled.span`
+const HistoryTable = styled.span`
   font-size: 20px;
   width: 25%;
   text-align: center;
 `;
 
-const Date = styled.span`
+const BalanceTable = styled.span`
   font-size: 20px;
   width: 25%;
   text-align: center;
 `;
 
-const BottomDiv = styled.div`
+const TableDiv = styled.div`
   width: 980px;
   border-top: solid 1px black;
   border-bottom: solid 1px #bdbdbd;
@@ -45,47 +45,46 @@ const BottomDiv = styled.div`
   margin-bottom: 10px;
 `;
 
-const NumberTable = styled.span`
+const Date = styled.span`
   font-size: 20px;
   width: 25%;
   text-align: center;
 `;
 
-const ProductNameTable = styled.span`
+const Contents = styled.span`
   font-size: 20px;
   width: 25%;
   text-align: center;
 `;
 
-const ProductPriceTable = styled.span`
+const History = styled.span`
   font-size: 20px;
   width: 25%;
   text-align: center;
 `;
 
-const DateTable = styled.span`
+const Balance = styled.span`
   font-size: 20px;
   width: 25%;
   text-align: center;
 `;
 
-export default function Table01(props) {
+export default function Table03(props) {
   return (
     <>
+      <TableDiv>
+        <DateTable>충전일</DateTable>
+        <ContentsTable>결제 ID</ContentsTable>
+        <HistoryTable>충전내역</HistoryTable>
+        <BalanceTable>충전 후 잔액</BalanceTable>
+      </TableDiv>
+
       <BottomDiv>
-        <NumberTable>번호</NumberTable>
-        <ProductNameTable>상품명</ProductNameTable>
-        <ProductPriceTable>판매가격</ProductPriceTable>
-        <DateTable>날짜</DateTable>
+        <Date>2020.09.28</Date>
+        <Contents>afsafs</Contents>
+        <History>70000</History>
+        <Balance>1568</Balance>
       </BottomDiv>
-      {props.data?.fetchUseditemsISold.map((el, index) => (
-        <TableDiv key={el._id}>
-          <Number>{10 - index}</Number>
-          <ProductName>{el.name}</ProductName>
-          <ProductPrice>{el.price} 당근</ProductPrice>
-          <Date>{el.createdAt.slice(0, 10)}</Date>
-        </TableDiv>
-      ))}
     </>
   );
 }

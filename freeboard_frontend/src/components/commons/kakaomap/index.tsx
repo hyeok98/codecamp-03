@@ -56,6 +56,8 @@ export default function KakaoMap() {
           }
         );
       });
+      console.log(myLat);
+      console.log(myLng);
     };
   }, []);
 

@@ -5,6 +5,8 @@ import {
   FETCH_USED_ITEM,
   DELETE_USED_ITEM,
   TOGGLE_USED_ITEM_PICK,
+  FETCH_USER_LOGGED_IN,
+  CREATEPOINTTRANSACTIONOFBUYINGANDSELLING,
 } from "./Market-read.queries";
 import { useEffect } from "react";
 declare const window: typeof globalThis & {
@@ -16,10 +18,15 @@ export default function MarketRead(props) {
 
   const [deleteUseditem] = useMutation(DELETE_USED_ITEM);
   const [toggleUseditemPick] = useMutation(TOGGLE_USED_ITEM_PICK);
+  const [createPointTransactionOfBuyingAndSelling] = useMutation(
+    CREATEPOINTTRANSACTIONOFBUYINGANDSELLING
+  );
 
   const { data } = useQuery(FETCH_USED_ITEM, {
     variables: { useditemId: router.query.read },
   });
+
+  const { data: data1 } = useQuery(FETCH_USER_LOGGED_IN);
 
   function onClickList() {
     router.push("/markets/list");
@@ -102,6 +109,26 @@ export default function MarketRead(props) {
     };
   });
 
+  async function onClickFlex() {
+    try {
+      await createPointTransactionOfBuyingAndSelling({
+        variables: {
+          useritemId: router.query.read,
+        },
+        refetchQueries: [
+          {
+            query: FETCH_USED_ITEM,
+            variables: { useritemId: router.query.read },
+          },
+        ],
+      });
+      alert("상품을 구매합니다~");
+      router.push(`/markets/list`);
+    } catch (error) {
+      alert(error.message);
+    }
+  }
+
   return (
     <MarketReadUI
       data={data}
@@ -109,6 +136,8 @@ export default function MarketRead(props) {
       onClickMoveEdit={onClickMoveEdit}
       onClickDelete={onClickDelete}
       onClickPick={onClickPick}
+      data1={data1}
+      onClickFlex={onClickFlex}
     />
   );
 }

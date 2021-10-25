@@ -6,6 +6,7 @@ import {
   Img2,
   Font,
   PointDiv,
+  ChargeDiv,
   BottomDiv,
 } from "./LayoutProfile.styles";
 
@@ -14,12 +15,19 @@ export default function LayoutProfileUIPage(props) {
     <>
       <Wrapper>
         <MyPage>MYPAGE</MyPage>
-        <Img1 src="/images/photo10.png" />
-        <MyName>노원두</MyName>
+        {props.data?.fetchUserLoggedIn.picture ? (
+          <Img1
+            src={`https://storage.googleapis.com/${props.data?.fetchUserLoggedIn.picture}`}
+          />
+        ) : (
+          <Img1 src="/images/photo10.png" />
+        )}
+        <MyName> {props.data?.fetchUserLoggedIn.name}</MyName>
         <PointDiv>
           <Img2 src="/images/pig.png" />
-          <Font>100,000</Font>
+          <Font>{props.data?.fetchUserLoggedIn.userPoint.amount} 당근</Font>
         </PointDiv>
+        <ChargeDiv>충전하기</ChargeDiv>
         <BottomDiv>
           <Img2 src="/images/cart.png" />
           <Font onClick={props.onClickMarkets}>내장터</Font>

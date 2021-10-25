@@ -44,11 +44,11 @@ export const Best = styled.div`
   }
 `;
 
-export const BestImg = styled.div`
+export const BestImg = styled.img`
   width: 242px;
   height: 242px;
-  border: solid 1px red;
   margin-bottom: 5px;
+  padding-top: 5px;
 `;
 
 export const BestFont = styled.div`

@@ -144,6 +144,13 @@ export const ButtonDiv = styled.div`
   margin-bottom: 30px;
 `;
 
+export const ButtonDiv2 = styled.div`
+  width: 400px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+`;
+
 export const Button01 = styled.button`
   width: 179px;
   height: 52px;
@@ -174,6 +181,20 @@ export const Button02 = styled.button`
 `;
 
 export const Button03 = styled.button`
+  width: 179px;
+  height: 52px;
+  border: none;
+
+  font-size: 18px;
+  margin-bottom: 80px;
+  cursor: pointer;
+
+  :hover {
+    color: blue;
+  }
+`;
+
+export const Button04 = styled.button`
   width: 179px;
   height: 52px;
   border: none;

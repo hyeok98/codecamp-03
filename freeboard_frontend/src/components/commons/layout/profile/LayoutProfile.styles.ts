@@ -40,11 +40,18 @@ export const Font = styled.span`
 `;
 
 export const PointDiv = styled.div`
-  margin-bottom: 70px;
   display: flex;
   align-items: center;
   width: 150px;
+  margin-bottom: 20px;
 `;
+
+export const ChargeDiv = styled.span`
+  font-size: 24px;
+  color: skyblue;
+  margin-bottom: 70px;
+`;
+
 export const BottomDiv = styled.div`
   margin-bottom: 20px;
   width: 150px;
