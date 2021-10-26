@@ -10,19 +10,18 @@ export const Wrapper = styled.div`
 
 export const Wrapper2 = styled.div`
   width: 1200px;
-  height: 130px;
+  /* height: 130px; */
   margin-top: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 `;
 
 export const Footer = styled.div`
   width: 1200px;
-  height: 120px;
-  border-bottom: solid 1px #bdbdbd;
+  /* border-bottom: solid 1px #bdbdbd; */
   margin-top: 40px;
-  margin-bottom: 150px;
   display: flex;
   justify-content: space-between;
+  margin-bottom: 10px;
 `;
 
 export const FooterLeft = styled.div`
@@ -32,10 +31,16 @@ export const FooterLeft = styled.div`
 `;
 
 export const FooterRight = styled.div`
-  width: 50px;
+  width: 100px;
   height: 30px;
   display: flex;
   justify-content: space-between;
+`;
+
+export const ReplyIcon = styled.img`
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
 `;
 
 export const UpdateIcon = styled.img`

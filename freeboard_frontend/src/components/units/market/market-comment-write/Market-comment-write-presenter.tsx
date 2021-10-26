@@ -15,10 +15,12 @@ export default function CommentWriteUI(props: any) {
   return (
     <Wrapper>
       <Wrapper2>
-        <TopDiv>
-          <Img src="/images/photo15.png" />
-          <TopSpan>문의하기</TopSpan>
-        </TopDiv>
+        {!props.isEdit && (
+          <TopDiv>
+            <Img src="/images/photo15.png" />
+            <TopSpan>문의하기</TopSpan>
+          </TopDiv>
+        )}
         <InputDiv>
           <div>
             <MainInput
@@ -29,7 +31,17 @@ export default function CommentWriteUI(props: any) {
           </div>
           <Bottom>
             <MainNumber>0/100</MainNumber>
-            <MainButton onClick={props.onClickQuestion}>문의하기</MainButton>
+            {props.isEdit && <button onClick={props.back}>돌아가기</button>}
+            <MainButton
+              id={props.el?._id}
+              onClick={
+                props.isEdit
+                  ? props.onClickQuestionUpdate
+                  : props.onClickQuestion
+              }
+            >
+              {props.isEdit ? "수정하기" : "문의하기"}
+            </MainButton>
           </Bottom>
         </InputDiv>
       </Wrapper2>

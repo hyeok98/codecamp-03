@@ -31,6 +31,8 @@ export const InputDiv = styled.div`
   width: 1200px;
   height: 163px;
   border: solid 1px #bdbdbd;
+  margin-top: 30px;
+  margin-bottom: 5px;
 `;
 
 export const MainInput = styled.input`
