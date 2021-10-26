@@ -69,7 +69,7 @@ const DateTable = styled.span`
   text-align: center;
 `;
 
-export default function Table01(props) {
+export default function Table01(props: any) {
   return (
     <>
       <BottomDiv>
@@ -78,7 +78,7 @@ export default function Table01(props) {
         <ProductPriceTable>판매가격</ProductPriceTable>
         <DateTable>날짜</DateTable>
       </BottomDiv>
-      {props.data?.fetchUseditemsISold.map((el, index) => (
+      {props.data?.fetchUseditemsISold.map((el: any, index: any) => (
         <TableDiv key={el._id}>
           <Number>{10 - index}</Number>
           <ProductName>{el.name}</ProductName>

@@ -69,7 +69,7 @@ const Balance = styled.span`
   text-align: center;
 `;
 
-export default function Table03(props) {
+export default function Table03(props: any) {
   return (
     <>
       <TableDiv>
@@ -78,7 +78,7 @@ export default function Table03(props) {
         <HistoryTable>거래 및 충전 내역</HistoryTable>
         <BalanceTable>잔액</BalanceTable>
       </TableDiv>
-      {props.data3?.fetchPointTransactions.map((el, index) => (
+      {props.data3?.fetchPointTransactions.map((el: any, index: any) => (
         <BottomDiv key={el._id}>
           <Date>{el.createdAt.slice(0, 10)}</Date>
           <Contents>{el.status}</Contents>

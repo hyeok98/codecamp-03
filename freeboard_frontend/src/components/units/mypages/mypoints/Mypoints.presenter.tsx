@@ -14,7 +14,7 @@ import Table04 from "../../../commons/table/04";
 import Table05 from "../../../commons/table/05";
 import Table06 from "../../../commons/table/06";
 
-export default function MyPointsUI(props) {
+export default function MyPointsUI(props: any) {
   return (
     <>
       <Wrapper>

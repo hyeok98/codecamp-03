@@ -69,7 +69,7 @@ const Balance = styled.span`
   text-align: center;
 `;
 
-export default function Table06(props) {
+export default function Table06(props: any) {
   return (
     <>
       <TableDiv>
@@ -78,14 +78,16 @@ export default function Table06(props) {
         <HistoryTable>거래내역</HistoryTable>
         <BalanceTable>거래 후 잔액</BalanceTable>
       </TableDiv>
-      {props.data6?.fetchPointTransactionsOfSelling.map((el, index) => (
-        <BottomDiv key={el._id}>
-          <Day>{el.createdAt.slice(0, 10)}</Day>
-          <ProductName>{el.useditem.name}</ProductName>
-          <History>{el.amount}</History>
-          <Balance>{el.balance}</Balance>
-        </BottomDiv>
-      ))}
+      {props.data6?.fetchPointTransactionsOfSelling.map(
+        (el: any, index: any) => (
+          <BottomDiv key={el._id}>
+            <Day>{el.createdAt.slice(0, 10)}</Day>
+            <ProductName>{el.useditem.name}</ProductName>
+            <History>{el.amount}</History>
+            <Balance>{el.balance}</Balance>
+          </BottomDiv>
+        )
+      )}
     </>
   );
 }

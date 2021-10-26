@@ -10,7 +10,7 @@ import {
 import Table01 from "../../../commons/table/01";
 import Table02 from "../../../commons/table/02";
 
-export default function MyMarketUI(props) {
+export default function MyMarketUI(props: any) {
   return (
     <>
       <Wrapper>

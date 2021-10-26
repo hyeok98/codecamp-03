@@ -31,7 +31,7 @@ import Uploads02 from "../../../commons/uploads/upload02/Uploads02.container";
 import dynamic from "next/dynamic";
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
-export default function MarketWriteUI(props) {
+export default function MarketWriteUI(props: any) {
   return (
     // <Wrapper onSubmit={props.handleSubmit(props.onClickSubmit)}>
     <Wrapper

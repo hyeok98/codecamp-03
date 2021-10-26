@@ -19,28 +19,28 @@ export default function Signup() {
   const [Pass1Error, setPass1Error] = useState("");
   const [Pass2Error, setPass2Error] = useState("");
 
-  function onChangeEmail(event) {
+  function onChangeEmail(event: any) {
     setEmail(event.target.value);
     if (event.target.value !== "") {
       setEmailError("");
     }
   }
 
-  function onChangeName(event) {
+  function onChangeName(event: any) {
     setName(event.target.value);
     if (event.target.value !== "") {
       setNameError("");
     }
   }
 
-  function onChangePass1(event) {
+  function onChangePass1(event: any) {
     setPass1(event.target.value);
     if (event.target.value !== "") {
       setPass1Error("");
     }
   }
 
-  function onChangePass2(event) {
+  function onChangePass2(event: any) {
     setPass2(event.target.value);
     if (event.target.value !== "") {
       setPass2Error("");

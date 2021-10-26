@@ -15,7 +15,7 @@ declare const window: typeof globalThis & {
   kakao: any;
 };
 
-export default function MarketWrite(props) {
+export default function MarketWrite(props: any) {
   const [createUseditem] = useMutation(CREATE_USED_ITEM);
   const [updateUseditem] = useMutation(UPDATE_USED_ITEM);
   const [uploadFile] = useMutation(UPLOAD_FILE);
@@ -30,13 +30,13 @@ export default function MarketWrite(props) {
     resolver: yupResolver(schema),
   });
 
-  function onChangeMyEditor(value) {
+  function onChangeMyEditor(value: any) {
     setValue("myContents", value === "<p><br></p>" ? "" : value);
     console.log(value);
     trigger("myContents");
   }
 
-  async function onClickSubmit(data) {
+  async function onClickSubmit(data: any) {
     console.log(data);
     try {
       const uploadFiles = files
@@ -69,7 +69,7 @@ export default function MarketWrite(props) {
     }
   }
 
-  async function onClickUpdate(data) {
+  async function onClickUpdate(data: any) {
     try {
       const result = await updateUseditem({
         variables: {
@@ -142,7 +142,7 @@ export default function MarketWrite(props) {
     };
   }, []);
 
-  function onChangeFiles(file, index) {
+  function onChangeFiles(file: any, index: any) {
     const newFiles = [...files];
     newFiles[index] = file;
     setFiles(newFiles);

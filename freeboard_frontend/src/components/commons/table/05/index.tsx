@@ -81,7 +81,7 @@ const Seller = styled.span`
   text-align: center;
 `;
 
-export default function Table05(props) {
+export default function Table05(props: any) {
   return (
     <>
       <TableDiv>
@@ -91,15 +91,17 @@ export default function Table05(props) {
         <BalanceTable>거래 후 잔액</BalanceTable>
         <SellerTable>판매자</SellerTable>
       </TableDiv>
-      {props.data5?.fetchPointTransactionsOfBuying.map((el, index) => (
-        <BottomDiv key={el._id}>
-          <Day>{el.createdAt.slice(0, 10)}</Day>
-          <ProductName>{el.useditem.name}</ProductName>
-          <History>{el.amount}</History>
-          <Balance>{el.balance}</Balance>
-          <Seller></Seller>
-        </BottomDiv>
-      ))}
+      {props.data5?.fetchPointTransactionsOfBuying.map(
+        (el: any, index: any) => (
+          <BottomDiv key={el._id}>
+            <Day>{el.createdAt.slice(0, 10)}</Day>
+            <ProductName>{el.useditem.name}</ProductName>
+            <History>{el.amount}</History>
+            <Balance>{el.balance}</Balance>
+            <Seller></Seller>
+          </BottomDiv>
+        )
+      )}
     </>
   );
 }

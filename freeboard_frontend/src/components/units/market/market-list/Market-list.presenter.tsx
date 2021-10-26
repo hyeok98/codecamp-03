@@ -44,13 +44,13 @@ import {
 } from "./Market-list.styles";
 import InfiniteScroll from "react-infinite-scroller";
 
-export default function MarketListUI(props) {
+export default function MarketListUI(props: any) {
   return (
     <Wrapper>
       <Wrapper2>
         <BestProduct>베스트 상품</BestProduct>
         <BestDiv>
-          {props.bestdata?.fetchUseditemsOfTheBest.map((el) => (
+          {props.bestdata?.fetchUseditemsOfTheBest.map((el: any) => (
             <Best key={el._id} onClick={props.onClickBest} id={el._id}>
               {el.images[0] ? (
                 <BestImg
@@ -96,7 +96,7 @@ export default function MarketListUI(props) {
             hasMore={false || true}
             useWindow={false}
           >
-            {props.data?.fetchUseditems.map((el) => (
+            {props.data?.fetchUseditems.map((el: any) => (
               <ProductList key={el._id}>
                 <ListLeft>
                   {el.images[0] ? (

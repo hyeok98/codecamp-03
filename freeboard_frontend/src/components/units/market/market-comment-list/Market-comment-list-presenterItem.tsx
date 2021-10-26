@@ -23,7 +23,7 @@ import {
 import { useMutation } from "@apollo/client";
 import { useRouter } from "next/router";
 
-export default function MarketCommentListUI(props) {
+export default function MarketCommentListUI(props: any) {
   const [deleteUseditemQuestion] = useMutation(DELETE_USED_ITEM_QUESTION);
   const router = useRouter();
 

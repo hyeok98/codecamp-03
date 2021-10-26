@@ -11,7 +11,7 @@ import {
   MainButton,
 } from "./Market-comment-write-styles";
 
-export default function CommentWriteUI(props) {
+export default function CommentWriteUI(props: any) {
   return (
     <Wrapper>
       <Wrapper2>

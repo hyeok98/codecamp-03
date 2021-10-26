@@ -13,7 +13,7 @@ const Area = styled.div`
   display: flex;
 `;
 
-export default function Layout(props) {
+export default function Layout(props: any) {
   const HIDDEN_MYPAGE = [
     "/mypage/myMarket",
     "/mypage/myPoint",

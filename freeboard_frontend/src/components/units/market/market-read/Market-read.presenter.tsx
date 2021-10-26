@@ -33,7 +33,7 @@ import {
 } from "./Market-read.styles";
 import Dompurify from "dompurify";
 
-export default function MarketReadUI(props) {
+export default function MarketReadUI(props: any) {
   return (
     <Wrapper>
       <Wrapper2>
@@ -66,8 +66,8 @@ export default function MarketReadUI(props) {
         </TitleDiv>
         <Photo>
           {props.data?.fetchUseditem.images
-            ?.filter((el) => el)
-            .map((el) => (
+            ?.filter((el: any) => el)
+            .map((el: any) => (
               <PictureImg
                 key={el}
                 src={`https://storage.googleapis.com/${el}`}

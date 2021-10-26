@@ -69,7 +69,7 @@ const Balance = styled.span`
   text-align: center;
 `;
 
-export default function Table03(props) {
+export default function Table03(props: any) {
   return (
     <>
       <TableDiv>

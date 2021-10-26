@@ -10,7 +10,7 @@ import {
   BottomDiv,
 } from "./LayoutProfile.styles";
 
-export default function LayoutProfileUIPage(props) {
+export default function LayoutProfileUIPage(props: any) {
   return (
     <>
       <Wrapper>

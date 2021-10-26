@@ -18,7 +18,7 @@ const MyButton = styled.button`
   }
 `;
 
-export default function Button01(props) {
+export default function Button01(props: any) {
   return (
     <MyButton type={props.type} isValid={props.isValid}>
       {props.name}

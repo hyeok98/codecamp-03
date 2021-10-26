@@ -13,7 +13,7 @@ import {
   SignImg,
 } from "./Signup.styles";
 
-export default function SignupUI(props) {
+export default function SignupUI(props: any) {
   return (
     <>
       <Wrapper>

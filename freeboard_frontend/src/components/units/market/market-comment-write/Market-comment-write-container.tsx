@@ -13,7 +13,7 @@ export default function CommentWrite() {
   const [myContents, setMyContents] = useState("");
   const { data } = useQuery(FETCH_USED_ITEM_QUESTIONS);
 
-  function onChangeContents(event) {
+  function onChangeContents(event: any) {
     setMyContents(event.target.value);
   }
 
@@ -36,7 +36,7 @@ export default function CommentWrite() {
       alert("댓글을 등록합니다");
       console.log(data);
     } catch (error) {
-      alert(error.message);
+      alert(error);
     }
   }
 

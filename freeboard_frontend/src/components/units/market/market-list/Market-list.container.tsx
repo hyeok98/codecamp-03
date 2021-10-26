@@ -12,7 +12,7 @@ export default function MarketList() {
   const { data, fetchMore } = useQuery(FETCH_USED_ITEMS);
   const { data: bestdata } = useQuery(FETCH_USED_ITEMS_OF_THE_BEST);
 
-  function onClickMoveDetail(event) {
+  function onClickMoveDetail(event: any) {
     router.push(`/markets/detail/${event.target.id}`);
   }
 
@@ -36,7 +36,7 @@ export default function MarketList() {
     });
   }
 
-  function onClickBest(event) {
+  function onClickBest(event: any) {
     router.push(`/markets/detail/${event.currentTarget.id}`);
   }
 

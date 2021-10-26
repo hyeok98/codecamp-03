@@ -13,7 +13,7 @@ declare const window: typeof globalThis & {
   kakao: any;
 };
 
-export default function MarketRead(props) {
+export default function MarketRead(props: any) {
   const router = useRouter();
 
   const [deleteUseditem] = useMutation(DELETE_USED_ITEM);
@@ -125,7 +125,7 @@ export default function MarketRead(props) {
       alert("상품을 구매합니다~");
       router.push(`/markets/list`);
     } catch (error) {
-      alert(error.message);
+      alert(error);
     }
   }
 
