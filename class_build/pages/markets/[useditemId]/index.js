@@ -29,7 +29,7 @@ export const getServerSideProps = async (context) => {
   const result = await request(
     "https://backend03.codebootcamp.co.kr/graphql",
     FETCH_USEDITEM,
-    { usedutemId: context.query.useditemId }
+    { useditemId: context.query.useditemId }
   );
 
   // 2. 요청받은 데이터를 페이지로 넘겨준다
