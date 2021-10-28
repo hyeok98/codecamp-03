@@ -9,10 +9,14 @@ import {
   ChargeDiv,
   BottomDiv,
 } from "./LayoutProfile.styles";
+import PaymentPage from "../../payment/Payment.container";
 
 export default function LayoutProfileUIPage(props: any) {
   return (
     <>
+      {props.isOpen && (
+        <PaymentPage isOpen={props.isOpen} setIsOpen={props.setIsOpen} />
+      )}
       <Wrapper>
         <MyPage>MYPAGE</MyPage>
         {props.data?.fetchUserLoggedIn.picture ? (
@@ -27,7 +31,7 @@ export default function LayoutProfileUIPage(props: any) {
           <Img2 src="/images/pig.png" />
           <Font>{props.data?.fetchUserLoggedIn.userPoint.amount} 당근</Font>
         </PointDiv>
-        <ChargeDiv>충전하기</ChargeDiv>
+        <ChargeDiv onClick={props.onClickCharge}>충전하기</ChargeDiv>
         <BottomDiv>
           <Img2 src="/images/cart.png" />
           <Font onClick={props.onClickMarkets}>내장터</Font>

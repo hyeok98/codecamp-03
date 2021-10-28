@@ -13,28 +13,28 @@ export const TopDiv = styled.div`
   margin-bottom: 20px;
 `;
 
-export const History1 = styled.span`
+export const History1 = styled.span<{ isChange: boolean; isChanged: boolean }>`
   font-size: 18px;
-
-  color: #828282;
+  color: ${(props) => (props.isChange && !props.isChanged ? "skyblue" : "")};
+  /* color: #828282; */
 `;
 
-export const History2 = styled.span`
+export const History2 = styled.span<{ isChange: boolean; isChanged: boolean }>`
   font-size: 18px;
-
-  color: #828282;
+  color: ${(props) => (!props.isChange && !props.isChanged ? "skyblue" : "")};
+  /* color: #828282; */
 `;
 
-export const History3 = styled.span`
+export const History3 = styled.span<{ isChange: boolean; isChanged: boolean }>`
   font-size: 18px;
-
-  color: #828282;
+  color: ${(props) => (!props.isChange && props.isChanged ? "skyblue" : "")};
+  /* color: #828282; */
 `;
 
-export const History4 = styled.span`
+export const History4 = styled.span<{ isChange: boolean; isChanged: boolean }>`
   font-size: 18px;
-
-  color: #828282;
+  color: ${(props) => (props.isChange && props.isChanged ? "skyblue" : "")};
+  /* color: #828282; */
 `;
 
 export const Font1 = styled.span`

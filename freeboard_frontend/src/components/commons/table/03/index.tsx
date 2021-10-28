@@ -83,7 +83,7 @@ export default function Table03(props: any) {
           <Date>{el.createdAt.slice(0, 10)}</Date>
           <Contents>{el.status}</Contents>
           <History>{el.amount} 당근</History>
-          <Balance>{el.balance}</Balance>
+          <Balance>{el.balance} 당근</Balance>
         </BottomDiv>
       ))}
     </>

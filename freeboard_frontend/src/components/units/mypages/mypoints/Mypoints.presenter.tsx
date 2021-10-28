@@ -20,13 +20,37 @@ export default function MyPointsUI(props: any) {
       <Wrapper>
         <TopDiv>
           <div>
-            <History1 onClick={props.onClickAllHistory}>전체내역</History1>
+            <History1
+              onClick={props.onClickAllHistory}
+              isChange={props.isChange}
+              isChanged={props.isChanged}
+            >
+              전체내역
+            </History1>
             <Font1>|</Font1>
-            <History2 onClick={props.onClickChargeHistory}>충전내역</History2>
+            <History2
+              onClick={props.onClickChargeHistory}
+              isChange={props.isChange}
+              isChanged={props.isChanged}
+            >
+              충전내역
+            </History2>
             <Font1>|</Font1>
-            <History3 onClick={props.onClickBuyHistory}>구매내역</History3>
+            <History3
+              onClick={props.onClickBuyHistory}
+              isChange={props.isChange}
+              isChanged={props.isChanged}
+            >
+              구매내역
+            </History3>
             <Font1>|</Font1>
-            <History4 onClick={props.onClickSellHistory}>판매내역</History4>
+            <History4
+              onClick={props.onClickSellHistory}
+              isChange={props.isChange}
+              isChanged={props.isChanged}
+            >
+              판매내역
+            </History4>
           </div>
           <div>
             <SearchInput

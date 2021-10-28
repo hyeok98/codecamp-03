@@ -78,13 +78,16 @@ export default function Table03(props: any) {
         <HistoryTable>충전내역</HistoryTable>
         <BalanceTable>충전 후 잔액</BalanceTable>
       </TableDiv>
-
-      <BottomDiv>
-        <Date>2020.09.28</Date>
-        <Contents>afsafs</Contents>
-        <History>70000</History>
-        <Balance>1568</Balance>
-      </BottomDiv>
+      {props.data4?.fetchPointTransactionsOfLoading.map(
+        (el: any, index: any) => (
+          <BottomDiv key={el._id}>
+            <Date>{el.createdAt.slice(0, 10)}</Date>
+            <Contents>{el.impUid}</Contents>
+            <History>+ {el.amount}</History>
+            <Balance>{el.balance} 당근</Balance>
+          </BottomDiv>
+        )
+      )}
     </>
   );
 }

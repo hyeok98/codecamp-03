@@ -86,7 +86,7 @@ export default function MarketReadUI(props: any) {
         <HashtagDiv>
           <Hashtag>{props.data?.fetchUseditem.tags}</Hashtag>
         </HashtagDiv>
-        <Hr2 />
+
         <Map id="map"></Map>
         <Hr2 />
 

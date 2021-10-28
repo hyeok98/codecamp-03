@@ -37,6 +37,7 @@ export const Img2 = styled.img`
 
 export const Font = styled.span`
   font-size: 24px;
+  cursor: pointer;
 `;
 
 export const PointDiv = styled.div`
@@ -50,6 +51,7 @@ export const ChargeDiv = styled.span`
   font-size: 24px;
   color: skyblue;
   margin-bottom: 70px;
+  cursor: pointer;
 `;
 
 export const BottomDiv = styled.div`

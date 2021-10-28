@@ -97,7 +97,7 @@ export default function Table05(props: any) {
             <Day>{el.createdAt.slice(0, 10)}</Day>
             <ProductName>{el.useditem.name}</ProductName>
             <History>{el.amount}</History>
-            <Balance>{el.balance}</Balance>
+            <Balance>{el.balance} 당근</Balance>
             <Seller></Seller>
           </BottomDiv>
         )

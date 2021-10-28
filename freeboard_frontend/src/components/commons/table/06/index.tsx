@@ -83,8 +83,8 @@ export default function Table06(props: any) {
           <BottomDiv key={el._id}>
             <Day>{el.createdAt.slice(0, 10)}</Day>
             <ProductName>{el.useditem.name}</ProductName>
-            <History>{el.amount}</History>
-            <Balance>{el.balance}</Balance>
+            <History>{el.amount} 당근</History>
+            <Balance>{el.balance} 당근</Balance>
           </BottomDiv>
         )
       )}
