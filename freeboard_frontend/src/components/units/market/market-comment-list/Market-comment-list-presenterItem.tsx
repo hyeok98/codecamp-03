@@ -36,7 +36,7 @@ export default function MarketCommentListUI(props: any) {
   const [isAnswer, setIsAnswer] = useState(false);
 
   function onClickAnswer() {
-    setIsAnswer(true);
+    setIsAnswer((prev) => !prev);
   }
 
   function onClickUpdate() {
