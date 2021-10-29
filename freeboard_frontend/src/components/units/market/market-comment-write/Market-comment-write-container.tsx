@@ -24,7 +24,7 @@ export default function CommentWrite(props: any) {
 
   async function onClickQuestion() {
     try {
-      await createUseditemQuestion({
+      const result = await createUseditemQuestion({
         variables: {
           createUseditemQuestionInput: {
             contents: myContents,
@@ -39,6 +39,7 @@ export default function CommentWrite(props: any) {
         ],
       });
       alert("댓글을 등록합니다");
+      console.log(result.data);
       console.log(data);
     } catch (error) {
       alert(error);

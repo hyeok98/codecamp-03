@@ -26,6 +26,7 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import CommentWrite from "../market-comment-write/Market-comment-write-container";
 import MarketAnswerWritePage from "../market-answer-write/market-answer-write-container";
+// import MarketAnswerListUIPage from "../market-answer-list/market-answer-list-container";
 
 export default function MarketCommentListUI(props: any) {
   const [deleteUseditemQuestion] = useMutation(DELETE_USED_ITEM_QUESTION);
@@ -98,7 +99,12 @@ export default function MarketCommentListUI(props: any) {
                   />
                 </FooterRight>
               </Footer>
-              {isAnswer && <MarketAnswerWritePage />}
+              {isAnswer && (
+                <MarketAnswerWritePage
+                  setIsAnswer={setIsAnswer}
+                  el={props.el}
+                />
+              )}
               <hr />
             </Row>
           </Wrapper2>
