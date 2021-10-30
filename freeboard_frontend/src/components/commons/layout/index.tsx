@@ -19,22 +19,41 @@ export default function Layout(props: any) {
     "/mypage/myPoint",
     "/mypage/myProfile",
   ];
+  const SHOW_BANNER = ["/boards/list"];
   const router = useRouter();
   const isHiddenMypages = HIDDEN_MYPAGE.includes(router.pathname);
+  const ShowBanner = SHOW_BANNER.includes(router.pathname);
 
   return (
-    <Wrapper>
-      <LayoutNavigation />
-      <LayoutHrader />
-      <LayoutBanner />
-      {isHiddenMypages ? (
-        <Area>
-          <LayoutProfilePage />
-          <Body>{props.children}</Body>
-        </Area>
-      ) : (
-        <Body>{props.children}</Body>
+    <>
+      {ShowBanner && (
+        <Wrapper>
+          <LayoutNavigation />
+          <LayoutHrader />
+          <LayoutBanner />
+          {isHiddenMypages ? (
+            <Area>
+              <LayoutProfilePage />
+              <Body>{props.children}</Body>
+            </Area>
+          ) : (
+            <Body>{props.children}</Body>
+          )}
+        </Wrapper>
       )}
-    </Wrapper>
+      {!ShowBanner && (
+        <Wrapper>
+          <LayoutNavigation />
+          {isHiddenMypages ? (
+            <Area>
+              <LayoutProfilePage />
+              <Body>{props.children}</Body>
+            </Area>
+          ) : (
+            <Body>{props.children}</Body>
+          )}
+        </Wrapper>
+      )}
+    </>
   );
 }

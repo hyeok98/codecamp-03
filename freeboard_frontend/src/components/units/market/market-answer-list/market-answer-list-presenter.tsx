@@ -1,24 +1,12 @@
-import {
-  Wrapper,
-  Image,
-  BottomDiv,
-  Image2,
-  ContentDiv,
-  Name,
-  Contents,
-} from "./market-answer-list-styles";
+import MarketAnswerListItemUI from "./market-answer-list-presenteritem";
+import InfiniteScroll from "react-infinite-scroller";
 
-export default function MarketAnswerListUIPage() {
+export default function MarketAnswerListUIPage(props: any) {
   return (
-    <Wrapper>
-      <Image src="/images/photo23.png" />
-      <BottomDiv>
-        <Image2 src="/images/photo18.png" />
-        <ContentDiv>
-          <Name>판매자</Name>
-          <Contents>얼마까지 원하시나요?????</Contents>
-        </ContentDiv>
-      </BottomDiv>
-    </Wrapper>
+    <InfiniteScroll pageStart={0} loadMore={props.onLoadMore} hasMore={true}>
+      {props.data?.fetchUseditemQuestionAnswers.map((answerel: any) => (
+        <MarketAnswerListItemUI key={answerel._id} answerel={answerel} />
+      ))}
+    </InfiniteScroll>
   );
 }

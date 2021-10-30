@@ -25,7 +25,14 @@ export const Image2 = styled.img`
   margin-right: 20px;
 `;
 
-export const ContentDiv = styled.div`
+export const ContentsDiv = styled.div`
+  display: flex;
+  justify-content: space-between;
+  /* border: solid 1px black; */
+  width: 1050px;
+`;
+
+export const ContentsLeft = styled.div`
   display: flex;
   flex-direction: column;
 `;
@@ -39,4 +46,17 @@ export const Name = styled.span`
 export const Contents = styled.span`
   font-size: 16px;
   margin-bottom: 5px;
+`;
+
+export const ImageUpdate = styled.img`
+  width: 20px;
+  height: 20px;
+  margin-right: 20px;
+  cursor: pointer;
+`;
+
+export const ImageDelete = styled.img`
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
 `;

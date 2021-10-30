@@ -33,15 +33,18 @@ export default function LayoutProfileUIPage(props: any) {
         </PointDiv>
         <ChargeDiv onClick={props.onClickCharge}>충전하기</ChargeDiv>
         <BottomDiv>
-          <Img2 src="/images/cart.png" />
+          {props.imageColor1 && <Img2 src="/images/cart.png" />}
+          {!props.imageColor1 && <Img2 src="/images/photo24.png" />}
           <Font onClick={props.onClickMarkets}>내장터</Font>
         </BottomDiv>
         <BottomDiv>
-          <Img2 src="/images/pig2.png" />
+          {props.imageColor2 && <Img2 src="/images/pig.png" />}
+          {!props.imageColor2 && <Img2 src="/images/pig2.png" />}
           <Font onClick={props.onClickPoints}>내 포인트</Font>
         </BottomDiv>
         <BottomDiv>
-          <Img2 src="/images/photo10.png" />
+          {props.imageColor3 && <Img2 src="/images/photo25.png" />}
+          {!props.imageColor3 && <Img2 src="/images/photo10.png" />}
           <Font onClick={props.onClickProfile}>내 프로필</Font>
         </BottomDiv>
       </Wrapper>

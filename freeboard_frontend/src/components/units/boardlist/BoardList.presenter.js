@@ -48,7 +48,13 @@ export default function BoardListUI(props) {
             {props.bestdata?.fetchBoardsOfTheBest.map((el) => (
               <BestBoard key={el._id} onClick={props.onClickBest} id={el._id}>
                 <BestImages>
-                  <BestPhoto src="/images/photo9.png" />
+                  {el.images[0] ? (
+                    <BestPhoto
+                      src={`https://storage.googleapis.com/${el.images[0]}`}
+                    />
+                  ) : (
+                    <BestPhoto src={"/images/noimg.gif"} />
+                  )}
                 </BestImages>
                 <BestContents>
                   <BestBox>

@@ -80,6 +80,7 @@ export const QueryName = styled.div`
   font-size: 16px;
   margin-right: 5px;
   width: auto;
+  font-weight: bold;
 `;
 
 export const QueryContents = styled.div`
