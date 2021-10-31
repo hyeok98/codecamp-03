@@ -60,11 +60,14 @@ export default function MarketAnswerWritePage(props: any) {
         refetchQueries: [
           {
             query: FETCH_USED_ITEM_QUESTION_ANSWERS,
-            variables: { useditemQuestionAnswerId: props.el?._id },
+            variables: {
+              useditemQuestionId: props.answerel?.useditemQuestion._id,
+            },
           },
         ],
       });
       props.setIsAnswerEdit(false);
+      alert("대댓글 수정완료");
     } catch (error) {
       alert(error);
     }

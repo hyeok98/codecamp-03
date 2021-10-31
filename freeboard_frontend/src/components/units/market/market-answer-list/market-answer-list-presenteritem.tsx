@@ -40,7 +40,9 @@ export default function MarketAnswerListItemUI(props: any) {
         refetchQueries: [
           {
             query: FETCH_USEDITEM_QUESTIONS_ANSWERS,
-            variables: { useditemQuestionId: props.answerel?._id },
+            variables: {
+              useditemQuestionId: props.answerel?.useditemQuestion._id,
+            },
           },
         ],
       });
