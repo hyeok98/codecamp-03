@@ -32,6 +32,7 @@ export default function LayoutNavigationUI(props: any) {
         {!props.data?.fetchUserLoggedIn.name && (
           <Signup onClick={props.onClickSignupPage}>회원가입</Signup>
         )}
+
         {props.data?.fetchUserLoggedIn.name && (
           <MyIcon src="/images/photo10.png" />
         )}

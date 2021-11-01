@@ -51,14 +51,14 @@ export const Font2 = styled.span`
 `;
 
 export const RightDiv = styled.div`
-  /* border: solid 1px black; */
   margin-left: 400px;
+  display: flex;
+  align-items: center;
 `;
 
 export const Login = styled.span`
-  /* border: solid 1px black; */
   font-size: 20px;
-  font-weight: bold;
+
   margin-right: 20px;
   cursor: pointer;
 
@@ -68,11 +68,8 @@ export const Login = styled.span`
 `;
 
 export const Signup = styled.span`
-  border: solid 10px yellow;
   border-radius: 10px;
   font-size: 20px;
-  font-weight: bold;
-  background-color: yellow;
   cursor: pointer;
 
   :hover {
@@ -82,10 +79,10 @@ export const Signup = styled.span`
 
 export const MyIcon = styled.img`
   width: 40px;
+  height: 40px;
   margin-right: 30px;
 `;
 
 export const MyName = styled.span`
   font-size: 20px;
-  margin-top: 20px;
 `;
