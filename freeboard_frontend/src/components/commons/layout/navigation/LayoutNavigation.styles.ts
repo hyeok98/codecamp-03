@@ -51,7 +51,7 @@ export const Font2 = styled.span`
 `;
 
 export const RightDiv = styled.div`
-  margin-left: 400px;
+  margin-left: 350px;
   display: flex;
   align-items: center;
 `;
@@ -85,4 +85,5 @@ export const MyIcon = styled.img`
 
 export const MyName = styled.span`
   font-size: 20px;
+  margin-right: 20px;
 `;

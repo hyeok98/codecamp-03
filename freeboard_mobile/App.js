@@ -7,11 +7,22 @@
  */
 
 import React from 'react';
-import type {Node} from 'react';
-import {WebView} from 'react-native-webview';
+import {View, ScrollView, Text, StyleSheet} from 'react-native';
 
-const App: () => Node = () => {
-  return <WebView source={{uri: 'https://naver.com'}} />;
+const App = () => {
+  return (
+    <ScrollView>
+      <View style={styles.aaa}>
+        <Text>하이하이</Text>
+      </View>
+    </ScrollView>
+  );
 };
+
+const styles = StyleSheet.create({
+  aaa: {
+    backgroundColor: 'blue',
+  },
+});
 
 export default App;
