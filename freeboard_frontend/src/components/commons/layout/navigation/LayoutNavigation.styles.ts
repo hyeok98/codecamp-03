@@ -86,4 +86,5 @@ export const MyIcon = styled.img`
 export const MyName = styled.span`
   font-size: 20px;
   margin-right: 20px;
+  cursor: pointer;
 `;

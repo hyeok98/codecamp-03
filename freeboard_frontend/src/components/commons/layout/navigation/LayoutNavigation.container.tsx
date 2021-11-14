@@ -44,6 +44,12 @@ export default function LayoutNavigation() {
     router.push("/auth/signup");
   }
 
+  function onClickLogout() {
+    localStorage.clear();
+    alert("로그아웃이 되었습니다");
+    location.reload();
+  }
+
   return (
     <LayoutNavigationUI
       onClickMap={onClickMap}
@@ -52,6 +58,7 @@ export default function LayoutNavigation() {
       onClickMyPage={onClickMyPage}
       onClickLoginPage={onClickLoginPage}
       onClickSignupPage={onClickSignupPage}
+      onClickLogout={onClickLogout}
       data={data}
     />
   );

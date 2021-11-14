@@ -38,7 +38,12 @@ export default function LandingMainUI(props) {
               </div>
               <ButtonDiv>
                 <Button onClick={props.onClickHome}>홈페이지</Button>
-                <Button onClick={props.onClickLogin}>로그인</Button>
+                {!props.data?.fetchUserLoggedIn.name && (
+                  <Button onClick={props.onClickLogin}>로그인</Button>
+                )}
+                {props.data?.fetchUserLoggedIn.name && (
+                  <Button onClick={props.onClickLogout}>로그아웃</Button>
+                )}
               </ButtonDiv>
             </MainLeft>
             <MainRight>

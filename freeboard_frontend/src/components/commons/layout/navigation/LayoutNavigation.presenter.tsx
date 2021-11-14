@@ -39,7 +39,9 @@ export default function LayoutNavigationUI(props: any) {
         {props.data?.fetchUserLoggedIn.name && (
           <MyName>{props.data?.fetchUserLoggedIn.name}</MyName>
         )}
-        {props.data?.fetchUserLoggedIn.name && <MyName>로그아웃</MyName>}
+        {props.data?.fetchUserLoggedIn.name && (
+          <MyName onClick={props.onClickLogout}>로그아웃</MyName>
+        )}
       </RightDiv>
     </Wrapper>
   );
