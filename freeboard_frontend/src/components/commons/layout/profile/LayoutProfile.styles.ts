@@ -12,9 +12,10 @@ export const Wrapper = styled.div`
 `;
 
 export const MyPage = styled.span`
-  font-size: 38px;
+  font-size: 58px;
   font-weight: bold;
-  margin-bottom: 60px;
+  margin-bottom: 20px;
+  font-family: "Dongle";
 `;
 
 export const Img1 = styled.img`
@@ -24,9 +25,10 @@ export const Img1 = styled.img`
 `;
 
 export const MyName = styled.span`
-  font-size: 38px;
+  font-size: 58px;
   font-weight: bold;
   margin-bottom: 10px;
+  font-family: "Dongle";
 `;
 
 export const Img2 = styled.img`
@@ -36,15 +38,16 @@ export const Img2 = styled.img`
 `;
 
 export const Font = styled.span`
-  font-size: 24px;
+  font-size: 44px;
   cursor: pointer;
+  font-family: "Dongle";
 `;
 
 export const PointDiv = styled.div`
   display: flex;
   align-items: center;
   width: 150px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 `;
 
 export const ChargeDiv = styled.span`
@@ -55,7 +58,7 @@ export const ChargeDiv = styled.span`
 `;
 
 export const BottomDiv = styled.div`
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   width: 150px;
   display: flex;
   align-items: center;

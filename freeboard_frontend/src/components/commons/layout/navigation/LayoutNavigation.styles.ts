@@ -26,20 +26,20 @@ export const Font1 = styled.span`
   margin-left: 100px;
   margin-top: 15px;
   cursor: pointer;
-
   :hover {
     color: blue;
   }
+  font-family: "SunFlowerB";
 `;
 
 export const Font = styled.span`
   font-size: 40px;
   margin-top: 15px;
   cursor: pointer;
-
   :hover {
     color: blue;
   }
+  font-family: "SunFlowerB";
 `;
 
 export const Font2 = styled.span`
@@ -57,7 +57,7 @@ export const RightDiv = styled.div`
 `;
 
 export const Login = styled.span`
-  font-size: 20px;
+  font-size: 40px;
 
   margin-right: 20px;
   cursor: pointer;
@@ -65,16 +65,18 @@ export const Login = styled.span`
   :hover {
     color: blue;
   }
+  font-family: "Dongle";
 `;
 
 export const Signup = styled.span`
   border-radius: 10px;
-  font-size: 20px;
+  font-size: 40px;
   cursor: pointer;
 
   :hover {
     color: blue;
   }
+  font-family: "Dongle";
 `;
 
 export const MyIcon = styled.img`
@@ -84,7 +86,8 @@ export const MyIcon = styled.img`
 `;
 
 export const MyName = styled.span`
-  font-size: 20px;
+  font-size: 40px;
   margin-right: 20px;
   cursor: pointer;
+  font-family: "Dongle";
 `;

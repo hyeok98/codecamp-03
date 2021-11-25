@@ -7,7 +7,17 @@ export const globalStyles = css`
   }
 
   @font-face {
-    font-family: "myfont";
-    src: url("/fonts/scifibit.ttf");
+    font-family: "SunFlowerM";
+    src: url("/fonts/Sunflower-Medium.ttf");
+  }
+
+  @font-face {
+    font-family: "SunFlowerB";
+    src: url("/fonts/Sunflower-Bold.ttf");
+  }
+
+  @font-face {
+    font-family: "Dongle";
+    src: url("/fonts/Dongle-Light.ttf");
   }
 `;
