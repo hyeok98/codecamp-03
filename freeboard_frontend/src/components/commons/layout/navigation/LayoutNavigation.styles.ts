@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   background-color: white;
   width: 100%;
   height: 100px;
-  margin-bottom: 30px;
+  margin-bottom: 19px;
 `;
 
 export const Main = styled.div`
