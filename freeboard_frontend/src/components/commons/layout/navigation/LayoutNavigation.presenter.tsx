@@ -17,7 +17,7 @@ export default function LayoutNavigationUI(props: any) {
     <Wrapper>
       <Main>
         <MainImg src="/images/maintitle.svg" />
-        <Font1 onClick={props.onClickMap}>지도</Font1>
+        <Font1 onClick={props.onClickMap}>랜딩페이지</Font1>
         <Font2>|</Font2>
         <Font onClick={props.onClickBoard}>자유게시판</Font>
         <Font2>|</Font2>
