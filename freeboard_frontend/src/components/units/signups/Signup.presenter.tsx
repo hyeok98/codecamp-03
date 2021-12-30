@@ -30,7 +30,7 @@ export default function SignupUI(props: any) {
               <InputText>이메일</InputText>
               <Input
                 type="text"
-                placeholder="이메일을 입력해 주세요."
+                placeholder="이메일을 입력해 주세요.."
                 onChange={props.onChangeEmail}
               />
               <Error>{props.EmailError}</Error>
