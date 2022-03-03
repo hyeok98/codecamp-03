@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 
 const MyIcon = styled(WarningOutlined)`
   font-size: large;
-  color: red;
+  color: blue;
 `;
 
 export default function LibrayIconPage() {
